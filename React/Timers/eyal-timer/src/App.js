@@ -6,20 +6,20 @@ function App() {
     [
          {
              id: 1,
-             text: 'Doctor Appoinment',
-             day: 'feb 5th at 2:30pm',
+             text: 'Doctor Appointment',
+             time: '12:45',
              remainder: true,
          },
          {
              id: 2,
              text: 'Meeting at School',
-             day: 'feb 6th at 2:30pm',
+             time: '10:20',
              remainder: true,
          },
          {
              id: 3,
              text: 'Food Shopping',
-             day: 'feb 7th at 2:30pm',
+             time: '7:39',
              remainder: false,
          }
      ]
@@ -31,11 +31,11 @@ const deleteTask = (id) => {
   )
 }
 
-//Toggle Remainder
+//Toggle remainder
 const toggleRemainder = (id)=>{
-console.log('Toggle Remainder')
+console.log('Toggle Remainder',id)
 setTasks(
-  tasks.map((task)=>task.id !== id ?{...task,remainder:!task.remainder}:task)
+  tasks.map((task)=>task.id === id ?{...task,remainder:!task.remainder}:task)
 )
 }
 

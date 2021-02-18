@@ -1,7 +1,11 @@
 import { FaTimes } from "react-icons/fa";
-const Task = ({ task, onDelete,onToggle }) => {
+const Task = ({ task, onDelete,onToggle, timesUp }) => {
   return (
-    <div className={`task ${task.render ? 'remainder' : ''}`} onDoubleClick={()=>onToggle(task.id)}>
+    <div 
+    className={`task 
+                ${task.remainder ? 'remainder' : ''} 
+                ${task.timesUp ? 'timesUp' :''}`}
+                 onDoubleClick={()=>onToggle(task.id)}>
       <h3>
         {task.text}{' '}
         <FaTimes
@@ -10,7 +14,7 @@ const Task = ({ task, onDelete,onToggle }) => {
           onClick={() => onDelete(task.id)}
         />
       </h3>
-      <p>{task.day}</p>
+      <p>{task.time}</p>
     </div>
   );
 };
