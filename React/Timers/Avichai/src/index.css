@@ -1,0 +1,37 @@
+h1{
+    margin: 0;
+    margin-bottom: 5px;
+    text-align: center;
+}
+.App{
+    width: 50%;
+    position: relative;
+    top: 100px;
+    margin: auto;
+    border: 1px solid lightgray;
+}
+.reminderBox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 5px;
+}
+.singleReminder{
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-around;
+    padding: 5px;
+    margin: 5px;
+    font-size: 2rem;
+    border: 1px solid black;
+}
+form{
+    width: 45%;
+    margin: auto;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+button{
+    border-radius: 5px;
+}
