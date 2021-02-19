@@ -5,7 +5,7 @@ import todosData from './todosData';
 import InputItems from './ToDoItem/InputItems';
 
 function App() {
-  const handleChange = id => {
+  const getChange = id => {
     console.log('the value has changed', id)
   }
 
@@ -15,14 +15,15 @@ function App() {
       <ToDoItem 
       key={item.id}
       description={item.description}
+      time={item.time}
       completed = {item.completed}
-      handleChange ={()=> {handleChange(item.id)}}/>
+      handleChange ={()=> {getChange(item.id)}}/>
       
     )
   })
   return (
     <div className="App">
-      <InputItems/>
+      <InputItems />
       {todoItems}
        
     </div>

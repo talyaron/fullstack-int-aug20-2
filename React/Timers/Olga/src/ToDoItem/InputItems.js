@@ -1,4 +1,5 @@
 import React from 'react'
+import todosData from '../todosData';
 
 
 
@@ -13,7 +14,17 @@ const InputItems = () => {
     
         console.log(newItem, time);
 
-        
+    
+            todosData.push({
+                id: todosData.length !==0 ? todosData.length: 0,
+                description: newItem,
+                time: time,
+                completed: false
+
+            })
+        console.log(todosData)
+
+       
         // e.target.reset();
     
     }
