@@ -1,23 +1,30 @@
 import logo from './logo.svg';
 import './App.css';
+import ToDoItem from './ToDoItem/ToDoItem';
+import todosData from './todosData';
+import InputItems from './ToDoItem/InputItems';
 
 function App() {
+  const handleChange = id => {
+    console.log('the value has changed', id)
+  }
+
+  
+  const todoItems = todosData.map(item => {
+    return (
+      <ToDoItem 
+      key={item.id}
+      description={item.description}
+      completed = {item.completed}
+      handleChange ={()=> {handleChange(item.id)}}/>
+      
+    )
+  })
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <InputItems/>
+      {todoItems}
+       
     </div>
   );
 }
