@@ -1,4 +1,5 @@
 import { useState } from 'react';
+
 const AddTask = ({ onAdd }) => {
   const [text, setText] = useState('');
   const [time, setTime] = useState('');
@@ -19,8 +20,8 @@ const AddTask = ({ onAdd }) => {
   };
 
   return (
-    <form className="add-form">
-      <div className="form-control" onSubmit={onSubmit}>
+    <form className="add-form" onSubmit={onSubmit}>
+      <div className="form-control" >
         <label>Task</label>
         <input
           type="text"
