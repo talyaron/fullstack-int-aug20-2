@@ -1,37 +1,121 @@
-h1{
+* {
+    font-family: 'Source Sans Pro', sans-serif;
+    box-sizing: border-box;
+}
+body{
+    background-color: rgb(179, 179, 179);
+}
+h1 {
     margin: 0;
     margin-bottom: 5px;
     text-align: center;
+
+    background-color: #000044;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
 }
-.App{
-    width: 50%;
+
+.time {
+    text-align: center;
+}
+
+.App {
+    background-color: lightgray;
+    width: 65%;
+    border: 3px solid rgb(95, 95, 95);
+    border-radius: 5px;
     position: relative;
     top: 100px;
     margin: auto;
-    border: 1px solid lightgray;
+    padding: 3%;
 }
-.reminderBox{
+.showReminderButton{
+    width: 15%;
+    margin: auto;
+    margin-top: 2%;
+    padding: 5px;
+    border: 0;
+    border: 1px solid darkgray;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+.showReminderButton:focus{
+    outline: 0;
+}
+.showReminderButton:hover{
+    border: 1px solid rgb(87, 87, 87);
+    background-color: rgb(219, 219, 219);
+}
+
+.reminderBox {
     display: flex;
     flex-direction: column;
     justify-content: center;
     border-radius: 5px;
 }
-.singleReminder{
+
+.singleReminder {
+    width: 70%;
+    margin: 0.5% auto;
+
     border-radius: 10px;
+    display: grid;
+    grid-template-columns: 1fr 0.13fr;
+    padding: 5px;
+    font-size: 2rem;
+    color: white;
+    border: 1px solid black;
+    overflow: hidden;
+}
+.singleReminderText{
+    margin-left: 2%;
+}
+
+form {
+    border: 1px solid darkgray;
+    border-radius: 5px;
+    background-color: #555555;
+
+    width: 45%;
+    margin: 1% auto auto auto;
+    padding: 10px;
     display: flex;
     justify-content: space-around;
-    padding: 5px;
-    margin: 5px;
-    font-size: 2rem;
-    border: 1px solid black;
+    color: black;
 }
-form{
-    width: 45%;
-    margin: auto;
+input{
     padding: 5px;
-    display: flex;
-    justify-content: space-between;
+    cursor: pointer;
 }
-button{
+input:focus{
+    outline: 0;
+}
+input[type=text]{
+    border: 0;
+    border: 1px solid rgb(85, 83, 83);
     border-radius: 5px;
+    width: 55%;
+    font-weight: 500;
+    font-size: 1rem;
+}
+input[type=text]:focus{
+    outline: 0;
+}
+button {
+    border-radius: 5px;
+}
+.addReminder{
+    padding: 6px;
+    border: 0;
+    border: 1px solid darkgray;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+.addReminder:focus{
+    outline: 0;
+}
+.addReminder:hover{
+    border: 1px solid rgb(87, 87, 87);
+    background-color: rgb(219, 219, 219);
 }
