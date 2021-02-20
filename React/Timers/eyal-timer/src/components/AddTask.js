@@ -21,6 +21,7 @@ const AddTask = ({ onAdd }) => {
 
   return (
     <form className="add-form" onSubmit={onSubmit}>
+        <h2>הכנס משימה</h2>
       <div className="form-control">
         <label>משימה</label>
         <input
