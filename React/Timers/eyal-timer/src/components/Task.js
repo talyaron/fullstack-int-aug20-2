@@ -14,7 +14,8 @@ const Task = ({ task, onDelete,onToggle, timesUp }) => {
           onClick={() => onDelete(task.id)}
         />
       </h3>
-      <p>{task.time}</p>
+      <p>בתאריך: { new Date(task.time).toLocaleDateString('he') } שעה: { new Date(task.time).toLocaleTimeString('he') }</p>
+      
     </div>
   );
 };

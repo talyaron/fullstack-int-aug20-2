@@ -5,13 +5,13 @@ const Header = ({title, onAdd,showAdd}) => {
        return (
         <header className='header'>
             <h1 >{title}</h1>
-           <Button  color={showAdd ? 'blue' : 'green' } text={showAdd ? "Close" : 'Add' } onClick={onAdd}/>
+           <Button  color={showAdd ? 'blue' : 'green' } text={showAdd ? "סגור" : 'הוסף משימה' } onClick={onAdd}/>
         </header>
     )
 }
 
 Header.defaultProps = {
-    title: 'Task Tracker',
+    title: 'מזכירון - תזכורת משימות',
 }
 Header.propTypes = {
     title: PropTypes.string.isRequired,

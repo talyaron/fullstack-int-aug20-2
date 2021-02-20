@@ -9,22 +9,22 @@ function App() {
   const [tasks, setTasks] = useState([
     {
       id: 1,
-      text: 'Doctor Appointment',
-      time: '12:45',
+      text: 'רופא ילדים',
+      time: '2021-02-20T12:23',
       remainder: true,
       timesUp: false,
     },
     {
       id: 2,
-      text: 'Meeting at School',
-      time: '10:20',
+      text: 'פגישה עם המנהלת',
+      time: '2021-02-20T14:23',
       remainder: true,
       timesUp: false,
     },
     {
       id: 3,
-      text: 'Food Shopping',
-      time: '7:39',
+      text: 'קניות',
+      time: '2021-02-21T11:23',
       remainder: false,
       timesUp: false,
     },
@@ -63,7 +63,7 @@ const addTask = (task) => {
           onToggle={toggleRemainder}
         />
       ) : (
-        'No tasks to Show'
+        'אין משימות להצגה'
       )}
     </div>
   )

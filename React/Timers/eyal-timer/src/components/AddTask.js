@@ -21,28 +21,27 @@ const AddTask = ({ onAdd }) => {
 
   return (
     <form className="add-form" onSubmit={onSubmit}>
-      <div className="form-control" >
-        <label>Task</label>
+      <div className="form-control">
+        <label>משימה</label>
         <input
           type="text"
-          placeholder="Add task"
+          placeholder="הוסף משימה"
           value={text}
           onChange={(e) => setText(e.target.value)}
         />
       </div>
 
       <div className="form-control">
-        <label>Time</label>
+        <label>יום ושעה</label>
         <input
-          type="text"
-          placeholder="Add Time"
+          type="datetime-local"
           value={time}
           onChange={(e) => setTime(e.target.value)}
         />
       </div>
 
       <div className="form-control form-control-check">
-        <label>Set Remainder</label>
+        <label>הפעל תזכורת</label>
         <input
           type="checkbox"
           checked={remainder}
@@ -51,7 +50,7 @@ const AddTask = ({ onAdd }) => {
         />
       </div>
 
-      <input type="submit" value="Save Task" className="btn btn-block" />
+      <input type="submit" value="שמור" className="btn btn-block" />
     </form>
   );
 };
