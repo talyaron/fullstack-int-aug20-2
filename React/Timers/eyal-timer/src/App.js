@@ -5,6 +5,7 @@ import Clock from './components/Clock';
 import AddTask from './components/AddTask';
 
 function App() {
+  const [showAddTask,setSowAddTask] = useState(false)
   const [tasks, setTasks] = useState([
     {
       id: 1,
@@ -29,9 +30,12 @@ function App() {
     },
   ]);
 //Add Task
+
 const addTask = (task) => {
-console.log(task)
-}
+  const id = Math.floor(Math.random() *100000)+1;
+  const newTask ={id,...task}
+  setTasks([...tasks, newTask])
+  }
 
   //Delete tasks
   const deleteTask = (id) => {
@@ -47,11 +51,10 @@ console.log(task)
       )
     );
   };
-
   return (
     <div className="container">
-      <Header />
-      <AddTask onAdd={addTask} />
+      <Header onAdd={()=>setSowAddTask(!showAddTask)} showAdd={showAddTask} />
+     {showAddTask && <AddTask onAdd={addTask} />}
       {tasks.length > 0 ? (
         <Tasks
           tasks={tasks}
@@ -63,7 +66,8 @@ console.log(task)
         'No tasks to Show'
       )}
     </div>
-  );
+  )
+ 
 }
 
 export default App;
