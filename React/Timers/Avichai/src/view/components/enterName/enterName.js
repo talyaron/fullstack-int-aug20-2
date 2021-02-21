@@ -26,7 +26,7 @@ const EnterName = () => {
                     <h1>All your Reminders in one spot!</h1>
                     <h3>Enter name to begin!</h3>
                     <form className='nameForm' onSubmit={handleEnterName}>
-                        <input maxlength='20' required className='enterName' name='name' type='text' />
+                        <input maxLength='20' required className='enterName' name='name' type='text' />
                         <button className='enterNameSubmit'>Submit</button>
                     </form>
                 </div>}

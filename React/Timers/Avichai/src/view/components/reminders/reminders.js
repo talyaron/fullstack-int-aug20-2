@@ -10,7 +10,6 @@ function Reminder() {
     const [buttonText, setButtonText] = useState('Add Reminder')
     const [startDate, setStartDate] = useState(new Date());
 
-
     const showAddReminderButton = () => {
         setShowAddReminder(!showAddReminder)
 
@@ -29,6 +28,10 @@ function Reminder() {
         const reminderInfo = { reminderText, reminderTime }
         setReminders([...reminders, reminderInfo])
         e.target.reset()
+        setButtonText('Add Reminder')
+        setShowAddReminder(!showAddReminder)
+
+
     }
     const changeDate = (date) => {
         setStartDate(date)
@@ -37,22 +40,21 @@ function Reminder() {
 
     return (
         <div className='reminderBox'>
-            {sortedReminders.map((reminder, index) => {
-                return (<SingleReminder key={reminder.reminderTime} info={reminder} place={index + 1} />)
-            })}
             <button className='showReminderButton' onClick={showAddReminderButton}>{buttonText}</button>
 
             {showAddReminder ?
 
                 < form className='form' onSubmit={handleNewReminder} >
-                    <input maxlength="50" className='reminderText' type='text' required name='reminder' />
+                    <input maxLength="50" className='reminderText' type='text' required name='reminder' />
                     <DatePicker className='timeDate' showTimeSelect timeIntervals={5} timeFormat="HH:mm" dateFormat="dd/MM/YYY HH:mm" selected={startDate} onChange={changeDate} />
                     <button className='addReminder'>Add</button>
                 </form >
 
                 : null
             }
-
+            {sortedReminders.map((reminder, index) => {
+                return (<SingleReminder key={reminder.reminderTime} info={reminder} place={index + 1} />)
+            })}
         </div>
     )
 }

@@ -14,7 +14,7 @@ const Time = () => {
         const goodDate = dateString.split('GMT')[0].trim()
         setTime(goodDate)
     }, 1000);
-    return (<h2 className="time">Current Date - {time}</h2>)
+    return (<h2 className="time">{time}</h2>)
 }
 
 export default Time

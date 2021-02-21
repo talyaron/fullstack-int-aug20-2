@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import Reminder from '../reminders/reminders'
 const moment = require('moment'); // require
 moment().format();
 
@@ -20,7 +20,6 @@ function SingleReminder(props) {
         }
     }
 
-
     setInterval(() => {
         checkIfExpired()
     }, 3000);
@@ -31,8 +30,6 @@ function SingleReminder(props) {
     var momentString = momentObj.format('DD/MM/YYYY - HH:mm');
 
     return (
-
-
         <div className='singleReminder' style={{ background: bgColor }}>
             <span className='singleReminderText' style={{ color: fontColor }}>{place} - {reminderText}</span>
             <span style={{ color: fontColor }}>{momentString}</span>
