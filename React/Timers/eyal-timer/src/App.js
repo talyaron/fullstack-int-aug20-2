@@ -6,6 +6,7 @@ import AddTask from './components/AddTask';
 
 function App() {
   const [showAddTask,setSowAddTask] = useState(false)
+  // const [crTime,setcrTime] = useState('2021-02-20T12:23')
   const [tasks, setTasks] = useState([
     {
       id: 1,
@@ -53,7 +54,7 @@ const addTask = (task) => {
   };
   return (
     <div className="container">
-      <Clock/>
+      <Clock tasks={tasks}/>
       <Header onAdd={()=>setSowAddTask(!showAddTask)} showAdd={showAddTask} />
      {showAddTask && <AddTask onAdd={addTask} />}
       {tasks.length > 0 ? (

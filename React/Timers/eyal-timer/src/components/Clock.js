@@ -1,16 +1,25 @@
 import React, { useState, useEffect } from 'react';
 
-const Clock = () => {
+const Clock = ({task}) => {
   const [currentCount, setCount] = useState(' ');
- // const timer = () => setCount(new Date().toLocaleString());
+  const timer = () => setCount(new Date().toLocaleString());
 
   useEffect(() => {
-    setInterval(setCount(new Date().toLocaleString()), 1000);
+    setInterval(
+      timer
+      , 1000);
   });
 
   return (    
       <h2>{currentCount}</h2>   
   );
+
+  const test =()=>{
+    if (timer === task)  {
+      console.log('');
+    }
+  }
+
   return({currentCount}) 
 };
 
