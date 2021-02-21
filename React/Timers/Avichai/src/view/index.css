@@ -29,7 +29,7 @@ h1 {
     border: 3px solid rgb(95, 95, 95);
     border-radius: 5px;
     position: relative;
-    top: 100px;
+    top: 35px;
     height: 100%;
     margin: auto;
     padding: 3%;
@@ -38,7 +38,8 @@ h1 {
 .showReminderButton {
     width: 15%;
     margin: auto;
-    margin-top: 2%;
+    margin-top: 0.5%;
+    margin-bottom: 0.5%;
     padding: 5px;
     border: 0;
     border: 1px solid darkgray;
@@ -65,10 +66,9 @@ h1 {
 .singleReminder {
     width: 85%;
     margin: 0.5% auto;
-
     border-radius: 10px;
     display: grid;
-    grid-template-columns: 1fr 0.5fr;
+    grid-template-columns: 1fr 0.5fr 0.05fr;
     padding: 5px;
     font-size: 2rem;
     color: white;
@@ -80,6 +80,13 @@ h1 {
     word-wrap: break-word;
     margin-left: 2%;
 }
+.deleteReminder{
+    align-self: center;
+    cursor: pointer;
+}
+.deleteReminder:hover{
+    color: darkgray;
+}
 
 form {
     border: 1px solid darkgray;
@@ -87,7 +94,7 @@ form {
     background-color: #555555;
     height: 6vh;
     width: 80%;
-    margin: 1% auto auto auto;
+    margin: 0 auto 2% auto;
     padding: 10px;
     color: black;
     display: flex;

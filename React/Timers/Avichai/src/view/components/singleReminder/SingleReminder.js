@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import DeleteIcon from '@material-ui/icons/Delete';
 const moment = require('moment'); // require
 moment().format();
 
-function SingleReminder(props, onDelete) {
 
-    const { reminderText, reminderTime } = props.info
+function SingleReminder(props) {
+
+    const { reminderText, reminderTime, id } = props.info
     const { place } = props
 
     const [bgColor, setBgColor] = useState('#333333')
@@ -32,7 +34,7 @@ function SingleReminder(props, onDelete) {
         <div className='singleReminder' style={{ background: bgColor }}>
             <span className='singleReminderText' style={{ color: fontColor }}>{place} - {reminderText}</span>
             <span style={{ color: fontColor }}>{momentString}</span>
-            <span onClick={() => onDelete(place-1)}>X</span>
+            <DeleteIcon className='deleteReminder' onClick={() => props.onDelete(id)}/>
         </div>
 
     )
