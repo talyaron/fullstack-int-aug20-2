@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import Reminder from '../reminders/reminders'
 const moment = require('moment'); // require
 moment().format();
 
-function SingleReminder(props) {
+function SingleReminder(props, onDelete) {
 
     const { reminderText, reminderTime } = props.info
     const { place } = props
@@ -33,6 +32,7 @@ function SingleReminder(props) {
         <div className='singleReminder' style={{ background: bgColor }}>
             <span className='singleReminderText' style={{ color: fontColor }}>{place} - {reminderText}</span>
             <span style={{ color: fontColor }}>{momentString}</span>
+            <span onClick={() => onDelete(place-1)}>X</span>
         </div>
 
     )

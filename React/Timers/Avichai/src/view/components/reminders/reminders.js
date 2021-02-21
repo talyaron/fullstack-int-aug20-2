@@ -38,6 +38,9 @@ function Reminder() {
     }
     const sortedReminders = reminders.sort((a, b) => a.reminderTime - b.reminderTime)
 
+    const deleteReminder = () =>{
+        console.log('deleteReminder')
+    }
     return (
         <div className='reminderBox'>
             <button className='showReminderButton' onClick={showAddReminderButton}>{buttonText}</button>
@@ -53,7 +56,7 @@ function Reminder() {
                 : null
             }
             {sortedReminders.map((reminder, index) => {
-                return (<SingleReminder key={reminder.reminderTime} info={reminder} place={index + 1} />)
+                return (<SingleReminder onDelete={deleteReminder} key={reminder.reminderTime} info={reminder} place={index + 1} />)
             })}
         </div>
     )
