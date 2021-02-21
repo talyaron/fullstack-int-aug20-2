@@ -16,20 +16,22 @@ const EnterName = () => {
     }
 
     return (
-        <div>
+        <div className='mainContainer'>
             { showReminder ? <div>
                 <h1>Hey {userName}, Your Reminders.</h1>
                 <Time />
                 <Reminder />
             </div> :
                 <div>
-                    <h1>All your Reminders in one spot!</h1>
+                    <h1 className='title'>All your Reminders in one spot!</h1>
                     <h3>Enter name to begin!</h3>
-                    <form className='nameForm' onSubmit={handleEnterName}>
-                        <input maxLength='20' required className='enterName' name='name' type='text' />
-                        <button className='enterNameSubmit'>Submit</button>
+                    <form className="form-floating mb-3 firstName d-flex flex-column" onSubmit={handleEnterName}>
+                        <input maxLength='20' name='name' required type="text" className="form-control inputName" id="floatingInput" />
+                        <label className='labelName' for="floatingInput">First Name</label>
+                        <a href="#" class="btn btn-primary submitNameButton" role="button" data-bs-toggle="button">Login</a>
                     </form>
-                </div>}
+                </div>
+            }
         </div>
     )
 }

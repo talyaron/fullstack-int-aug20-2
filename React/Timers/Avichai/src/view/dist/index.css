@@ -1,0 +1,23 @@
+.App {
+  border: 1px solid black;
+  margin-top: 3%;
+}
+.App .mainContainer {
+  width: 70%;
+  margin: auto;
+}
+.App .mainContainer .inputName {
+  width: 85%;
+  margin: auto;
+  height: 1rem;
+}
+.App .mainContainer .labelName {
+  width: 85%;
+  margin-left: 8%;
+  margin-top: -2%;
+}
+.App .mainContainer .submitNameButton {
+  width: 20%;
+  padding: 1%;
+  margin: 1% auto;
+}
