@@ -1,5 +1,61 @@
 body{
-  background: blueviolet;
+  background: rgb(141, 174, 224);
+  direction: rtl;
+}
+form{
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  background: coral;
+  padding: 20px;
+  border-radius: 15px;
+  max-width: 60vw;
+  margin: auto;
+}
+input, button{
+  background: rgb(141, 174, 224);
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  height: 40px;
 
+}
+button{
+  background: rgb(33, 105, 214);
+  width: 40px;
+  
+}
+.timersList{
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  height: 80vw;
+  overflow: scroll;
+  border: solid blue;
+  scrollbar-color: red;
+  margin: 10px;
+  
+}
+.timerBox{
+  display: flex;
+  min-height: 30px;
+  justify-content: space-between;
+  text-align: center;
+  padding: 20px;
+  background: chartreuse;
+  border-radius: 20px;
+  margin: 10px;
 
+}
+
+.timerTime{
+  border: solid burlywood;
+  width: 80px;
+  height: 80px;
+}
+
+.timerText{
+  border: solid rgb(138, 89, 25);
+  width: 80px;
+  height: 80px;
 }

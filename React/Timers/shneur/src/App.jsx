@@ -1,24 +1,18 @@
 import "./App.css";
 import React, { useState } from "react";
+import Form from "./form";
+import timer from "./form";
+
 
 const App = () => {
-
-  
-
-
-
-
-
+  let timer = "j"
 
 
   return (
     <>
       hello world
-      <form onSubmit="">
-        <input type="text" name="text" />
-        <input type="time" step="1" name="time" />
-        <button type="submit"></button>
-      </form>
+      <Form />
+      
     </>
   );
 };
