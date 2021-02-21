@@ -1,23 +1,26 @@
-import logo from './logo.svg';
+import Time from './View/Component/Time.js';
 import './App.css';
 
 function App() {
+  function setReminder(e){
+    e.preventDefault()
+    let Reminder =e.target.children.Reminder.value
+    let Time =e.target.children.time.value
+    console.log(Time,Reminder )
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <form onSubmit={setReminder}>
+      <input type='text' name='Reminder' placeholder='Reminder'>
+      </input>
+      <input type='time' name='time' >
+      </input>
+      <button type='submit'>
+        set
+
+      </button>
+    </form>
+    <Time reminder={Reminder}></Time>
     </div>
   );
 }
