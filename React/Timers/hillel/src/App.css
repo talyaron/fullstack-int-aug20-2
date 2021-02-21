@@ -7,7 +7,7 @@ body {
 
 .App {
   text-align: center;
-  background-color: turquoise;
+  background-color: #8b737342;
   width: 90%;
   max-width: 600px;
   margin: auto;
@@ -24,7 +24,7 @@ p {
 
 input,
 button {
-  background-color: wheat;
+  background-color: #cdf79c;
   font-size: 20px;
   margin: 5px;
   padding: 5px 10px;
@@ -45,7 +45,7 @@ button {
   font-size: 20px;
 }
 button:hover{
-  background-color: honeydew;
+  background-color: #cdf79c;
 }
 button:active{
   background-color: rgb(180, 180, 180);
@@ -72,10 +72,17 @@ th {
   table-layout: fixed;
   word-wrap: break-word;
   font-size: 19px;
+  border-top:1px solid rgb(87, 87, 87)
 }
 
 th {
-  background-color: wheat;
+  background-color: #cdf79c;
 }
 
 
+.divler{
+  font-size: 20px;
+  font-weight: 600;
+  text-align: left;
+  padding: 5px 15px;
+}
