@@ -1,16 +1,12 @@
-import React, { useState } from 'react';
-import Reminder from './reminders';
-import Time from './time'
+import React from 'react';
+import EnterName from './view/components/enterName/enterName'
+import './view/index.css'
 
 
 function App() {
-
-  console.log('app started')
   return (
     <div className="App">
-      <h1>Your Reminders</h1>
-      <Time />
-      <Reminder />
+      <EnterName/>
     </div>
   );
 }

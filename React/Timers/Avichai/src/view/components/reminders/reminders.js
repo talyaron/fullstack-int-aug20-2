@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
-
-import SingleReminder from './SingleReminder';
-
+import SingleReminder from '../singleReminder/SingleReminder';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 
 function Reminder() {
-    console.log('in reminder function')
     const [reminders, setReminders] = useState([]);
     const [showAddReminder, setShowAddReminder] = useState(false)
     const [buttonText, setButtonText] = useState('Add Reminder')
+    const [startDate, setStartDate] = useState(new Date());
+
 
     const showAddReminderButton = () => {
         setShowAddReminder(!showAddReminder)
-        console.log(showAddReminder)
 
         if (!showAddReminder) {
             setButtonText('Hide')
@@ -21,30 +21,35 @@ function Reminder() {
         }
     }
 
-    reminders.sort((a, b) => a.reminderTime.localeCompare(b.reminderTime));
 
     const handleNewReminder = (e) => {
         e.preventDefault()
         const reminderText = e.target.children.reminder.value
-        const reminderTime = e.target.children.time.value
+        const reminderTime = startDate
         const reminderInfo = { reminderText, reminderTime }
         setReminders([...reminders, reminderInfo])
         e.target.reset()
     }
-
+    const changeDate = (date) => {
+        setStartDate(date)
+    }
+    const sortedReminders = reminders.sort((a, b) => a.reminderTime - b.reminderTime)
 
     return (
         <div className='reminderBox'>
-            {reminders.map(reminder => {
-                return (<SingleReminder key={reminder.reminderTime} info={reminder} />)
+            {sortedReminders.map((reminder, index) => {
+                return (<SingleReminder key={reminder.reminderTime} info={reminder} place={index + 1} />)
             })}
             <button className='showReminderButton' onClick={showAddReminderButton}>{buttonText}</button>
+
             {showAddReminder ?
-                < form onSubmit={handleNewReminder} >
-                    <input type='text' required name='reminder' />
-                    <input type='time' required name='time' />
+
+                < form className='form' onSubmit={handleNewReminder} >
+                    <input maxlength="50" className='reminderText' type='text' required name='reminder' />
+                    <DatePicker className='timeDate' showTimeSelect timeIntervals={5} timeFormat="HH:mm" dateFormat="dd/MM/YYY HH:mm" selected={startDate} onChange={changeDate} />
                     <button className='addReminder'>Add</button>
                 </form >
+
                 : null
             }
 
