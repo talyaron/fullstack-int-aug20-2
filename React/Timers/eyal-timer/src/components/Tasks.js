@@ -4,7 +4,9 @@ const Tasks = ({ tasks, onDelete, onToggle,Clock }) => {
 
     return (
         <>
+       
             {tasks.map((task) => (
+                
                 <Task 
                 key={task.id} 
                 task={task} 

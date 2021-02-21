@@ -1,26 +1,34 @@
 import React, { useState, useEffect } from 'react';
 
-const Clock = ({task}) => {
-  const [currentCount, setCount] = useState(' ');
-  const timer = () => setCount(new Date().toLocaleString());
+const Clock = ({tasks}) => {
+  const [timeClock, setTimeClock] = useState(' ');
+  const timer = () => setTimeClock(new Date().toLocaleString());
+  
+  const timer1 = () => {
+    timer();
+    tasks.forEach((task) =>{
+      console.log(timer,task.time);
+      if (timer === task.time)  {
+        console.log('333');
+      }
+    })
+
+  };
 
   useEffect(() => {
     setInterval(
-      timer
+      timer1
       , 1000);
   });
 
+  
+
   return (    
-      <h2>{currentCount}</h2>   
+      <h2>{timeClock}</h2>   
   );
 
-  const test =()=>{
-    if (timer === task)  {
-      console.log('');
-    }
-  }
-
-  return({currentCount}) 
+  
+  return({timeClock}) 
 };
 
 export default Clock;
