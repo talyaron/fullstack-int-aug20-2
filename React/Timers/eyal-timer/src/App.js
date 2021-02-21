@@ -6,14 +6,13 @@ import AddTask from './components/AddTask';
 
 function App() {
   const [showAddTask,setSowAddTask] = useState(false)
-  // const [crTime,setcrTime] = useState('2021-02-20T12:23')
   const [tasks, setTasks] = useState([
     {
       id: 1,
       text: 'רופא ילדים',
       time: '2021-02-20T12:23',
       remainder: true,
-      timesUp: false,
+      timesUp: true,
     },
     {
       id: 2,
@@ -52,6 +51,17 @@ const addTask = (task) => {
       )
     );
   };
+
+  //Toggle time UP
+  const ToggleTimesUP = (id) => {
+   // console.log('Toggle Remainder', id);
+    setTasks(
+      tasks.map((task) =>
+        task.id === id ? { ...task, timesUp: !task.timesUp } : task
+      )
+    );
+  };
+
   return (
     <div className="container">
       <Clock tasks={tasks}/>
@@ -63,6 +73,7 @@ const addTask = (task) => {
           onLoad={Clock}
           onDelete={deleteTask}
           onToggle={toggleRemainder}
+          onTimesUP={ToggleTimesUP}
         />
       ) : (
         'אין משימות להצגה'
