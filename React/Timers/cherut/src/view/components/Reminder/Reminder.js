@@ -4,8 +4,9 @@ import React from 'react';
 function Reminder(props) {
   return (
       <>
-        <p key={props.info.key}>{props.info.reminderTime}</p>
-        <p key={props.info.key}>{props.info.reminderName}</p>
+        <p key={props.info.key}>{props.info.reminderName} at {props.info.reminderTime}
+        {/* <input id='isComplited' type='checkbox' value='check'/><label for="isComplited">check</label> */}
+        </p>
       </>
   )
 }
