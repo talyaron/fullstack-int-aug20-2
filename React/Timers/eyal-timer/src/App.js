@@ -53,6 +53,7 @@ const addTask = (task) => {
   };
   return (
     <div className="container">
+      <Clock/>
       <Header onAdd={()=>setSowAddTask(!showAddTask)} showAdd={showAddTask} />
      {showAddTask && <AddTask onAdd={addTask} />}
       {tasks.length > 0 ? (

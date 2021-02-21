@@ -1,24 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import ReactDOM from 'react-dom';
 
 const Clock = () => {
-    const [currentCount, setCount] = useState(10);
-    const timer = () => setCount(currentCount - 1);
+  const [currentCount, setCount] = useState(' ');
+ // const timer = () => setCount(new Date().toLocaleString());
 
-    useEffect(
-        () => {
-            if (currentCount <= 0) {
-                return;
-            }
-            const id = setInterval(timer, 1000);
-            return () => clearInterval(id);
-        },
-        [currentCount]
-    );
+  useEffect(() => {
+    setInterval(setCount(new Date().toLocaleString()), 1000);
+  });
 
-    return console.log(currentCount);
+  return (    
+      <h2>{currentCount}</h2>   
+  );
+  return({currentCount}) 
 };
 
-  
-  export default Clock;
-  
+export default Clock;
+
+// task.timesUp ? 'timesUp' :''
