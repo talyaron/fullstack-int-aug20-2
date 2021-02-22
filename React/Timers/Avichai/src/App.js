@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import EnterName from './view/components/enterName/enterName'
+import Login from './view/components/login/login'
 import Reminders from './view/components/reminders/reminders';
 import LiveTime from './view/components/time/time'
 import './view/dist/index.css'
@@ -19,11 +19,11 @@ function App() {
           showRemindersPage ?
             <div className='reminderContainer'>
               <h1 className='title'>Hey {userName}, Your Reminders.</h1>
-              <LiveTime />
-              <Reminders />
+              <LiveTime/>
+              <Reminders/>
             </div>
             :
-            <EnterName setReminderPage={setReminderPage} setName={setName} />
+            <Login setReminderPage={setReminderPage} setName={setName} />
         }
       </div>
     </div>

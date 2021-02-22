@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const EnterName = (props) => {
+const Login = (props) => {
 
     const handleEnterName = (e) => {
         e.preventDefault()
@@ -24,4 +24,4 @@ const EnterName = (props) => {
     )
 }
 
-export default EnterName;
+export default Login;
