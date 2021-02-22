@@ -1,11 +1,20 @@
 import { useState } from "react";
 import "./App.css";
 
-
 const Form = ({}) => {
+  const [timersArea, setTimerArea] = useState([]);
+  const submit = (e) => {
+    e.preventDefault();
+    const time = e.target.children.time.value;
+    const text = e.target.children.text.value;
+    let theTimer = { time: time, text: text };
+
+    setTimerArea(timersArea.push({ theTimer }));
+    console.log(timersArea);
+  };
   return (
     <>
-      <form onSubmit={Submit}>
+      <form onSubmit={submit}>
         <input type="text" name="text" placeholder="כתוב תזכורת" />
         <input type="time" step="1" name="time" />
         <button type="submit">אישור</button>
@@ -13,18 +22,6 @@ const Form = ({}) => {
       <div className="timersList"> {timer}</div>
     </>
   );
-};
-
-const Submit = (e) => {
-  e.preventDefault();
-  const [timersArea, setTimerArea] = useState([]);
-
-  const time = e.target.children.time.value;
-  const text = e.target.children.text.value;
-
-  setTimerArea(() => {
-    timersArea.push({ time: time, text: text });
-  });
 };
 
 const timer = ({}) => {
@@ -35,5 +32,4 @@ const timer = ({}) => {
     </div>
   );
 };
-export {timer};
 export default Form;
