@@ -59,27 +59,25 @@ function App() {
       const NowDate = new Date().toLocaleDateString("he");
       const NowTime = new Date().toLocaleTimeString("en");
       setTasks(
-        tasks.map((task) =>(
+        tasks.map((task) =>
           task.id === id &&
-          NowTime >= new Date(task.time).toLocaleTimeString("heb")  &&
+          NowTime >= new Date(task.time).toLocaleTimeString("heb") &&
           NowDate >= new Date(task.time).toLocaleDateString("heb") &&
           task.remainder === true &&
           task.timesUp === false
-          )
-
             ? { ...task, timesUp: true }
             : task
         )
       );
-    //  ---Tests Proses---
-       console.log(NowTime,'----',new Date(tasks[0].time).toLocaleTimeString("heb"))
+      //  ---Tests Proses---
+      /*   console.log(NowTime,'----',new Date(tasks[0].time).toLocaleTimeString("heb"))
       if (NowTime >= new Date(tasks[0].time).toLocaleTimeString("heb")) {
         console.log("OK");
       }
       console.log(NowDate,'----',new Date(tasks[0].time).toLocaleDateString("heb"))
       if (NowDate === new Date(tasks[0].time).toLocaleDateString("heb")) {
         console.log("OK1");
-      }
+      } */
     }, 1000);
   };
 
