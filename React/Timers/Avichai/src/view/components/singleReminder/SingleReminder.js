@@ -26,7 +26,7 @@ function SingleReminder(props) {
             setExpiredLine(true)
         }
     }
-
+    console.log(new Date().toLocaleTimeString('heb'))
     setInterval(() => {
         checkIfExpired()
     }, 3000);

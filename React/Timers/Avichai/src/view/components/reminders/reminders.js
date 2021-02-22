@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import SingleReminder from '../singleReminder/SingleReminder';
+import SingleReminder from '../singleReminder/singleReminder';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
