@@ -4,6 +4,8 @@ const AddTask = ({ onAdd }) => {
   const [text, setText] = useState('');
   const [time, setTime] = useState('');
   const [remainder, setRemainder] = useState(false);
+  const [timesUp, setTimesUp] = useState(false);
+
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -13,10 +15,11 @@ const AddTask = ({ onAdd }) => {
       return;
     }
 
-    onAdd({ text, time, remainder });
+    onAdd({ text, time, remainder,timesUp });
     setText('');
     setTime('');
     setRemainder(false);
+    setTimesUp(false);
   };
 
   return (

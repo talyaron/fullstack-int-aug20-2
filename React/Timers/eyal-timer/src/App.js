@@ -56,11 +56,12 @@ function App() {
   const ToggleTimesUP = (id) => {
     // const NowDate = date.get
     setInterval(() => {
-      const NowDate = new Date().toLocaleDateString("he");
-      const NowTime = new Date().toLocaleTimeString("en");
+      const DT =new Date();
+      const NowDate = DT.toLocaleDateString("he");
+      const NowTime = DT.toLocaleTimeString("en");
       setTasks(
         tasks.map((task) =>
-          task.id === id &&
+        // task.id === id &&
           NowTime >= new Date(task.time).toLocaleTimeString("heb") &&
           NowDate >= new Date(task.time).toLocaleDateString("heb") &&
           task.remainder === true &&

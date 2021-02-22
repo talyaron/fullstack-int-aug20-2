@@ -7,10 +7,10 @@ const Task = ({ task, onDelete,onToggle,onTimesUP}) => {
                 ${task.timesUp ? 'timesUp' :''}`}
 
                  onDoubleClick={()=>onToggle(task.id)} 
-                 onClick={()=>onTimesUP(task.id)}
+                 //onClick={()=>onTimesUP(task.id)}
                  >
 
-                  
+          {onTimesUP(task.id)}        
       <h3>
         {task.text}{' '}
         <FaTimes
