@@ -20,6 +20,9 @@ function Reminder() {
         }
     }
 
+    const changeDate = (date) => {
+        setStartDate(date)
+    }
 
     const handleNewReminder = (e) => {
         e.preventDefault()
@@ -29,22 +32,18 @@ function Reminder() {
         console.log(id)
         const reminderInfo = { reminderText, reminderTime, id }
         setReminders([...reminders, reminderInfo])
-        e.target.reset()
         setButtonText('Add Reminder')
         setShowAddReminder(!showAddReminder)
-
+        e.target.reset()
 
     }
-    const changeDate = (date) => {
-        setStartDate(date)
-    }
-    const sortedReminders = reminders.sort((a, b) => a.reminderTime - b.reminderTime)
 
     const deleteReminder = (id) => {
         console.log(id)
         setReminders(reminders.filter((reminder) => reminder.id !== id));
-
     }
+
+    const sortedReminders = reminders.sort((a, b) => a.reminderTime - b.reminderTime)
     return (
         <div className='reminderBox'>
             <button className='btn btn-primary showReminderButton' onClick={showAddReminderButton}>{buttonText}</button>
@@ -61,9 +60,9 @@ function Reminder() {
                 null
             }
             <div className='allReminders'>
-            {sortedReminders.map((reminder, index) => {
-                return (<SingleReminder onDelete={deleteReminder} key={reminder.id} info={reminder} place={index + 1} />)
-            })}
+                {sortedReminders.map((reminder, index) => {
+                    return (<SingleReminder onDelete={deleteReminder} key={reminder.id} info={reminder} place={index + 1} />)
+                })}
             </div>
         </div>
     )
