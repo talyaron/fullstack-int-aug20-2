@@ -10,7 +10,7 @@ const Clock = ({ tasks, onTimesUP }) => {
     timer();
 
 
-    tasks.forEach((task) => {
+    /* tasks.forEach((task) => {
       if (
         new Date().toLocaleTimeString("he") ===
         new Date(task.time).toLocaleTimeString("he")
@@ -20,7 +20,7 @@ const Clock = ({ tasks, onTimesUP }) => {
        // onTimesUP(task.id);
        task.timesUp = true;
       }
-    });
+    }); */
 
     
   };
