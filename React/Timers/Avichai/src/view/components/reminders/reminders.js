@@ -47,22 +47,24 @@ function Reminder() {
     }
     return (
         <div className='reminderBox'>
-            <button className='showReminderButton' onClick={showAddReminderButton}>{buttonText}</button>
+            <button className='btn btn-primary showReminderButton' onClick={showAddReminderButton}>{buttonText}</button>
 
             {showAddReminder ?
-                <div>
-                    <h3>New Reminder</h3>
-                    < form className='form' onSubmit={handleNewReminder} >
-                        <input maxLength="50" className='reminderText' type='text' required name='reminder' />
+                <div className='addReminderBox'>
+                    <form className="mb-3 addReminderBoxForm" onSubmit={handleNewReminder}>
+                        <textarea className="form-control reminderText" placeholder='Reminder Text' id="exampleFormControlTextarea1" name='reminder' rows="3"></textarea>
                         <DatePicker className='timeDate' showTimeSelect timeIntervals={5} timeFormat="HH:mm" dateFormat="dd/MM/YYY HH:mm" selected={startDate} onChange={changeDate} />
-                        <button className='addReminder'>Add</button>
-                    </form >
+                        <button type="submit" class="btn btn-outline-primary submitNewReminder">Add</button>
+                    </form>
                 </div>
-                : null
+                :
+                null
             }
+            <div className='allReminders'>
             {sortedReminders.map((reminder, index) => {
                 return (<SingleReminder onDelete={deleteReminder} key={reminder.id} info={reminder} place={index + 1} />)
             })}
+            </div>
         </div>
     )
 }

@@ -17,21 +17,25 @@ const EnterName = () => {
 
     return (
         <div className='mainContainer'>
-            { showReminder ? <div>
-                <h1>Hey {userName}, Your Reminders.</h1>
-                <Time />
-                <Reminder />
-            </div> :
-                <div>
+
+            { showReminder ?
+                <div className='reminderContainer'>
+                    <h1 className='title'>Hey {userName}, Your Reminders.</h1>
+                    <Time />
+                    <Reminder />
+                </div>
+                :
+                <div className='enterNameContainer'>
                     <h1 className='title'>All your Reminders in one spot!</h1>
-                    <h3>Enter name to begin!</h3>
+                    <h3 className='sTitle'>Enter name to begin!</h3>
                     <form className="form-floating mb-3 firstName d-flex flex-column" onSubmit={handleEnterName}>
                         <input maxLength='20' name='name' required type="text" className="form-control inputName" id="floatingInput" />
                         <label className='labelName' for="floatingInput">First Name</label>
-                        <a href="#" class="btn btn-primary submitNameButton" role="button" data-bs-toggle="button">Login</a>
+                        <button class="btn btn-primary submitNameButton">Login</button>
                     </form>
                 </div>
             }
+
         </div>
     )
 }

@@ -9,15 +9,21 @@ function SingleReminder(props) {
     const { reminderText, reminderTime, id } = props.info
     const { place } = props
 
-    const [bgColor, setBgColor] = useState('#333333')
-    const [fontColor, setFontColor] = useState('white')
+    const [bgColor, setBgColor] = useState('')
+    const [isExpired, setExpiredLine] = useState(false)
+
+    const dateString = reminderTime;
+    const dateObj = new Date(dateString);
+    const momentObj = moment(dateObj);
+    const momentString = momentObj.format('DD/MM/YYYY - HH:mm');
 
     const checkIfExpired = () => {
         const date = new Date()
         const dateMili = date.getTime()
 
         if (dateMili >= reminderTime.getTime()) {
-            setBgColor('red')
+            setBgColor('rgb(235, 124, 124)')
+            setExpiredLine(true)
         }
     }
 
@@ -25,18 +31,32 @@ function SingleReminder(props) {
         checkIfExpired()
     }, 3000);
 
-    var dateString = reminderTime;
-    var dateObj = new Date(dateString);
-    var momentObj = moment(dateObj);
-    var momentString = momentObj.format('DD/MM/YYYY - HH:mm');
 
     return (
-        <div className='singleReminder' style={{ background: bgColor }}>
-            <span className='singleReminderText' style={{ color: fontColor }}>{place} - {reminderText}</span>
-            <span style={{ color: fontColor }}>{momentString}</span>
-            <DeleteIcon className='deleteReminder' onClick={() => props.onDelete(id)}/>
+        <div>
+            {isExpired ?
+                < del className="card singleReminder" style={{ width: '18rem', background: bgColor }}>
+                    <div className="card-body">
+                        <div className='cardTitleDelete'>
+                            <h5 className="card-title">Reminder #{place}</h5>
+                            <DeleteIcon className='deleteReminder' onClick={() => props.onDelete(id)} />
+                        </div>
+                        <h6 className="card-subtitle mb-2 text-muted">Due Date-{momentString}</h6>
+                        <p className="card-text">{reminderText}</p>
+                    </div>
+                </ del >
+                :
+                <div className="card singleReminder" style={{ width: '18rem', background: bgColor }}>
+                    <div className="card-body">
+                        <div className='cardTitleDelete'>
+                            <h5 className="card-title">Reminder #{place}</h5>
+                            <DeleteIcon className='deleteReminder' onClick={() => props.onDelete(id)} />
+                        </div>
+                        <h6 className="card-subtitle mb-2 text-muted">Due Date-{momentString}</h6>
+                        <p className="card-text">{reminderText}</p>
+                    </div>
+                </div >}
         </div>
-
     )
 }
 
