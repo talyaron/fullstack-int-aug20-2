@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import './App.css';
 import Table from './Table'
 
-const timers = [
+
+const inishlTimers = [
     {
         text: "בוקר",
         time: "07:30:00",
@@ -17,7 +18,7 @@ const timers = [
 
 let date = new Date().toLocaleTimeString()
 function App() {
-    const [timer, setThhimer] = useState(timers)
+    const [timer, setThhimer] = useState(inishlTimers)
     const [divler, settimet] = useState(date)
 
     function settimer(e) {
@@ -26,22 +27,22 @@ function App() {
         const text = e.target.children.text.value;
         const time = e.target.children.timerstext.value;
         const color = 'gray'
-        timers.push({ text, time, color })
-        setThhimer(timers)
-        // e.target.reset();
+
+        setThhimer([...timer,{ text, time, color }])
+        e.target.reset();
     }
 
 
-    setInterval(function () {
-        date = new Date().toLocaleTimeString()
-        settimet(date)
-    }, 500);
+    // setInterval(function () {
+    //     date = new Date().toLocaleTimeString()
+    //     settimet(date)
+    // }, 500);
 
 
     return (
         <>
             <div className='divler'>
-                {divler}
+    
             </div>
             <form onSubmit={settimer}>
                 <input type="text" id='text' name='text' />
