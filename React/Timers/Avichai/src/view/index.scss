@@ -1,18 +1,21 @@
-#root {
+body{
     height: 100vh;
-    border: 1px solid black;
-    background-image: url('https://www.topcu.org/wp-content/uploads/Annual-Meeting-Calendar-background-1.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-color: lightblue;
 }
+#root{
+    height: 100%;
+}
+
 
 .App {
     padding: 5px;
-    border: 2px solid rgb(165, 165, 165);
+    // border: 2px solid rgb(116, 116, 116);
     border-radius: 10px;
-    background-color: white;
-    margin-top: 7%;
+    background-color: rgb(255, 255, 255);
+    // margin-top: 7%;
+    position: relative;
+    top: 10%;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 
     .dontForgetImg {
         width: 13%;
@@ -68,7 +71,7 @@
                             margin: 5px;
                         }
 
-                        .timeDate{
+                        .timeDate {
                             display: block;
                             margin: 0 auto;
                             border: 0;
@@ -85,25 +88,27 @@
                         }
                     }
                 }
-                .allReminders{
+
+                .allReminders {
                     margin-top: 3%;
                     display: grid;
                     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
                     grid-gap: 5px;
 
 
-                    .singleReminder{
+                    .singleReminder {
                         margin: 5px;
 
-                        .cardTitleDelete{
+                        .cardTitleDelete {
                             display: flex;
                             justify-content: space-between;
 
-                            .deleteReminder{
+                            .deleteReminder {
                                 color: rgb(116, 115, 115);
                                 cursor: pointer;
                             }
-                            .deleteReminder:hover{
+
+                            .deleteReminder:hover {
                                 color: rgb(49, 49, 49);
                             }
                         }
