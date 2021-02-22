@@ -1,10 +1,13 @@
 import { useState } from "react";
+import Moment from 'react-moment';
 import Header from "./components/Header";
 import Tasks from "./components/Tasks";
 import Clock from "./components/Clock";
 import AddTask from "./components/AddTask";
+const now = new Date();
 
 function App() {
+ 
   const [showAddTask, setSowAddTask] = useState(false);
   const [tasks, setTasks] = useState([
     {
@@ -71,25 +74,27 @@ function App() {
         )
       );
       //  ---Tests Proses---
-      /*   console.log(NowTime,'----',new Date(tasks[0].time).toLocaleTimeString("heb"))
-      if (NowTime >= new Date(tasks[0].time).toLocaleTimeString("heb")) {
-        console.log("OK");
-      }
-      console.log(NowDate,'----',new Date(tasks[0].time).toLocaleDateString("heb"))
-      if (NowDate === new Date(tasks[0].time).toLocaleDateString("heb")) {
-        console.log("OK1");
-      } */
+      //   console.log(NowTime,'----',new Date(tasks[0].time).toLocaleTimeString("heb"))
+      // if (NowTime >= new Date(tasks[0].time).toLocaleTimeString("heb")) {
+      //   console.log("OK");
+      // }
+      // console.log(NowDate,'----',new Date(tasks[0].time).toLocaleDateString("heb"))
+      // if (NowDate === new Date(tasks[0].time).toLocaleDateString("heb")) {
+      //   console.log("OK1");
+      // }
     }, 1000);
   };
 
   return (
     <div className="container">
+      {/* <Moment format="DD/MM/YYYY HH:MM:SS" >{now}</Moment> */}
       <Clock />
       <Header onAdd={() => setSowAddTask(!showAddTask)} showAdd={showAddTask} />
       {showAddTask && <AddTask onAdd={addTask} />}
       {tasks.length > 0 ? (
         <Tasks
           tasks={tasks}
+          setTasks={setTasks}
           onDelete={deleteTask}
           onToggle={toggleRemainder}
           onTimesUP={ToggleTimesUP}

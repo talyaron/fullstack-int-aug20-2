@@ -8,21 +8,6 @@ const Clock = ({ tasks, onTimesUP }) => {
 
   const timer1 = () => {
     timer();
-
-
-    /* tasks.forEach((task) => {
-      if (
-        new Date().toLocaleTimeString("he") ===
-        new Date(task.time).toLocaleTimeString("he")
-      ) {
-        console.log("333");
-        //setTasks(!timesUp);
-       // onTimesUP(task.id);
-       task.timesUp = true;
-      }
-    }); */
-
-    
   };
 
   useEffect(() => {

@@ -1,6 +1,6 @@
 import Task from './Task'
 
-const Tasks = ({ tasks, onDelete, onToggle,onTimesUP }) => {
+const Tasks = ({ tasks,setTasks, onDelete, onToggle,onTimesUP }) => {
 
     return (
         <>
@@ -10,6 +10,7 @@ const Tasks = ({ tasks, onDelete, onToggle,onTimesUP }) => {
                 <Task 
                 key={task.id} 
                 task={task} 
+                setTasks={setTasks}
                 onDelete={onDelete} 
                 onToggle={onToggle} 
                 onTimesUP={onTimesUP}
