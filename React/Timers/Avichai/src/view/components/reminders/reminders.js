@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import SingleReminder from '../singleReminder/SingleReminder';
+import SingleReminder from '../singleReminder/singleReminder';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 
-function Reminder() {
+function Reminders() {
     const [reminders, setReminders] = useState([]);
     const [showAddReminder, setShowAddReminder] = useState(false)
     const [buttonText, setButtonText] = useState('Add Reminder')
@@ -39,7 +39,6 @@ function Reminder() {
     }
 
     const deleteReminder = (id) => {
-        console.log(id)
         setReminders(reminders.filter((reminder) => reminder.id !== id));
     }
 
@@ -68,4 +67,4 @@ function Reminder() {
     )
 }
 
-export default Reminder;
+export default Reminders;
