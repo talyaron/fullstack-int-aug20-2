@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 
-const Time = () => {
+const LiveTime = () => {
 
     const date = new Date()
     const dateString = date.toString();
@@ -17,4 +17,4 @@ const Time = () => {
     return (<h2 className="time sTitle">{time}</h2>)
 }
 
-export default Time
+export default LiveTime
