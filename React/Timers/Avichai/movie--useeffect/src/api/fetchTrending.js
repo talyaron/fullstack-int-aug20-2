@@ -1,4 +1,5 @@
 import renderTrendingMovie from '../view/components/renderTreningMovies'
+import Movies from '../view/components/Movies'
 
 const fetchTrendingMovies = (setMovies, setDisplaySearch, setMoreInfo, setMoreInfoId) => {
 

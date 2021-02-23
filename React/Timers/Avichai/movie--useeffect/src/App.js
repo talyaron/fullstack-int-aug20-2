@@ -26,8 +26,9 @@ function App() {
           ?
           <SearchBar setMovies={setMovies} />
           :
-          <LoadingCircle />
+          <LoadingCircle/>
       }
+
       {
         !showMoreInfo
           ?

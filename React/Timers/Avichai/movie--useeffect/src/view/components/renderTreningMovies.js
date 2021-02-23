@@ -1,19 +1,20 @@
 const renderTrendingMovie = (movies, setMovies, setDisplaySearch, setMoreInfo, setMoreInfoId) => {
 
-    const handleClickOnMovie = (movieId) => {
+    const handleMoreInfo = (movieId) => {
+        // setShowForm(!showBigForm)
         setMoreInfo(true)
         setMoreInfoId(movieId)
     }
 
-    const trending = movies.map((movie) => {
+    const trendingMovies = movies.map((movie) => {
         return (
-            <div className='singleMovie' onClick={() => handleClickOnMovie(movie.IMDB)} key={movie.IMDB}>
+            <div className='singleMovie' onClick={() => handleMoreInfo(movie.IMDB)} key={movie.IMDB}>
                 <img src={movie.poster} />
                 <p>Movie Title: {movie.title}</p>
             </div>
         )
     })
-    setMovies(trending)
+    setMovies(trendingMovies)
     setDisplaySearch(true)
 }
 export default renderTrendingMovie
