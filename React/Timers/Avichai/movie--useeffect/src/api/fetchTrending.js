@@ -1,4 +1,4 @@
-const fetchTrendingMovies = (setMovies) => {
+const fetchTrendingMovies = (setMovies, setDisplaySearch) => {
     console.log('in fetch trending')
     fetch("https://movies-tvshows-data-imdb.p.rapidapi.com/?type=get-trending-movies&limit=10", {
         "method": "GET",
@@ -13,14 +13,14 @@ const fetchTrendingMovies = (setMovies) => {
             results.splice(results.length - 15);
             setTimeout(() => {
                 results.forEach(movie => {
-                    fetchTreningMoviePoster(movie.imdb_id, setMovies)
+                    fetchTreningMoviePoster(movie.imdb_id, setMovies, setDisplaySearch)
                 })
             }, 1000);
         })
 }
 const trendingMovies = []
 
-const fetchTreningMoviePoster = async (movieId, setMovies) => {
+const fetchTreningMoviePoster = async (movieId, setMovies, setDisplaySearch) => {
     await fetch(`https://movies-tvshows-data-imdb.p.rapidapi.com/?type=get-movies-images-by-imdb&imdb=${movieId}`, {
         "method": "GET",
         "headers": {
@@ -33,10 +33,10 @@ const fetchTreningMoviePoster = async (movieId, setMovies) => {
             trendingMovies.push(response)
         })
     if (trendingMovies.length === 5) {
-        renderTrendingMovie(trendingMovies, setMovies)
+        renderTrendingMovie(trendingMovies, setMovies, setDisplaySearch)
     }
 }
-const renderTrendingMovie = (movies, setMovies) => {
+const renderTrendingMovie = (movies, setMovies, setDisplaySearch) => {
 
     const trending = movies.map((movie) => {
         return (
@@ -47,6 +47,7 @@ const renderTrendingMovie = (movies, setMovies) => {
         )
     })
     setMovies(trending)
+    setDisplaySearch(true)
 
 }
 
