@@ -1,20 +1,26 @@
 import React, { useState, useEffect } from 'react';
-import SearchBar from './view/components/search.js'
+import SearchBar from './view/components/Search.js'
 import fetchTrendingMovies from './api/fetchTrending'
-import LoadingCircle from './view/components/loadingCircle'
+import LoadingCircle from './view/components/LoadingCircle'
+import Movies from './view/components/Movies'
+import MovieMoreInfo from './view/components/MovieMoreInfo'
+import Title from './view/components/Title'
 
 function App() {
   console.log('in app')
+
   const [foundMovies, setMovies] = useState('')
   const [displaySearch, setDisplaySearch] = useState(false)
+  const [showMoreInfo, setMoreInfo] = useState(false)
+  const [moreInfoId, setMoreInfoId] = useState('')
 
   useEffect(() => {
-    fetchTrendingMovies(setMovies, setDisplaySearch)
+    fetchTrendingMovies(setMovies, setDisplaySearch, setMoreInfo, setMoreInfoId)
   }, [])
 
   return (
     <div className="App">
-      <h1>Welcome! Search for wanted Movie or Series!</h1>
+      <Title />
       {
         displaySearch
           ?
@@ -22,7 +28,13 @@ function App() {
           :
           <LoadingCircle />
       }
-      <div>{foundMovies}</div>
+      {
+        !showMoreInfo
+          ?
+          <Movies foundMovies={foundMovies} />
+          :
+          <MovieMoreInfo moreInfoId={moreInfoId} setMoreInfo={setMoreInfo} />
+      }
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import fetchMoviesBySearch from '../../api/fetch'
+import fetchMoviesBySearch from '../../api/fetchSearch'
 
 const SearchBar = (props) => {
     console.log('in search')
