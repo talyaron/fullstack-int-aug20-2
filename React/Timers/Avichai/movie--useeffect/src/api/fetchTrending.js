@@ -1,3 +1,4 @@
+import renderTrendingMovie from '../view/components/renderTreningMovies'
 const fetchTrendingMovies = (setMovies, setDisplaySearch) => {
     console.log('in fetch trending')
     fetch("https://movies-tvshows-data-imdb.p.rapidapi.com/?type=get-trending-movies&limit=10", {
@@ -35,20 +36,6 @@ const fetchTreningMoviePoster = async (movieId, setMovies, setDisplaySearch) => 
     if (trendingMovies.length === 5) {
         renderTrendingMovie(trendingMovies, setMovies, setDisplaySearch)
     }
-}
-const renderTrendingMovie = (movies, setMovies, setDisplaySearch) => {
-
-    const trending = movies.map((movie) => {
-        return (
-            <div className='singleMovie' key={movie.IMDB}>
-                <img src={movie.poster} />
-                <p>Movie Title: {movie.title}</p>
-            </div>
-        )
-    })
-    setMovies(trending)
-    setDisplaySearch(true)
-
 }
 
 export default fetchTrendingMovies

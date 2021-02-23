@@ -14,10 +14,14 @@ function App() {
 
   return (
     <div className="App">
-      {displaySearch
-        ?
-        <SearchBar setMovies={setMovies} />
-        : <LoadingCircle/>}
+      <h1>Welcome! Search for wanted Movie or Series!</h1>
+      {
+        displaySearch
+          ?
+          <SearchBar setMovies={setMovies} />
+          :
+          <LoadingCircle />
+      }
       <div>{foundMovies}</div>
     </div>
   );
