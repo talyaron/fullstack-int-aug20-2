@@ -1,6 +1,5 @@
 import renderTrendingMovie from '../view/components/renderTreningMovies'
-import Movies from '../view/components/Movies'
-
+let trendingMovies = []
 const fetchTrendingMovies = (setMovies, setDisplaySearch, setMoreInfo, setMoreInfoId) => {
 
     console.log('in fetch trending')
@@ -15,6 +14,7 @@ const fetchTrendingMovies = (setMovies, setDisplaySearch, setMoreInfo, setMoreIn
         .then(response => {
             const results = response.movie_results
             results.splice(results.length - 15);
+            trendingMovies = []
             setTimeout(() => {
                 results.forEach(movie => {
                     fetchTreningMoviePoster(movie.imdb_id, setMovies, setDisplaySearch, setMoreInfo, setMoreInfoId)
@@ -22,7 +22,6 @@ const fetchTrendingMovies = (setMovies, setDisplaySearch, setMoreInfo, setMoreIn
             }, 1000);
         })
 }
-const trendingMovies = []
 
 const fetchTreningMoviePoster = async (movieId, setMovies, setDisplaySearch, setMoreInfo, setMoreInfoId) => {
     await fetch(`https://movies-tvshows-data-imdb.p.rapidapi.com/?type=get-movies-images-by-imdb&imdb=${movieId}`, {
@@ -36,6 +35,7 @@ const fetchTreningMoviePoster = async (movieId, setMovies, setDisplaySearch, set
         .then(response => {
             trendingMovies.push(response)
         })
+        
     if (trendingMovies.length === 5) {
         renderTrendingMovie(trendingMovies, setMovies, setDisplaySearch, setMoreInfo, setMoreInfoId)
     }

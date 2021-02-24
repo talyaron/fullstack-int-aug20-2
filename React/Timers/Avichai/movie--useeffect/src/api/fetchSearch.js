@@ -1,8 +1,8 @@
 import renderFoundMovies from '../view/components/renderFoundMovies'
 
 
-const fetchMoviesBySearch = (setMovies, searchedMovies) => {
-    console.log('top fatch')
+const fetchMoviesBySearch = (setMovies, searchedMovies, setMoreInfo, setMoreInfoId, setDisplaySearch) => {
+
     fetch(`https://movie-database-imdb-alternative.p.rapidapi.com/?s=${searchedMovies}&page=1&r=json`, {
         "method": "GET",
         "headers": {
@@ -14,7 +14,7 @@ const fetchMoviesBySearch = (setMovies, searchedMovies) => {
         .then(response => {
             console.log('fetch res')
             const results = response.Search
-            renderFoundMovies(setMovies, results)
+            renderFoundMovies(setMovies, results, setMoreInfo, setMoreInfoId, setDisplaySearch)
         })
 }
 

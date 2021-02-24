@@ -1,22 +1,29 @@
-const renderFoundMovies = (setMovies, movies) => {
-    console.log('in render')
+const renderFoundMovies = (setMovies, movies, setMoreInfo, setMoreInfoId, setDisplaySearch) => {
+
+    const handleMoreInfo = (movieId) => {
+        setMoreInfo(true)
+        setMoreInfoId(movieId)
+    }
+
     if (movies !== undefined) {
         const moviesMap = movies.map((movie) => {
 
-            if (movie.Poster === '') {
+            if (movie.Poster === 'N/A') {
+                console.log('no poster')
                 return
             }
             return (
-                <div className='singleMovie' key={movie.imdbID}>
-                    <img src={movie.Poster} />
+                <div className='singleMovie' onClick={() => handleMoreInfo(movie.imdbID)} key={movie.imdbID}>
+                    <img alt={movie.Title} src={movie.Poster} />
                     <p>Movie Title: {movie.Title}</p>
                     <p>Publish Year: {movie.Year}</p>
-                    <p>I am a {movie.Type}</p>
                 </div>
             )
         })
+        setDisplaySearch(true)
         setMovies(moviesMap)
     } else {
+        setDisplaySearch(true)
         setMovies(<div>No Results Found!</div>)
     }
 }
