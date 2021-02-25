@@ -57,12 +57,13 @@
 .App .card {
   min-height: 50vh;
   background-color: white;
-  width: 90vw;
+  min-width: 50vw;
   max-width: 730px;
   background: var(--clr-white);
-  margin: -200px auto 0;
   border-radius: var(--radius);
-  position: relative;
+  position: absolute;
+  left: calc(50vw - 25%);
+  top: calc(50vh - 40%);
   text-align: center;
   box-shadow: var(--dark-shadow);
 }
@@ -76,10 +77,10 @@
   margin-bottom: 5em;
 }
 .App .card__header img {
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
   position: relative;
-  top: 2em;
+  top: 1em;
   border-radius: 50%;
   padding: 5px;
   background: var(--clr-white);
@@ -91,15 +92,17 @@
   width: 100%;
   padding-right: 1.5rem;
   padding-left: 1.5rem;
+  margin-top: 7em;
 }
 .App .card__infoTitle {
-  font-size: 18px;
+  font-size: 2rem;
   margin-bottom: 0;
   font-weight: 500;
+  margin-top: 1.25em;
 }
 .App .card__infoDetails {
   color: var(--clr-grey-1);
-  font-size: 28px;
+  font-size: 3rem;
   margin-bottom: 1.25rem;
 }
 .App .card__actions {
@@ -110,6 +113,7 @@
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   justify-content: center;
+  margin-bottom: 2.5rem;
 }
 .App .card__actionsIcons .icon {
   background: transparent;
@@ -134,14 +138,16 @@
 }
 .App .card__actionsButton {
   margin: 1.5rem auto 0;
+  margin-top: 3rem;
+  margin-bottom: 1.25rem;
   text-transform: uppercase;
   background: var(--clr-primary-5);
   color: var(--clr-white);
-  padding: 0.375rem 0.75rem;
+  padding: 1rem;
   letter-spacing: var(--spacing);
   display: block;
   transition: var(--transition);
-  font-size: 0.875rem;
+  font-size: 0.775rem;
   border: 2px solid var(--clr-primary-5);
   cursor: pointer;
   border-radius: var(--radius);

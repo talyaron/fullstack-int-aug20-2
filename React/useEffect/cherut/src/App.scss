@@ -60,12 +60,14 @@
   .card{
     min-height: 50vh;
     background-color: white;
-    width: 90vw;
+    min-width: 50vw;
     max-width: 730px;
     background: var(--clr-white);
-    margin: -200px auto 0;
+    // margin: -250px auto 0;
     border-radius: var(--radius);
-    position: relative;
+    position: absolute;
+    left:calc(50vw - 25%);
+    top:calc(50vh - 40%);
     text-align: center;
     // padding: 1.5rem;
     box-shadow: var(--dark-shadow);
@@ -81,10 +83,10 @@
     // display: none;
 
       img{
-        width: 150px;
-        height: 150px;
+        width: 200px;
+        height: 200px;
         position: relative;
-        top:2em;
+        top:1em;
         border-radius: 50%;
         padding: 5px;
         background: var(--clr-white);
@@ -98,16 +100,18 @@
       width: 100%;
       padding-right: 1.5rem;
       padding-left: 1.5rem;
+      margin-top: 7em;
 
       &Title{
-        font-size: 18px;
+        font-size: 2rem;
         margin-bottom: 0;
         font-weight: 500;
+        margin-top: 1.25em;
       }
 
       &Details{
         color: var(--clr-grey-1);
-        font-size: 28px;
+        font-size: 3rem;
         margin-bottom: 1.25rem;
       
       }
@@ -119,11 +123,13 @@
     &__actions{
       width: 100%;
       padding: 1.5rem;
+ 
 
       &Icons{
         display: grid;
         grid-template-columns: repeat(5,1fr);
         justify-content: center;
+        margin-bottom:2.5rem;
 
         .icon{
           background: transparent;
@@ -153,14 +159,16 @@
 
       &Button{
         margin: 1.5rem auto 0;
+        margin-top: 3rem;
+        margin-bottom: 1.25rem;
         text-transform: uppercase;
         background: var(--clr-primary-5);
         color: var(--clr-white);
-        padding: .375rem .75rem;
+        padding: 1rem;
         letter-spacing: var(--spacing);
         display: block;
         transition: var(--transition);
-        font-size: .875rem;
+        font-size: .775rem;
         border: 2px solid var(--clr-primary-5);
         cursor: pointer;
         // box-shadow: 0 1px 3px rgb(0 0 0);
