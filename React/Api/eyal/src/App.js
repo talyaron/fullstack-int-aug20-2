@@ -11,14 +11,14 @@ function App() {
     symbol: `BTC`,
     theFunction: `DIGITAL_CURRENCY_DAILY`, /* DIGITAL_CURRENCY_MONTHLY , DIGITAL_CURRENCY_WEEKLY */
   });
-  const [MarcetData, setMarcetData] = useState([]);
+  const [MarketData, setMarketData] = useState([]);
 
   return (
     <div className="App">
       <GetData 
       AlphaSettings={AlphaSettings}
-      setMarcetData={setMarcetData}
-      MarcetData={MarcetData}
+      setMarketData={setMarketData}
+      MarketData={MarketData}
       />
 
     </div>

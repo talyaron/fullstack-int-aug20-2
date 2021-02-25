@@ -1,35 +1,39 @@
 import  { useEffect } from 'react';
 
-const GetData = ({AlphaSettings,MarcetData,setMarcetData }) => {
+const GetData = ({AlphaSettings, MarketData, setMarketData }) => {
 
     
 
-    const getMarcetData = async () =>{
+    const getMarketData = async () =>{
        await fetch(`https://alpha-vantage.p.rapidapi.com/query?market=${AlphaSettings.market}&symbol=${AlphaSettings.symbol}&function=${AlphaSettings.theFunction}`, {
             "method": "GET",
             "headers": {
                 "x-rapidapi-key": process.env.REACT_APP_RAPID_API_DEV_MODE,
                 "x-rapidapi-host": "alpha-vantage.p.rapidapi.com"
             }
-        })
-        .then(response => {
-           return response.json
-
+        }).then(r => r.json())
+          .then(response => {
+           console.log(response)
+           return response
         })
         .catch(err => {
             console.error(err);
         });
     }
-
-
+    getMarketData();
+/* const func =  async () => {
+    const date = await getMarketData();
+    setMarketData(date);
+    
+}
     useEffect(()=>{ 
-        const date =  getMarcetData();
-        setMarcetData(date);
-        console.log(date[0])  
-    },[])
+        const a = func;
+        console.log(a())  
+          
+    },[]) */
 
     return (
-<h1></h1>
+    <h1>ttt</h1>
     );
 }
 
