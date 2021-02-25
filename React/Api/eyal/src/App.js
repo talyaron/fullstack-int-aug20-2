@@ -3,10 +3,7 @@ import GetData from './components/GetData';
 import './App.css';
 
 function App() {
- /*  const [Keys1, setkey] = useState({
-    rapidApi: `${process.env.REACT_APP_RAPID_API_DEV_MODE}`,
-    alpha: `${process.env.REACT_APP_Alpha_DEV_MODE}`,
-  }); */
+
 
 // eslint-disable-next-line
   const [AlphaSettings, setAlphaSettings] = useState({
@@ -14,11 +11,14 @@ function App() {
     symbol: `BTC`,
     theFunction: `DIGITAL_CURRENCY_DAILY`, /* DIGITAL_CURRENCY_MONTHLY , DIGITAL_CURRENCY_WEEKLY */
   });
+  const [MarcetData, setMarcetData] = useState([]);
 
   return (
     <div className="App">
       <GetData 
       AlphaSettings={AlphaSettings}
+      setMarcetData={setMarcetData}
+      MarcetData={MarcetData}
       />
 
     </div>

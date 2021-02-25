@@ -1,9 +1,11 @@
-import React, { useEffect } from 'react';
+import  { useEffect } from 'react';
 
-const GetData = ({market, symbol, theFunction }) => {
+const GetData = ({AlphaSettings,MarcetData,setMarcetData }) => {
 
-    useEffect(()=>{ 
-        fetch(`https://alpha-vantage.p.rapidapi.com/query?${market}=CNY&${symbol}=BTC&function=${theFunction}`, {
+    
+
+    const getMarcetData = async () =>{
+       await fetch(`https://alpha-vantage.p.rapidapi.com/query?market=${AlphaSettings.market}&symbol=${AlphaSettings.symbol}&function=${AlphaSettings.theFunction}`, {
             "method": "GET",
             "headers": {
                 "x-rapidapi-key": process.env.REACT_APP_RAPID_API_DEV_MODE,
@@ -11,17 +13,24 @@ const GetData = ({market, symbol, theFunction }) => {
             }
         })
         .then(response => {
-            console.log(response);
+           return response.json
+
         })
         .catch(err => {
             console.error(err);
         });
-    })
+    }
+
+
+    useEffect(()=>{ 
+        const date =  getMarcetData();
+        setMarcetData(date);
+        console.log(date[0])  
+    },[])
+
     return (
-        <div>
-            
-        </div>
-    )
+<h1></h1>
+    );
 }
 
 export default GetData
