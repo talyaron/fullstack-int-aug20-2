@@ -28,11 +28,7 @@ function App() {
       })
       
       )
-      // setTodosData(todosData.forEach(el => {
-      //   if (el.time == time){
-      //     setTimeout(el.completed == true, Date.now()-Date.parse(time))
-      //   }
-      // })) 
+      
      
      
 
