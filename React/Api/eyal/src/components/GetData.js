@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-
+/* http://recharts.org/en-US/examples */
 const GetData = ({ AlphaSettings, MarketData, setMarketData }) => {
   const getMarketData = async () => {
     var data1;
@@ -28,9 +28,25 @@ const GetData = ({ AlphaSettings, MarketData, setMarketData }) => {
   useEffect(() => {
     const callGetData = async () => {
       const MarketData1 = await getMarketData();
-      setMarketData(MarketData1)   
-      console.log(MarketData1)  
+      setMarketData(MarketData1);   
+      console.log(MarketData)  
+      
+// const modifaildData=  MarketData1.filter(object => object[1])
+/* for (let objProp in MarketData1 ){
+  console.log(objProp , MarketData1[objProp])  
+} */
+
     };
+
+
+/* 
+MarketData1.map(item =>{
+         return{
+            name:item[0]
+         }
+      })
+
+*/
 
     callGetData();
   }, []);

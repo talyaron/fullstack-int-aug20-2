@@ -11,7 +11,7 @@ function App() {
     symbol: `BTC`,
     theFunction: `DIGITAL_CURRENCY_DAILY` /* DIGITAL_CURRENCY_MONTHLY , DIGITAL_CURRENCY_WEEKLY */,
   });
-  const [MarketData, setMarketData] = useState([]);
+  const [MarketData, setMarketData] = useState();
 
   return (
     <div className="App">
