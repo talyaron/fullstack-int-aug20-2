@@ -48,7 +48,7 @@ body {
 }
 .App .movies .singleMovie img {
   width: 100%;
-  min-height: 450px;
+  min-height: 485px;
 }
 .App .moreInfoCard {
   padding: 0.5%;
