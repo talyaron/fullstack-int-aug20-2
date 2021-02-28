@@ -1,0 +1,39 @@
+.FoodItem {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 225px 1fr;
+    column-gap: 3%;
+    
+    &__img {
+        width: 100%;
+        border: 5px solid #c59d5f;
+        border-radius: 5px;
+        height: 15vh;
+    }
+    &__info {
+        padding: 0 0 0 4%;
+        margin: 0;
+    }
+    &__info--header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    &__info--header > h4 {
+        margin: 0;
+        font-size: 1.1rem;
+    }
+    &__info--Underline{
+        border-bottom: 1px solid grey;
+        margin-top: 1%;
+    }
+    &__info--h4Header{
+        color: #102a42;
+    }
+    &__info--h4Price {
+        color:#c59d5f;
+    }
+    &__info--p{
+        color:#617d98;
+    }
+}
