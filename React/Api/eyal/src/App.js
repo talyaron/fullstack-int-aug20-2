@@ -6,7 +6,7 @@ import './App.css';
 
 function App({marketData}) {
   // eslint-disable-next-line
-  const [AlphaSettings, SetAlphaSettings] = useState({
+  const [alphaSettings, setAlphaSettings] = useState({
     market: `ILS`,
     symbol: `BTC`,
     theFunction: `DIGITAL_CURRENCY_DAILY` /* DIGITAL_CURRENCY_MONTHLY , DIGITAL_CURRENCY_WEEKLY */,
@@ -17,7 +17,8 @@ function App({marketData}) {
     <div className="App">
       <Heder />
       <GetData
-        AlphaSettings={AlphaSettings}      
+        alphaSettings={alphaSettings} 
+        setAlphaSettings={setAlphaSettings}    
       />
 
      
