@@ -47,10 +47,11 @@ function App() {
 
 return (
     <div>
+      <h3>Task manager</h3>
         <form onSubmit={handleSubmit}>
-          <input type='text' name='newItem'></input>
-          <input type='datetime-local' name='time'></input>
-          <button>add</button>
+          <input className='newItem' type='text' name='newItem' placeholder='New task'></input>
+          <input className='time' type='datetime-local' name='time'></input>
+          <button className='addBtn'>add task</button>
         </form>
         
     </div>
@@ -73,9 +74,10 @@ return (
   console.log(<ToDoItem/>)
   return (
     <div className="App">
+      <div className='appWrapper'>
       <InputItems />
       {todoItems}
-       
+      </div>
     </div>
   );
 }
