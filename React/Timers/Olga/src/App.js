@@ -67,7 +67,7 @@ return (
       description={item.description}
       time={item.time}
       completed = {item.completed}/>
-      // handleChange ={()=> {getChange(item.id)}}/>
+   
       
     )
   })
