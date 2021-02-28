@@ -1,8 +1,13 @@
-import { useEffect } from 'react';
 /* http://recharts.org/en-US/examples */
-const GetData = ({ AlphaSettings, MarketData, setMarketData }) => {
+
+import React, { useState,useEffect } from 'react';
+import Chart from './Chart';
+const GetData = ({ AlphaSettings }) => {
+
+  const [marketData, setMarketData] = useState();
+
   const getMarketData = async () => {
-    var data1;
+    let data;
 
     await fetch(
       `https://alpha-vantage.p.rapidapi.com/query?market=${AlphaSettings.market}&symbol=${AlphaSettings.symbol}&function=${AlphaSettings.theFunction}`,
@@ -16,43 +21,27 @@ const GetData = ({ AlphaSettings, MarketData, setMarketData }) => {
     )
       .then((r) => r.json())
       .then((response) => {
-        data1 = response['Time Series (Digital Currency Daily)'];
+      //  const res = {...response};
+        data = response['Time Series (Digital Currency Daily)'];
       })
       .catch((err) => {
         console.error(err);
       });
     
-    return data1;
+    return data;
   };
 
   useEffect(() => {
     const callGetData = async () => {
-      const MarketData1 = await getMarketData();
-      setMarketData(MarketData1);   
-      console.log(MarketData)  
-      
-// const modifaildData=  MarketData1.filter(object => object[1])
-/* for (let objProp in MarketData1 ){
-  console.log(objProp , MarketData1[objProp])  
-} */
-
+      const data = await getMarketData();
+      setMarketData(data);   
     };
-
-
-/* 
-MarketData1.map(item =>{
-         return{
-            name:item[0]
-         }
-      })
-
-*/
-
     callGetData();
   }, []);
 
   return (
-      <></>
+  
+   <Chart marketData={marketData}/> 
   );
 };
 

@@ -6,22 +6,22 @@ import './App.css';
 
 function App() {
   // eslint-disable-next-line
-  const [AlphaSettings, setAlphaSettings] = useState({
+  const [AlphaSettings, SetAlphaSettings] = useState({
     market: `ILS`,
     symbol: `BTC`,
     theFunction: `DIGITAL_CURRENCY_DAILY` /* DIGITAL_CURRENCY_MONTHLY , DIGITAL_CURRENCY_WEEKLY */,
   });
-  const [MarketData, setMarketData] = useState();
-
+  
+  
   return (
     <div className="App">
       <GetData
         AlphaSettings={AlphaSettings}
-        setMarketData={setMarketData}
-        MarketData={MarketData}
+       /*  setMarketData={SetMarketData}
+        MarketData={MarketData} */
       />
       <Heder className="App-header"/>
-      <Chart  MarketData={MarketData} />
+      <Chart  />
     </div>
   );
 }
