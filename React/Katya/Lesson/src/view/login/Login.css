@@ -1,14 +1,14 @@
 form {
     display: flex;
     flex-direction: column;
-    background-color: red;
+    /* background-color: red; */
     padding: 5%;
     border-radius: 15px;
     border: none;
     margin-bottom: 5%;
 }
 
-input {
+.userAndPass {
     padding: 5%;
     margin: 2%;
     border-radius: 15px;
@@ -17,11 +17,17 @@ input {
     outline:none;
 }
 
-button {
+.buttonLogin {
     padding: 5%;
     margin: 2%;
     border-radius: 15px;
     border: none;
     font-size: 1.3rem;
     outline:none;
+}
+
+.inputColor {
+    width: 50%;
+    height: 5vh;
+    padding: 1%;
 }
