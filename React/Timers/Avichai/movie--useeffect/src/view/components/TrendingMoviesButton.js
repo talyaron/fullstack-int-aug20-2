@@ -1,6 +1,8 @@
 const TrendingMoviesButton = ({ setTrending, trendingMovies }) => {
     return (
-        <button onClick={() => setTrending(!trendingMovies)}>Trending Movies</button>
+        <div>
+                <button className='nav-link btn' onClick={() => setTrending(!trendingMovies)}>Trending</button>
+        </div>
     )
 }
 export default TrendingMoviesButton

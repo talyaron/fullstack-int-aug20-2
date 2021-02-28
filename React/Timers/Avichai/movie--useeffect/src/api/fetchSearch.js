@@ -12,7 +12,6 @@ const fetchMoviesBySearch = (setMovies, searchedMovies, setMoreInfo, setMoreInfo
     })
         .then(r => r.json())
         .then(response => {
-            console.log('fetch res')
             const results = response.Search
             renderFoundMovies(setMovies, results, setMoreInfo, setMoreInfoId, setDisplaySearch)
         })

@@ -1,9 +1,7 @@
 import renderMovies from '../view/components/renderMovies'
-let trendingMovies = []
-const fetchTrendingMovies = (setMovies, setDisplaySearch, setMoreInfo, setMoreInfoId) => {
-
-    console.log('in fetch trending')
-    fetch("https://movies-tvshows-data-imdb.p.rapidapi.com/?type=get-trending-movies&limit=10", {
+let upComingMovies = []
+const fetchUpComingMovies = (setMovies, setDisplaySearch, setMoreInfo, setMoreInfoId) => {
+    fetch("https://movies-tvshows-data-imdb.p.rapidapi.com/?type=get-upcoming-movies&page=1", {
         "method": "GET",
         "headers": {
             "x-rapidapi-key": "b409cd8af1mshbcaed3005a81a3bp157457jsnee4ece4ea8bd",
@@ -13,17 +11,16 @@ const fetchTrendingMovies = (setMovies, setDisplaySearch, setMoreInfo, setMoreIn
         .then(r => r.json())
         .then(response => {
             const results = response.movie_results
-            results.splice(results.length - 15);
-            trendingMovies = []
+            results.splice(results.length - 10);
+            upComingMovies = []
             setTimeout(() => {
                 results.forEach(movie => {
-                    fetchTreningMoviePoster(movie.imdb_id, setMovies, setDisplaySearch, setMoreInfo, setMoreInfoId)
+                    fetchUpComingMoviesPoster(movie.imdb_id, setMovies, setDisplaySearch, setMoreInfo, setMoreInfoId)
                 })
             }, 1000);
         })
 }
-
-const fetchTreningMoviePoster = async (movieId, setMovies, setDisplaySearch, setMoreInfo, setMoreInfoId) => {
+const fetchUpComingMoviesPoster = async (movieId, setMovies, setDisplaySearch, setMoreInfo, setMoreInfoId) => {
     await fetch(`https://movies-tvshows-data-imdb.p.rapidapi.com/?type=get-movies-images-by-imdb&imdb=${movieId}`, {
         "method": "GET",
         "headers": {
@@ -33,12 +30,11 @@ const fetchTreningMoviePoster = async (movieId, setMovies, setDisplaySearch, set
     })
         .then(r => r.json())
         .then(response => {
-            trendingMovies.push(response)
+            upComingMovies.push(response)
         })
 
-    if (trendingMovies.length === 5) {
-        renderMovies(setMovies, setDisplaySearch, setMoreInfo, setMoreInfoId, trendingMovies)
+    if (upComingMovies.length === 10) {
+        renderMovies(setMovies, setDisplaySearch, setMoreInfo, setMoreInfoId, upComingMovies)
     }
 }
-
-export default fetchTrendingMovies
+export default fetchUpComingMovies

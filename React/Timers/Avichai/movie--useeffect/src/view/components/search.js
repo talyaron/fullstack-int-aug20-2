@@ -1,7 +1,6 @@
 import fetchMoviesBySearch from '../../api/fetchSearch'
 
 const SearchBar = (props) => {
-    console.log('in search')
 
     const handleSearchMovie = (e) => {
         e.preventDefault()
@@ -11,8 +10,9 @@ const SearchBar = (props) => {
             props.setDisplaySearch(false)
             props.setMovies('')
             fetchMoviesBySearch(props.setMovies, searchedMovies, props.setMoreInfo, props.setMoreInfoId, props.setDisplaySearch)
-            props.setSearched(`You have searched: ${searchedMovies}`)
+            props.setSubTitle(`Movies that match: ${searchedMovies}`)
             props.setMoreInfo(false)
+            e.target.children.searchedMovie.placeholder = 'Movie'
             e.target.reset()
         } else {
             e.target.reset()
@@ -20,9 +20,9 @@ const SearchBar = (props) => {
         }
     }
     return (
-        <form onSubmit={handleSearchMovie}>
-            <input type='text' placeholder='Movie/Series' name='searchedMovie' />
-            <button>Search</button>
+        <form className="d-flex search" onSubmit={handleSearchMovie}>
+            <input className="form-control me-2" type="search" placeholder="Movie" aria-label="Search" name='searchedMovie' />
+            <button className="btn btn-outline-success" type="submit">Search</button>
         </form>
     )
 }

@@ -1,5 +1,5 @@
 const Movies = (props) => {    
-    return (<div>{props.foundMovies}</div>)
+    return (<div className='movies'>{props.foundMovies}</div>)
 }
 
 export default Movies

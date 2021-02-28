@@ -1,40 +1,79 @@
 import React, { useState, useEffect } from 'react';
-import SearchBar from './view/components/Search.js'
 import fetchTrendingMovies from './api/fetchTrending'
 import LoadingCircle from './view/components/LoadingCircle'
 import Movies from './view/components/Movies'
 import MovieMoreInfo from './view/components/MovieMoreInfo'
 import Title from './view/components/Title'
-import TrendingMoviesButton from './view/components/TrendingMoviesButton'
+import fetchUpComingMovies from './api/fetchUpComingMovies'
+import fetchPopularMovies from './api/fetchPopularMovies'
+import Navbar from './view/components/Navbar'
 
 function App() {
-  console.log('in app')
 
   const [foundMovies, setMovies] = useState('')
   const [displaySearch, setDisplaySearch] = useState(false)
-  const [searchedWord, setSearched] = useState('')
+  const [subTitle, setSubTitle] = useState('')
   const [showMoreInfo, setMoreInfo] = useState(false)
   const [moreInfoId, setMoreInfoId] = useState('')
   const [trendingMovies, setTrending] = useState(false)
+  const [upComingMovies, setUpComing] = useState(false)
+  const [popularMovies, setPopular] = useState(false)
+  const [firstRender, setFirstRender] = useState(true)
+
+
+  useEffect(() => {
+    setFirstRender(false)
+  }, [])
 
   useEffect(() => {
     setMovies('')
-    setSearched('')
+    setSubTitle('Trending Movies')
     setMoreInfo(false)
     setDisplaySearch(false)
     fetchTrendingMovies(setMovies, setDisplaySearch, setMoreInfo, setMoreInfoId)
   }, [trendingMovies])
 
+  useEffect(() => {
+    if (!firstRender) {
+      setMovies('')
+      setSubTitle('Up Coming Movies')
+      setMoreInfo(false)
+      setDisplaySearch(false)
+      fetchUpComingMovies(setMovies, setDisplaySearch, setMoreInfo, setMoreInfoId)
+    }
+  }, [upComingMovies])
+
+  useEffect(() => {
+    if (!firstRender) {
+      setMovies('')
+      setSubTitle('Popular Movies')
+      setMoreInfo(false)
+      setDisplaySearch(false)
+      fetchPopularMovies(setMovies, setDisplaySearch, setMoreInfo, setMoreInfoId)
+    }
+  }, [popularMovies])
+
   return (
     <div className="App">
       <Title />
-      <TrendingMoviesButton setTrending={setTrending} trendingMovies={trendingMovies} setSearched={setSearched} />
+      <Navbar
+        setTrending={setTrending}
+        trendingMovies={trendingMovies}
+        setMovies={setMovies}
+        popularMovies={popularMovies}
+        setPopular={setPopular}
+        setUpComing={setUpComing}
+        upComingMovies={upComingMovies}
+        setMoreInfo={setMoreInfo}
+        setMoreInfoId={setMoreInfoId}
+        setDisplaySearch={setDisplaySearch}
+        setSubTitle={setSubTitle}
+      />
       {
         displaySearch
           ?
           <div>
-            <SearchBar setMovies={setMovies} setMoreInfo={setMoreInfo} setMoreInfoId={setMoreInfoId} setDisplaySearch={setDisplaySearch} setSearched={setSearched} />
-            <div>{searchedWord}</div>
+            <h3 className='subTitle'>{subTitle}</h3>
           </div>
           :
           <LoadingCircle />
@@ -50,7 +89,7 @@ function App() {
             setMoreInfoId={setMoreInfoId}
           />
           :
-          <MovieMoreInfo moreInfoId={moreInfoId} setMoreInfo={setMoreInfo} showMoreInfo={showMoreInfo} />
+          <MovieMoreInfo moreInfoId={moreInfoId} setMoreInfo={setMoreInfo} showMoreInfo={showMoreInfo} setSubTitle={setSubTitle} />
       }
     </div>
   );
