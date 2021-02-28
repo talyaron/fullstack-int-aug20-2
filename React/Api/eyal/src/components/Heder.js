@@ -1,11 +1,11 @@
-import React from 'react'
+import React from "react";
 
 const Heder = () => {
-    return (
-        <>
-          <h1>BTC Exchange StokMarket</h1>          
-        </>
-    )
-}
+  return (
+    <div className="Header">
+      <h1>BTC Exchange StokMarket</h1>
+    </div>
+  );
+};
 
-export default Heder
+export default Heder;
