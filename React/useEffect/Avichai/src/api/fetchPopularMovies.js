@@ -20,7 +20,7 @@ const fetchPopularMovies = (setMovies, setDisplaySearch, setMoreInfo, setMoreInf
                 setTimeout(() => {
                     i++
                     fetchPopularMoviesPoster(movie.imdb_id, setMovies, setDisplaySearch, setMoreInfo, setMoreInfoId)
-                }, 100 + i);
+                }, 500);
             })
         })
 }
