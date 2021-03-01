@@ -1,20 +1,20 @@
 import React from "react";
 
 const SideBar = (props) => {
-  
-const setTheNewMarket = () => {
-  props.setAlphaSettings({
-    market: document.getElementById("forex").value,
-    symbol: `BTC`,
-    theFunction: `DIGITAL_CURRENCY_DAILY` /* DIGITAL_CURRENCY_MONTHLY , DIGITAL_CURRENCY_WEEKLY */,
-  })
-  console.log(props.alphaSettings.market);
-  
-}
+  const setTheNewMarket = () => {
+    props.setAlphaSettings({
+      market: document.getElementById("forex").value,
+      symbol: `BTC`,
+      theFunction: document.getElementById("TimeSeries").value /* DIGITAL_CURRENCY_MONTHLY , DIGITAL_CURRENCY_WEEKLY */,
+    });
+    console.log(props.alphaSettings.market);
+  };
+
+ 
 
   return (
     <div className="sidebar">
-      <form action="">
+      <form >
         <h1>Settings</h1>
         <div>
           <label htmlFor="forex">currency</label>
@@ -44,6 +44,7 @@ const setTheNewMarket = () => {
             </option>
           </select>
         </div>
+        
       </form>
     </div>
   );

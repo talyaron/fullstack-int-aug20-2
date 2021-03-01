@@ -12,8 +12,13 @@ import {
 
 const Chart = (props) => {
  
-  const renderLineChart = (
-   
+ const a1 = `1a. open (${props.alphaSettings.market})`;
+ const a2 = `2a. high (${props.alphaSettings.market})`;
+ const a3 = `3a. low (${props.alphaSettings.market})`;
+ const a4 = `4a. close (${props.alphaSettings.market})`;
+
+  return (
+  <div className="chart">
     <LineChart   
       width={1300}
       height={600}
@@ -25,15 +30,13 @@ const Chart = (props) => {
       <YAxis />
       <Tooltip />
       <Legend />
-      <Line type="monotone" dataKey="1a. open (ILS)" stroke="#8884d8" />
-      <Line type="monotone" dataKey="2a. high (ILS)" stroke="red" />
-      <Line type="monotone" dataKey="3a. low (ILS)" stroke="green" />
-      <Line type="monotone" dataKey="4a. close (ILS)" stroke="blue" />
+      <Line type="monotone" dataKey={a1} stroke="#8884d8" />
+      <Line type="monotone" dataKey={a2} stroke="red" />
+      <Line type="monotone" dataKey={a3} stroke="green" />
+      <Line type="monotone" dataKey={a4} stroke="blue" />
       <Line type="monotone" dataKey="5. volume" stroke="black" />
     </LineChart>
-    
-  );
-  return <div className="chart">{renderLineChart}</div>;
+  </div>);
 };
 
 export default Chart;

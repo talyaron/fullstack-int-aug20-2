@@ -1,16 +1,16 @@
 /* http://recharts.org/en-US/examples */
 
-import React, { useState, useEffect } from "react";
-import Chart from "./Chart";
-import SideBar from "./SideBar";
-const GetData = ({ alphaSettings, setAlphaSettings }) => {
-  const [marketData, setMarketData] = useState();
+import React, { useEffect } from "react";
+
+const GetData = (props) => {
+ 
+  
 
   const getMarketData = async () => {
     let data;
 
     await fetch(
-      `https://alpha-vantage.p.rapidapi.com/query?market=${alphaSettings.market}&symbol=${alphaSettings.symbol}&function=${alphaSettings.theFunction}`,
+      `https://alpha-vantage.p.rapidapi.com/query?market=${props.alphaSettings.market}&symbol=${props.alphaSettings.symbol}&function=${props.alphaSettings.theFunction}`,
       {
         method: "GET",
         headers: {
@@ -22,7 +22,11 @@ const GetData = ({ alphaSettings, setAlphaSettings }) => {
       .then((r) => r.json())
       .then((response) => {
         //  const res = {...response};
-        data = response["Time Series (Digital Currency Daily)"];
+        let fxFunction = props.alphaSettings.theFunction.replace(/_/g," ").toLowerCase();
+        fxFunction = fxFunction.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase());
+        const t = `Time Series (${fxFunction})`;
+        data = response[t];/* Time Series (Digital Currency Daily) */
+        
       })
       .catch((err) => {
         console.error(err);
@@ -50,19 +54,15 @@ const GetData = ({ alphaSettings, setAlphaSettings }) => {
       const finaleMarketData = finaleData.filter(
         (object) => object.name > "2021-01-01"
       );
-      setMarketData(finaleMarketData.sort().reverse());
+      props.setMarketData(finaleMarketData.sort().reverse());
       //console.log(finaleMarketData)
     };
     callGetData();
-  }, []);
+  }, [props.alphaSettings.market , props.alphaSettings.theFunction]);
 
   return (
     <>
-      <Chart marketData={marketData} />
-      <SideBar
-        alphaSettings={alphaSettings}
-        setAlphaSettings={setAlphaSettings}
-      />
+      
     </>
   );
 };
