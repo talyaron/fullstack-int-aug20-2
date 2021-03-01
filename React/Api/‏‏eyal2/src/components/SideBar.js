@@ -1,13 +1,14 @@
 import React from "react";
 
 const SideBar = (props) => {
+  
   const setTheNewMarket = () => {
     props.setAlphaSettings({
       market: document.getElementById("forex").value,
       symbol: `BTC`,
       theFunction: document.getElementById("TimeSeries").value /* DIGITAL_CURRENCY_MONTHLY , DIGITAL_CURRENCY_WEEKLY */,
     });
-    console.log(props.alphaSettings.market);
+   
   };
 
  
@@ -32,7 +33,7 @@ const SideBar = (props) => {
         </div>
         <div>
           <label htmlFor="TimeSeries">Time Series</label>
-          <select name="TimeSeries" id="TimeSeries">
+          <select name="TimeSeries" id="TimeSeries"  onChange={setTheNewMarket}>
             <option value="DIGITAL_CURRENCY_DAILY">
               Digital Currency Daily
             </option>

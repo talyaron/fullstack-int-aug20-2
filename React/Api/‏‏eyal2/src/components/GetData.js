@@ -58,7 +58,7 @@ const GetData = (props) => {
       //console.log(finaleMarketData)
     };
     callGetData();
-  }, [props.alphaSettings.market , props.alphaSettings.theFunction]);
+  }, [props.alphaSettings.theFunction, props.alphaSettings.market]);
 
   return (
     <>
