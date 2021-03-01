@@ -1,9 +1,9 @@
 import './Icon.scss';
 import React from 'react';
 
-function Icon(props) {
+function Icon({onMouseEnter,icon}) {
   return (
-      <div className='icon' onMouseEnter={props.onMouseEnter}>{props.icon}</div>
+      <div className='icon' onMouseEnter={onMouseEnter} >{icon}</div>
   )
 }
   

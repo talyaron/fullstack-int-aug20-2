@@ -7,10 +7,10 @@ import Icon from './view/components/Icon/Icon'
 
 function App() {
 
-  const [user, setuser] = useState()
+  const [user, setuser] = useState();
   const [userImg, setuserImg] = useState();
-  const [infoTitle, setinfoTitle] = useState('hjhc')
-  const [infoDetails, setinfoDetails] = useState('jhcj')
+  const [infoTitle, setinfoTitle] = useState();
+  const [infoDetails, setinfoDetails] = useState();
 
   useEffect(()  => {
     fetchMyAPI()
@@ -29,6 +29,8 @@ function App() {
   useEffect(()  => {
     if(user){
       setuserImg(user.results[0].picture.large)
+      setinfoTitle(`My name is`)
+      setinfoDetails(`${user.results[0].name.first} ${user.results[0].name.last}`)
     }
     // user?  setuserImg(user.results[0].picture.large): null;
   }, [user])
@@ -108,8 +110,8 @@ function App() {
             {
               icons.map((icon,index)=>{
                 return(
-                  <div key={index}>
-                        <Icon icon={icon} onMouseEnter={hadleChangeDetails}></Icon>
+                  <div key={index}  >
+                        <Icon icon={icon} onMouseEnter={hadleChangeDetails} ></Icon>
                   </div>
               
                 )
