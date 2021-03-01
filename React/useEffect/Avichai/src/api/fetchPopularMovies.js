@@ -15,10 +15,8 @@ const fetchPopularMovies = (setMovies, setDisplaySearch, setMoreInfo, setMoreInf
             const results = response.movie_results
             results.splice(results.length - 10);
             popularMovies = []
-            let i = 0
             results.forEach(movie => {
                 setTimeout(() => {
-                    i++
                     fetchPopularMoviesPoster(movie.imdb_id, setMovies, setDisplaySearch, setMoreInfo, setMoreInfoId)
                 }, 500);
             })

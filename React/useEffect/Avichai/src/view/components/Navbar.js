@@ -10,7 +10,7 @@ const Navbar = ({ setMovies, setTrending, trendingMovies, popularMovies, setPopu
     return (
         <div className='navbar navbar-expand-lg navbar-light bg-light'>
             <div className="container-fluid">
-                <a className="navbar-brand" href="#">Movies</a>
+                <button className="navbar-brand btn">Movies</button>
                 <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                     <li className="nav-item">
                         <TrendingMoviesButton setTrending={setTrending} trendingMovies={trendingMovies} />

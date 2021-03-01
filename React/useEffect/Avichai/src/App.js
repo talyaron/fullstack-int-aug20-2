@@ -43,7 +43,7 @@ function App() {
     }
   }, [upComingMovies])
 
-  useEffect(async () => {
+  useEffect(() => {
     if (!firstRender) {
       setMovies('')
       setSubTitle('Popular Movies')

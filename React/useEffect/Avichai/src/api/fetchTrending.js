@@ -2,7 +2,6 @@ import renderMovies from '../view/components/renderMovies'
 let trendingMovies = []
 const fetchTrendingMovies = (setMovies, setDisplaySearch, setMoreInfo, setMoreInfoId) => {
 
-    console.log('in fetch trending')
     fetch("https://movies-tvshows-data-imdb.p.rapidapi.com/?type=get-trending-movies&limit=10", {
         "method": "GET",
         "headers": {
