@@ -8,6 +8,8 @@ import "./App.css";
 
 function App() {
   const [marketData, setMarketData] = useState();
+  const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date());
   // eslint-disable-next-line
   const [alphaSettings, setAlphaSettings] = useState({
     market: `ILS`,

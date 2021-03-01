@@ -64,3 +64,6 @@ body {
   .sidebar div select{
    width: 100%;
   }
+  .sidebar .dateSection {
+    border: 2px solid black;
+  }
