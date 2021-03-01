@@ -1,4 +1,4 @@
-const renderMoreInfoMovie = (movieInfo, movieImg, setMovieInfo, setMoreInfo) => {
+const renderMoreInfoMovie = (movieInfo, movieImg, setMovieInfo, setMoreInfo, movieId) => {
 
     const handleCloseMoreInfo = () => {
         setMoreInfo(false)
@@ -6,6 +6,9 @@ const renderMoreInfoMovie = (movieInfo, movieImg, setMovieInfo, setMoreInfo) => 
     }
 
     if (movieInfo.rated === null) {
+
+        let IMDbLink = `https://www.imdb.com/title/${movieId}/`
+
         setMovieInfo(
             <div className="card moreInfoCard">
                 <div className='row'>
@@ -16,6 +19,7 @@ const renderMoreInfoMovie = (movieInfo, movieImg, setMovieInfo, setMoreInfo) => 
                         <div className="card-body">
                             <h3 className="card-title">Sorry!</h3>
                             <p className="card-text">We dont have information about this movie!</p>
+                            <p className="card-text"> <a target="-no-target-blank" className='btn btn-primary' href={IMDbLink}>IMDb Page</a></p>
                             <button className='btn btn-primary' onClick={handleCloseMoreInfo}>Close</button>
                         </div>
                     </div>

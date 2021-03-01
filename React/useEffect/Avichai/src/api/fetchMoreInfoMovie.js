@@ -11,7 +11,6 @@ const fetchMoreInfoMovie = (movieId, setMovieInfo, setMoreInfo) => {
         .then(r => r.json())
         .then(response => {
             fetchMoreInfoMoviePoster(movieId, response, setMovieInfo, setMoreInfo)
-            renderMoreInfoMovie(response, setMovieInfo, setMoreInfo)
         })
 }
 const fetchMoreInfoMoviePoster = (movieId, movieInfo, setMovieInfo, setMoreInfo) => {
@@ -25,7 +24,7 @@ const fetchMoreInfoMoviePoster = (movieId, movieInfo, setMovieInfo, setMoreInfo)
         .then(r => r.json())
         .then(response => {
             const movieImg = response.poster
-            renderMoreInfoMovie(movieInfo,movieImg, setMovieInfo, setMoreInfo)
+            renderMoreInfoMovie(movieInfo, movieImg, setMovieInfo, setMoreInfo, movieId)
 
         })
 }
