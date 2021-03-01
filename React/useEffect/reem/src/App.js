@@ -23,6 +23,7 @@ function App() {
   async function fetchMyAPI() {
     let response = await fetch('https://randomuser.me/api/')
     response = await response.json()
+    console.log(response)
     setuser(response)
   }
 
@@ -35,7 +36,7 @@ function App() {
 
   function hadleChangeDetails(e){
     let infoCategory = e.target.id;
-    console.log({infoCategory})
+    console.log('infoCategory',infoCategory)
     let userFirstName = (user.results[0].name.first)
     let userLastName = (user.results[0].name.last)
     let userEmail = (user.results[0].email)
