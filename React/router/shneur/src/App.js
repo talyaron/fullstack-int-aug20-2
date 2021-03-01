@@ -1,22 +1,13 @@
-<<<<<<< HEAD
 import React from "react";
-import 
-=======
-import React, { useEffect, useState } from "react";
->>>>>>> tal
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link,
-  useParams,
-  useHistory
+  useParams
 } from "react-router-dom";
 
 export default function App() {
-
-  const [counter, setCounter] = useState(1);
-
   return (
     <Router>
       <div>
@@ -37,18 +28,18 @@ export default function App() {
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
-
+        
           <Route path="/about">
             <About />
           </Route>
           <Route path="/users">
-            <Users counter={counter} setCounter={setCounter}/>
+            <Users />
           </Route>
           <Route path="/user/:id">
             <User />
           </Route>
           <Route path="/">
-            <Home counter={counter} />
+            <Home />
           </Route>
         </Switch>
       </div>
@@ -56,42 +47,22 @@ export default function App() {
   );
 }
 
-function Home({counter}) {
+function Home() {
   return (
-    <div>
-      <h2>Home</h2>
-      <h3>number of users: {counter}</h3>
-      <Link to='/about'>About</Link>
-      <br />
-      <a href='/about'>About 2</a>
-    </div>);
+  <div>
+    <h2>Home</h2>
+    <Link to='/about'>About</Link>
+    <br />
+    <a href='/about'>About 2</a>
+  </div>);
 }
 
 function About() {
-  const history = useHistory();
-
-  useEffect(() => {
-    fetch('https://jsonplaceholder.typicode.com/todos/1')
-      .then(response => response.json())
-      .then(json => {
-        console.log(json);
-        history.push(`/user/${json.userId}`)
-      })
-  }, [])
   return <h2>About</h2>;
 }
 
-function Users({counter,setCounter}) {
-  
-  function handleCounter(){
-    setCounter(counter+1);
-  }
-  return (
-    <div>
-      <h2>Users {counter}</h2>
-      <button onClick={handleCounter}>Add</button>
-    </div>
-  );
+function Users() {
+  return <h2>Users</h2>;
 }
 
 function User(props) {
