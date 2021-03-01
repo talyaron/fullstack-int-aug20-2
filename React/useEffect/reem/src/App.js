@@ -72,7 +72,8 @@ function App() {
 
    
   }
-  return (
+  return (\
+    
     <div className="App">
       <div className='background'></div>
       <div className='card'>
