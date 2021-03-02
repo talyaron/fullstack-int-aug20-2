@@ -42,6 +42,7 @@ ul.piano {
   background: #eee;
   background: linear-gradient(45deg, #ddc, #ddd);
   box-shadow: 0 4px 3px -3px black;
+  box-shadow: inset 2px 0px 3px -1px rgba(0,0,0,0.61);
 }
 
 li.b:after {

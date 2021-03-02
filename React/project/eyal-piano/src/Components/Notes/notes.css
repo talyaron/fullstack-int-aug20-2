@@ -6,7 +6,7 @@ div{
     background-color: #ffffff;
     grid-row: 1;
     grid-column: 1;
-    height: 100%;
+    
     width: 100%;
     justify-self: center;
 }
