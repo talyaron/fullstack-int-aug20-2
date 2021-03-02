@@ -5,9 +5,11 @@ import Notes from "./Components/Notes/Notes";
 function App() {
   return (
     <div className="screan">
-      <div className="tavim"></div>
-      <Notes/>
-    {/*   <KeyBord /> */}
+      <div className="tavim">
+        <Notes/>
+      </div>
+      
+      <KeyBord />
     </div>
   );
 }

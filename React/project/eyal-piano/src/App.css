@@ -18,10 +18,7 @@ body {
 }
 .screan{
   display:grid;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 1fr 2fr;
   grid-template-columns: 1fr;
 }
-.tavim{
-  grid-row: 1;
-  grid-column: 1; 
-}
+
