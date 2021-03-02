@@ -1,0 +1,339 @@
+body {
+    overflow-x: hidden;
+  }
+  
+  .wrapper {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .sheet-music {
+    width: 100%;
+    display: block;
+  
+    &__staff {
+      & {
+        list-style: none;
+        padding: 0;
+        width: 100%;
+        display: block;
+        position: relative;
+      }
+  
+      li {
+        display: block;
+        border-bottom: 2px solid #c8c8c8;
+        padding-top: 23px;
+      }
+    }
+  
+    &__items {
+      position: relative;
+      top: -110px;
+  
+      display: flex;
+      flex-flow: row nowrap;
+  
+      .treble {
+        width: 5%;
+  
+        img {
+          max-height: 100px;
+        }
+      }
+  
+      .notes {
+        & {
+          width: 95%;
+          //animation: moveLeft 20s linear 2s alternate;
+          //-webkit-animation-fill-mode: forwards;
+  
+          display: flex;
+          flex-flow: row nowrap;
+        }
+  
+        &__measure {
+          & {
+            border-left: 2px solid #c8c8c8;
+            padding: 0 $padding-lg;
+            opacity: 0;
+  
+            display: flex;
+            flex-flow: row nowrap;
+  
+            animation: display 1s linear 1s alternate;
+            -webkit-animation-fill-mode: forwards;
+          }
+  
+          &:nth-child(1) {
+            animation: display 1s linear 1s alternate;
+            -webkit-animation-fill-mode: forwards;
+  
+            i {
+              animation: display 1s linear 2s alternate;
+              -webkit-animation-fill-mode: forwards;
+  
+              &:nth-child(2) {
+                animation: display 1s linear 2.25s alternate;
+                -webkit-animation-fill-mode: forwards;
+              }
+  
+              &:nth-child(3) {
+                animation: display 1s linear 2.5s alternate;
+                -webkit-animation-fill-mode: forwards;
+              }
+  
+              &:nth-child(4) {
+                animation: display 1s linear 2.75s alternate;
+                -webkit-animation-fill-mode: forwards;
+              }
+            }
+          }
+  
+          &:nth-child(2) {
+            animation: display 1s linear 3s alternate;
+            -webkit-animation-fill-mode: forwards;
+  
+            i {
+              animation: display 1s linear 3.25s alternate;
+              -webkit-animation-fill-mode: forwards;
+  
+              &:nth-child(2) {
+                animation: display 1s linear 3.5s alternate;
+                -webkit-animation-fill-mode: forwards;
+              }
+  
+              &:nth-child(3) {
+                animation: display 1s linear 3.75s alternate;
+                -webkit-animation-fill-mode: forwards;
+              }
+  
+              &:nth-child(4) {
+                animation: display 1s linear 4s alternate;
+                -webkit-animation-fill-mode: forwards;
+              }
+            }
+          }
+  
+          &:nth-child(3) {
+            animation: display 1s linear 4.25s alternate;
+            -webkit-animation-fill-mode: forwards;
+  
+            i {
+              animation: display 1s linear 4.5s alternate;
+              -webkit-animation-fill-mode: forwards;
+  
+              &:nth-child(2) {
+                animation: display 1s linear 4.75s alternate;
+                -webkit-animation-fill-mode: forwards;
+              }
+  
+              &:nth-child(3) {
+                animation: display 1s linear 5s alternate;
+                -webkit-animation-fill-mode: forwards;
+              }
+  
+              &:nth-child(4) {
+                animation: display 1s linear 5.25s alternate;
+                -webkit-animation-fill-mode: forwards;
+              }
+            }
+          }
+  
+          &:nth-child(4) {
+            animation: display 1s linear 5.5s alternate;
+            -webkit-animation-fill-mode: forwards;
+  
+            i {
+              animation: display 1s linear 5.75s alternate;
+              -webkit-animation-fill-mode: forwards;
+  
+              &:nth-child(2) {
+                animation: display 1s linear 6s alternate;
+                -webkit-animation-fill-mode: forwards;
+              }
+  
+              &:nth-child(3) {
+                animation: display 1s linear 6.25s alternate;
+                -webkit-animation-fill-mode: forwards;
+              }
+  
+              &:nth-child(4) {
+                animation: display 1s linear 6.5s alternate;
+                -webkit-animation-fill-mode: forwards;
+              }
+            }
+          }
+  
+          &:nth-child(5) {
+            animation: display 1s linear 6.75s alternate;
+            -webkit-animation-fill-mode: forwards;
+  
+            i {
+              animation: display 1s linear 7s alternate;
+              -webkit-animation-fill-mode: forwards;
+  
+              &:nth-child(2) {
+                animation: display 1s linear 7.25s alternate;
+                -webkit-animation-fill-mode: forwards;
+              }
+  
+              &:nth-child(3) {
+                animation: display 1s linear 7.5s alternate;
+                -webkit-animation-fill-mode: forwards;
+              }
+  
+              &:nth-child(4) {
+                animation: display 1s linear 7.75s alternate;
+                -webkit-animation-fill-mode: forwards;
+              }
+            }
+          }
+  
+          &:nth-child(6) {
+            animation: display 1s linear 8s alternate;
+            -webkit-animation-fill-mode: forwards;
+  
+            i {
+              animation: display 1s linear 8.25s alternate;
+              -webkit-animation-fill-mode: forwards;
+  
+              &:nth-child(2) {
+                animation: display 1s linear 8.5s alternate;
+                -webkit-animation-fill-mode: forwards;
+              }
+  
+              &:nth-child(3) {
+                animation: display 1s linear 8.75s alternate;
+                -webkit-animation-fill-mode: forwards;
+              }
+  
+              &:nth-child(4) {
+                animation: display 1s linear 9s alternate;
+                -webkit-animation-fill-mode: forwards;
+              }
+            }
+          }
+  
+          &:nth-child(7) {
+            animation: display 1s linear 9.25s alternate;
+            -webkit-animation-fill-mode: forwards;
+  
+            i {
+              animation: display 1s linear 9.5s alternate;
+              -webkit-animation-fill-mode: forwards;
+  
+              &:nth-child(2) {
+                animation: display 1s linear 9.75s alternate;
+                -webkit-animation-fill-mode: forwards;
+              }
+  
+              &:nth-child(3) {
+                animation: display 1s linear 10s alternate;
+                -webkit-animation-fill-mode: forwards;
+              }
+  
+              &:nth-child(4) {
+                animation: display 1s linear 10.25s alternate;
+                -webkit-animation-fill-mode: forwards;
+              }
+            }
+          }
+  
+          &:nth-child(8) {
+            animation: display 1s linear 10.5s alternate;
+            -webkit-animation-fill-mode: forwards;
+  
+            i {
+              animation: display 1s linear 10.75s alternate;
+              -webkit-animation-fill-mode: forwards;
+  
+              &:nth-child(2) {
+                animation: display 1s linear 11s alternate;
+                -webkit-animation-fill-mode: forwards;
+              }
+  
+              &:nth-child(3) {
+                animation: display 1s linear 11.25s alternate;
+                -webkit-animation-fill-mode: forwards;
+              }
+  
+              &:nth-child(4) {
+                animation: display 1s linear 11.5s alternate;
+                -webkit-animation-fill-mode: forwards;
+              }
+            }
+          }
+        }
+  
+        i {
+          margin-right: $margin-lg;
+          font-size: 56px;
+          position: relative;
+          opacity: 0;
+  
+          &:last-child {
+            margin-right: 0;
+          }
+        }
+  
+        i.ion-ios-musical-notes {
+          //-ms-transform: rotate(-7deg); /* IE 9 */
+          //-webkit-transform: rotate(-7deg); /* Chrome, Safari, Opera */
+          //transform: rotate(-7deg);
+        }
+  
+        .note--e {
+          top: 27px;
+        }
+  
+        .note--g {
+          top: 7px;
+        }
+  
+        .note--a {
+          top: -1px;
+        }
+  
+        .note--b {
+          top: -13px;
+        }
+  
+        .note--d {
+          top: -33px;
+        }
+      }
+    }
+  }
+  
+  @keyframes display {
+    transition: all 2s ease-in-out;
+    -webkit-transition: all 2s ease-in-out; /** Chrome & Safari **/
+    -moz-transition: all 2s ease-in-out; /** Firefox **/
+    -o-transition: all 2s ease-in-out; /** Opera **/
+  
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes moveLeft {
+    transition: all 2s ease-in-out;
+    -webkit-transition: all 2s ease-in-out; /** Chrome & Safari **/
+    -moz-transition: all 2s ease-in-out; /** Firefox **/
+    -o-transition: all 2s ease-in-out; /** Opera **/
+  
+    from {
+      transform: translate(-3350px, 0);
+    }
+    to {
+      transform: translate(-3350px, 0);
+    }
+  }
+  
