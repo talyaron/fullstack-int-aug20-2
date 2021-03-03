@@ -1,10 +1,19 @@
 import React from 'react'
 import "./keybord.css";
-
+window.addEventListener("keypress", event => {
+  console.log(event)
+  // do something
+});
 const KeyBord = () => {
+  
+  const handelClick = (e) =>{
+    const key = e.target;
+    console.log(key)
+  }
+
     return (
-        <span>
-        <ul className="piano">
+        <span >
+        <ul className="piano" >
           <li className="b">
             <div>c</div>
           </li>
