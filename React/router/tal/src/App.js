@@ -1,6 +1,10 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import React from "react";
 import 
+=======
+import React, { useEffect, useState } from "react";
+>>>>>>> tal
 =======
 import React, { useEffect, useState } from "react";
 >>>>>>> tal
