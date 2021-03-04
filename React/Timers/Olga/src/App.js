@@ -28,11 +28,7 @@ function App() {
       })
       
       )
-      // setTodosData(todosData.forEach(el => {
-      //   if (el.time == time){
-      //     setTimeout(el.completed == true, Date.now()-Date.parse(time))
-      //   }
-      // })) 
+      
      
      
 
@@ -51,10 +47,11 @@ function App() {
 
 return (
     <div>
+      <h3>Task manager</h3>
         <form onSubmit={handleSubmit}>
-          <input type='text' name='newItem'></input>
-          <input type='datetime-local' name='time'></input>
-          <button>add</button>
+          <input className='newItem' type='text' name='newItem' placeholder='New task'></input>
+          <input className='time' type='datetime-local' name='time'></input>
+          <button className='addBtn'>add task</button>
         </form>
         
     </div>
@@ -70,16 +67,17 @@ return (
       description={item.description}
       time={item.time}
       completed = {item.completed}/>
-      // handleChange ={()=> {getChange(item.id)}}/>
+   
       
     )
   })
   console.log(<ToDoItem/>)
   return (
     <div className="App">
+      <div className='appWrapper'>
       <InputItems />
       {todoItems}
-       
+      </div>
     </div>
   );
 }
