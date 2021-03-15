@@ -25,8 +25,17 @@ function App() {
           time: time,
           completed: false
 
-      }))
+      })
       
+      )
+      // setTodosData(todosData.forEach(el => {
+      //   if (el.time == time){
+      //     setTimeout(el.completed == true, Date.now()-Date.parse(time))
+      //   }
+      // })) 
+     
+     
+
         console.log(todosData)
         let currentTime = Date.now()
         console.log(currentTime);
@@ -34,10 +43,12 @@ function App() {
         console.log(times)
         console.log(times - currentTime)
         
-        // e.target.reset();
+        
     
     }
    
+    
+
 return (
     <div>
         <form onSubmit={handleSubmit}>

@@ -26,7 +26,6 @@ function SingleReminder(props) {
             setExpiredLine(true)
         }
     }
-
     setInterval(() => {
         checkIfExpired()
     }, 3000);
