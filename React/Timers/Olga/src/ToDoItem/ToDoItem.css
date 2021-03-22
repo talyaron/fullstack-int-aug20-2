@@ -2,5 +2,17 @@
     color:red;
 }
 .todo_item.comleted {
-    color: blue;
+    color: rgb(0, 0, 0);
+}
+.description__wrapper{
+    width: 80%;
+    margin: auto;
+  
+}
+.choosenTime{
+    float: right;
+    margin-right: 10%;
+}
+.todo_item, .todo_item.comleted{
+    float: left;
 }
