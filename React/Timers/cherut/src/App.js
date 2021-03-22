@@ -8,7 +8,7 @@ function App() {
 
   const [reminders, setReminders] = useState([]);
   // const [timePassed, settimePassed] = useState(false)
-  const [currentTime, setcurrentTime] = useState({})
+  const [currentTime, setcurrentTime] = useState()
 
   // let reminderTime,reminderName;
 
@@ -34,7 +34,8 @@ function App() {
 
   return (
     <div className="App">
-      <h1>you can set reminders and when their time will come (in minutes) the reminder will colored in red</h1>
+      <h1>Reminder</h1>
+      {/* <h1>you can set reminders and when their time will come (in minutes) the reminder will colored in red</h1> */}
       <form onSubmit={handleSetReminder}>
         <input type='text' name='reminderName' placeholder='Enter reminder'/>
         <input type='time' name='reminderTime' />
