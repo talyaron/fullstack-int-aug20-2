@@ -1,0 +1,67 @@
+span {
+  grid-row: 2;
+  grid-column: 1;
+}
+ul {
+}
+ul.piano {
+  list-style: none;
+  margin-bottom: 10px;
+  padding: 0;
+  position: absolute;
+  width: 104%;
+  height: 50%;
+  bottom: 1%;
+
+
+}
+
+.piano li {
+  position: relative;
+  display: inline-block;
+  width: 6.67%;
+  height: 100%;
+  margin-right: -5px;
+}
+
+.piano div {
+  width: 100%;
+  height: 100%;
+  background: #ffc;
+  background: linear-gradient(45deg, #ffe, #fff);
+  color: #000;
+  display: block;
+  text-align: center;
+  border: 1px solid #876;
+  cursor: pointer;
+  border-radius: 0 0 4px 4px;
+  box-shadow: 0 8px 6px -6px black;
+}
+
+.piano div:active {
+  background: #eee;
+  background: linear-gradient(45deg, #ddc, #ddd);
+  box-shadow: 0 4px 3px -3px black;
+  box-shadow: inset 2px 0px 3px -1px rgba(0,0,0,0.61);
+}
+
+li.b:after {
+  cursor: pointer;
+  position: absolute;
+  top: 0px;
+  z-index: 10;
+  left: 75%;
+  width: 50%;
+  height: 66%;
+  background: #332;
+  background: linear-gradient(225deg, #332, #000);
+  content: "";
+  border-radius: 0 0 4px 4px;
+  box-shadow: 0 8px 6px -6px black;
+}
+
+li.b:active:after {
+  height: 66.2%;
+  background: linear-gradient(225deg, #332, rgb(70, 64, 64));
+  box-shadow: 0 4px 3px -3px black;
+}
