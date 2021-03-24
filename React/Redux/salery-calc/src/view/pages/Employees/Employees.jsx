@@ -16,11 +16,14 @@ const Employees = () => {
     const employees = useSelector(state => state.employeesReducer.employees);
     console.log(employees)
     
+    
 
     return (
         <div>
-            <InputName />
-            {employees.map(({id, employeeName})=><p key={id}><Link to={id}>{employeeName}</Link></p>)}
+            <h1>useless stuff to help us understand Redux</h1>
+
+            <InputName />            
+            {employees.map(({id, employeeName,salery})=><p key={id}><Link to={id}>{employeeName}</Link> {salery?salery:''} </p>)}
         </div>
     )
 }
