@@ -20,7 +20,7 @@ let {id} = useParams();
         dispatch(addEmployee(employeeName))
     } */
     return (
-        {console.log(id)}
+        
         <form className='inputType' onSubmit={handleSubmit}>
             <input type='text' placeholder='Enter emploee name' name='employeeName' />
             <button type='submit'>ADD</button>
