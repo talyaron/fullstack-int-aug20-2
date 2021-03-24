@@ -3,7 +3,8 @@ import { useDispatch } from 'react-redux';
 
 //actions;
 import { addEmployee } from '../../../../redux/employees/employessActions'
-
+/* import { addEmployee } from '@redux/employees/employessActions' */
+/* ../../../../redux */
 
 const InputName = props => {
 
@@ -19,7 +20,7 @@ const InputName = props => {
     }
     return (
         <form className='inputType' onSubmit={handleSubmit}>
-            <input type='text' placeholder='Enter emploee name' name='employeeName' />
+            <input type='text' placeholder='Enter employee name' name='employeeName' />
             <button type='submit'>ADD</button>
         </form>
     )

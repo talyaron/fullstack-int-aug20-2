@@ -10,9 +10,10 @@ import {
 
 import './App.scss'
 
-//components
+//components`
 import Employees from './view/pages/Employees/Employees';
 import Calc from './view/pages/Calc/Calc';
+import InputName from "./view/pages/Employees/InputName/InputName";
 
 export default function App() {
   return (
@@ -37,9 +38,15 @@ export default function App() {
             <Calc />
           </Route>
           <Route path="/">
-            <Employees />
+          <InputName />
+            <ul>
+              <Employees />
+            </ul>
+            
           </Route>
-          
+          <Route path="/calc-salary">
+          <Calc />
+          </Route>
         </Switch>
       </div>
     </Router>
