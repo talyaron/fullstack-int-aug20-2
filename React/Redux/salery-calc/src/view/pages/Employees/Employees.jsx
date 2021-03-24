@@ -1,6 +1,8 @@
 import React from "react";
 import {useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import {useHistory} from "react-router-dom"; 
+
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 //components
 
@@ -9,6 +11,7 @@ import { Link } from "react-router-dom";
 import {DeleteEmployee } from '../../../redux/employees/employessActions'
 
 const Employees = () => {
+  const history = useHistory();
   const employees = useSelector((state) => state.employeesReducer.employees);
   const dispatch = useDispatch();
   /* console.log(employees); */
@@ -25,10 +28,11 @@ const id = e.target.parentElement.childNodes[0].id;
     <>
      {employees.map(({ index,id, employeeName }) => (
           <li>
-        <Link to={`/calc-salary/${id}`} id={id} key={index}>
+           
+        <Link to={`/EmployeeData/${id}`} id={id} key={index}>
           {employeeName}
         </Link>
-        <span to={`/calc-salary/id:${id}`} onClick={handleDelete}> Delete</span>
+        <span to={`/EmployeeData/id:${id}`} onClick={handleDelete}> Delete</span>
         </li>
       ))}
     
@@ -39,3 +43,9 @@ const id = e.target.parentElement.childNodes[0].id;
 };
 
 export default Employees;
+
+/* listRestaurant.map((elm) => (
+           <div className="restaurant-grid"
+              onClick={() => history.push(`/RestaurantMenu/${elm.Name}`)}
+              key={elm.Name}>
+ */
