@@ -6,3 +6,9 @@ export const addTodo = (todoMsg) => ({
         todoMsg
     }
 })
+export const deleteTodo = (id) => ({
+    type: "DELETE_TASK",
+    payload: {
+        id
+    }
+})
