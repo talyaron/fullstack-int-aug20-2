@@ -6,7 +6,8 @@ import "./App.scss";
 //components`
 import Employees from "./view/pages/Employees/Employees";
 import EmployeeData from "./view/pages/Employees/EmployeeData";
-import InputName from "./view/pages/Employees/InputName/InputName";
+
+
 
 export default function App() {
   return (
@@ -20,10 +21,10 @@ export default function App() {
             renders the first one that matches the current URL. */}
         <Switch>
           <Route exact path="/">
-            <InputName />
-            <ul>
+           
+           
               <Employees />
-            </ul>
+          
           </Route>
           <Route path="/EmployeeData">
             <EmployeeData />

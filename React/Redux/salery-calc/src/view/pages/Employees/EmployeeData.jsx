@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 
 const EmployeeData = (props) => { 
     let {id} = useParams();  
+    console.log(id)
     const employees = useSelector((state) => state.employeesReducer.employees);
     const theEmployeeName = employees[0].employeeName.toUpperCase()
 

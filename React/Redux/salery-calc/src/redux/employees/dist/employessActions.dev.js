@@ -25,12 +25,6 @@ var DeleteEmployee = function DeleteEmployee(id) {
     payload: id
   };
 };
-/* type: DELETE_EMPLOYEE,
-payload: {
-    employeeName,
-    id:'id' + (new Date()).getTime()
-} */
-
 
 exports.DeleteEmployee = DeleteEmployee;
 

@@ -19,8 +19,9 @@ const InputName = props => {
         dispatch(addEmployee(employeeName))
     }
     return (
-        <form className='inputType' onSubmit={handleSubmit}>
-            <input type='text' placeholder='Enter employee name' name='employeeName' />
+        <form className='inputType' onSubmit={handleSubmit} style={{"display": "flex",flexDirection:"column", margin:"0 10% 0 10%"}}>
+            <label htmlFor="employeeName">Enter Employee Name</label>
+            <input type='text' placeholder='Enter employee name' name='employeeName' id='employeeName' />
             <button type='submit'>ADD</button>
         </form>
     )
