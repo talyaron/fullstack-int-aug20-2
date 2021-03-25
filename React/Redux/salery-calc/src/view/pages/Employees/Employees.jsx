@@ -9,19 +9,25 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 //actions;
 import {DeleteEmployee } from '../../../redux/employees/employessActions'
+import {CurrentEmploy } from '../../../redux/employees/employessActions'
 
 const Employees = () => {
-  const history = useHistory();
+
   const employees = useSelector((state) => state.employeesReducer.employees);
   const dispatch = useDispatch();
   /* console.log(employees); */
   
 
-  function handleDelete(e) {  
+  const handleDelete = (e) => {  
 const id = e.target.parentElement.childNodes[0].id;
       //set to redux
       dispatch(DeleteEmployee(id))
   }
+
+const setCurrentEmploy = (e) => {
+  const id = e.target.parentElement.childNodes[0].id;
+  dispatch(CurrentEmploy(id))
+}
 
   return (
     
@@ -29,7 +35,7 @@ const id = e.target.parentElement.childNodes[0].id;
      {employees.map(({ index,id, employeeName }) => (
           <li>
            
-        <Link to={`/EmployeeData/${id}`} id={id} key={index}>
+        <Link to={`/EmployeeData/`} onClick={setCurrentEmploy} id={id} key={index}>
           {employeeName}
         </Link>
         <span to={`/EmployeeData/id:${id}`} onClick={handleDelete}> Delete</span>

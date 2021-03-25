@@ -47,6 +47,15 @@ var employeesReducer = function employeesReducer() {
         });
       }
 
+    case _actionTypes.SELECTED_EMPLOYEE:
+      {
+        return _objectSpread({}, state, {
+          employees: state.employees.filter(function (i) {
+            return i.id === action.payload;
+          })
+        });
+      }
+
     default:
       {
         return state;

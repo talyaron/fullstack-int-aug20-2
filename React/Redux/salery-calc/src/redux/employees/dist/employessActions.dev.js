@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.DeleteEmployee = exports.addEmployee = void 0;
+exports.CurrentEmploy = exports.DeleteEmployee = exports.addEmployee = void 0;
 
 var _actionTypes = require("../actionTypes");
 
@@ -31,13 +31,14 @@ payload: {
     id:'id' + (new Date()).getTime()
 } */
 
-/* export const addEmployee = employeeName => ({
-    type: ADD_EMPLOYEE,
-    payload: {
-        employeeName,
-        id:'id' + (new Date()).getTime()
-    }
-}) */
-
 
 exports.DeleteEmployee = DeleteEmployee;
+
+var CurrentEmploy = function CurrentEmploy(id) {
+  return {
+    type: _actionTypes.SELECTED_EMPLOYEE,
+    payload: id
+  };
+};
+
+exports.CurrentEmploy = CurrentEmploy;

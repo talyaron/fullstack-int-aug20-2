@@ -12,11 +12,14 @@ export default function App() {
   return (
     <Router>
       <div>
+      <Link to="/">
+        <input type="button" value="<--" to="/" style={{backgroundColor:"black", color:"white"}}/>
+        </Link>
         <h1>Calc Salary</h1>
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
-          <Route path="/">
+          <Route exact path="/">
             <InputName />
             <ul>
               <Employees />
