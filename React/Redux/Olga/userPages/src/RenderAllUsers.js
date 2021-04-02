@@ -7,14 +7,17 @@ const RenderAllUsers = () =>{
 
     return (
         <div>
- <Link to={'/user/{user.id}'}>
+
           {users.map(user => 
+          
+           <Link to={`/user/${user.id}`}>
           <p key={user.id}>
               <h3>{user.userName}</h3>
               <img src={user.urlImage}/>
-          </p>)
+          </p>
+          </Link>)
           }
-    </Link>
+   
 
         </div>
     )

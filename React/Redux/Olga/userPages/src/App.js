@@ -10,6 +10,7 @@ import {
   useHistory
 } from "react-router-dom";
 import AllUsers from './AllUsers';
+import UserPage from './UserPage';
 // import { addTodo, deleteTodo } from './redux/actions/todoActions'
 
 
@@ -23,7 +24,12 @@ function App() {
   return (
     <Router>
     <div className="App">
+      <Route exact path='/'>
      <AllUsers/>
+     </Route>
+     <Route path='/user/:id'>
+       <UserPage/>
+     </Route>
     </div>
     </Router>
   );
