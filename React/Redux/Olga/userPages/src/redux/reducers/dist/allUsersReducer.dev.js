@@ -38,6 +38,11 @@ var allUsersReducer = function allUsersReducer() {
           }])
         });
       }
+
+    default:
+      {
+        return state;
+      }
   }
 };
 
