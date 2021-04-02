@@ -1,4 +1,5 @@
 import {combineReducers} from 'redux';
-import todoReducer from './todo';
+import allUsersReducer from './allUsersReducer';
 
-export default combineReducers({todoReducer})
+
+export default combineReducers({allUsersReducer})
