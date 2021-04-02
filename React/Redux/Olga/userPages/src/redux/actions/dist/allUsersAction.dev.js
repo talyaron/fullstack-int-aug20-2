@@ -6,12 +6,12 @@ Object.defineProperty(exports, "__esModule", {
 exports.addUser = void 0;
 var idCounter = 0;
 
-var addUser = function addUser(UserName, urlImage) {
+var addUser = function addUser(userName, urlImage) {
   return {
     type: "ADD_USER",
     payload: {
       id: ++idCounter,
-      UserName: UserName,
+      userName: userName,
       urlImage: urlImage
     }
   };
