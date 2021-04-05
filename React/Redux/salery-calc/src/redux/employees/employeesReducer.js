@@ -6,7 +6,10 @@ const employeesReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_EMPLOYEE: {
             console.log(ADD_EMPLOYEE)
-            return { ...state, employees: [...state.employees, action.payload] }
+            return { 
+                ...state, 
+                employees: [
+                    ...state.employees, action.payload] }
         }
 
         default: {
