@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-
+import {Link} from "react-router-dom";
 //components
 import InputName from './InputName/InputName';
 
@@ -12,7 +12,7 @@ const Employees = () => {
     return (
         <div>
             <InputName />
-            {employees.map(({id, employeeName})=> <p key={id}>{employeeName}</p>)}
+            {employees.map(({id, employeeName})=> <Link to = {`/Calc-salery/${id}` } key={id}>{employeeName}</Link>)}
         </div>
     )
 }
