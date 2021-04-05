@@ -1,0 +1,117 @@
+body {
+  height: 100vh;
+  background-color: lightblue;
+}
+
+#root {
+  height: 100%;
+}
+
+.App {
+  padding: 5px;
+  border-radius: 10px;
+  background-color: white;
+  position: relative;
+  top: 10%;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+.App .dontForgetImg {
+  width: 13%;
+  float: left;
+  margin: 1.7% 0 0 1.5%;
+}
+.App .clockImg {
+  width: 13%;
+  float: right;
+  margin: 1.5% 1.5% 0 0;
+}
+.App .mainContainer {
+  width: 68%;
+  margin: auto;
+  padding: 5px;
+}
+.App .mainContainer .reminderContainer .title {
+  text-align: center;
+}
+.App .mainContainer .reminderContainer .sTitle {
+  text-align: center;
+  margin-bottom: 3%;
+}
+.App .mainContainer .reminderContainer .reminderBox .showReminderButton {
+  width: 20%;
+  padding: 0.5%;
+  display: block;
+  margin: 0 auto;
+  margin-top: 5%;
+}
+.App .mainContainer .reminderContainer .reminderBox .addReminderBox .addReminderBoxForm {
+  border: 1px solid #d6d6d6;
+  border-radius: 5px;
+  margin: 5px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.App .mainContainer .reminderContainer .reminderBox .addReminderBox .addReminderBoxForm .reminderText {
+  font-size: 1.2rem;
+  margin: 5px;
+}
+.App .mainContainer .reminderContainer .reminderBox .addReminderBox .addReminderBoxForm .timeDate {
+  display: block;
+  margin: 0 auto;
+  border: 0;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  font-size: 1.4rem;
+  text-align: center;
+}
+.App .mainContainer .reminderContainer .reminderBox .addReminderBox .addReminderBoxForm .submitNewReminder {
+  margin-top: 10px;
+  align-self: center;
+}
+.App .mainContainer .reminderContainer .reminderBox .allReminders {
+  margin-top: 3%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 5px;
+}
+.App .mainContainer .reminderContainer .reminderBox .allReminders .singleReminder {
+  margin: 5px;
+}
+.App .mainContainer .reminderContainer .reminderBox .allReminders .singleReminder .cardTitleDelete {
+  display: flex;
+  justify-content: space-between;
+}
+.App .mainContainer .reminderContainer .reminderBox .allReminders .singleReminder .cardTitleDelete .deleteReminder {
+  color: #747373;
+  cursor: pointer;
+}
+.App .mainContainer .reminderContainer .reminderBox .allReminders .singleReminder .cardTitleDelete .deleteReminder:hover {
+  color: #313131;
+}
+.App .mainContainer .enterNameContainer .title {
+  text-align: center;
+}
+.App .mainContainer .enterNameContainer .sTitle {
+  text-align: center;
+  margin-bottom: 3%;
+}
+.App .mainContainer .enterNameContainer .dontForgetImg {
+  width: 20%;
+}
+.App .mainContainer .enterNameContainer .inputName {
+  width: 85%;
+  margin: auto;
+  height: 1rem;
+  font-size: 1.2rem;
+}
+.App .mainContainer .enterNameContainer .labelName {
+  width: 85%;
+  margin-left: 8%;
+  margin-top: -0.5%;
+}
+.App .mainContainer .enterNameContainer .submitNameButton {
+  width: 20%;
+  padding: 1%;
+  margin: 1% auto;
+}
