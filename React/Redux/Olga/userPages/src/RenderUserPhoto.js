@@ -1,14 +1,19 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import './RenderUserPhoto.css'
 
 const RenderUserPhoto = () =>{
-    const users = useSelector(state => state);
-    console.log(users)
-
+    const usersPhoto = useSelector(state => state.allUserPhotoReducer.allPhoto);
+  console.log(usersPhoto)
     return (
         <div>
 
-          {/* {users.map(user => 
+          {usersPhoto.map(photo =>
+          <p key={photo.photoId}>
+              <img className='userPhoto' src={photo.urlPhoto}></img>
+          </p>)
+          
+          /* {users.map(user => 
           
            <Link to={`/user/${user.id}`}>
           <p key={user.id}>

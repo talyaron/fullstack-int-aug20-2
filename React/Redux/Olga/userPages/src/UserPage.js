@@ -21,15 +21,16 @@ const dispatch = useDispatch();
 
 
 const handleAddPhoto = (e) => {
+    e.preventDefault()
     const userId = id
-    const userName = user.userName
-  
-    const urlImage = user.urlImage
+    const userName = user[0].userName
+  console.log(userName)
+    const urlImage = user[0].urlImage
     const urlPhoto = e.target.children.url.value
 console.log(urlPhoto)
 
 dispatch(userPage(userId, userName, urlImage, urlPhoto))
-debugger
+
 }
 
 // userId, userName, urlImage, urlPhoto
