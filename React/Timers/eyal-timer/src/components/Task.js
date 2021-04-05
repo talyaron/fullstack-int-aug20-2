@@ -1,26 +1,28 @@
 import { FaTimes } from "react-icons/fa";
-const Task = ({ task, onDelete,onToggle,onTimesUP}) => {
+
+
+const Task = ({ task, onDelete, onToggle  }) => {
+
+ 
+
   return (
-    <div 
-    className={`task 
-                ${task.remainder ? 'remainder' : ''} 
-                ${task.timesUp ? 'timesUp' :''}`}
-
-                 onDoubleClick={()=>onToggle(task.id)} 
-                 //onClick={()=>onTimesUP(task.id)}
-                 >
-
-          {onTimesUP(task.id)}        
+    <div
+      className={`task 
+                ${task.remainder ? "remainder" : ""} 
+                ${task.timesUp ? "timesUp" : ""}`}
+      onDoubleClick={() => onToggle(task.id)}
+    >
       <h3>
-        {task.text}{' '}
+        {task.text}{" "}
         <FaTimes
-          style={{ color: 'red', cursor:
-          'pointer' }}
+          style={{ color: "red", cursor: "pointer" }}
           onClick={() => onDelete(task.id)}
         />
       </h3>
-      <p>בתאריך: { new Date(task.time).toLocaleDateString('he') } שעה: { new Date(task.time).toLocaleTimeString('he') }</p>
-      
+      <p>
+        בתאריך: {new Date(task.time).toLocaleDateString("he")} שעה:{" "}
+        {new Date(task.time).toLocaleTimeString("he")}
+      </p>
     </div>
   );
 };

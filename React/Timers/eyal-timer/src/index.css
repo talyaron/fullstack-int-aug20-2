@@ -4,9 +4,11 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  
 }
 body {
   font-family: "poppins", sans-serif;
+  background-color: rgba(189, 189, 189, 0.198);
 }
 
 .container {
@@ -17,6 +19,8 @@ body {
   border: 1px solid steelblue;
   padding: 30px;
   border-radius: 5px;
+  background-color: rgba(189, 189, 189, 0.198);
+  box-shadow: 1px 1px 20px 0 #000000;
 }
 
 .header {
