@@ -42,7 +42,16 @@ var employeesReducer = function employeesReducer() {
       {
         return _objectSpread({}, state, {
           employees: state.employees.filter(function (i) {
-            return i.id != action.payload;
+            return i.id !== action.payload;
+          })
+        });
+      }
+
+    case _actionTypes.SELECTED_EMPLOYEE:
+      {
+        return _objectSpread({}, state, {
+          employees: state.employees.filter(function (i) {
+            return i.id === action.payload;
           })
         });
       }

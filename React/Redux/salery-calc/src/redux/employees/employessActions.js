@@ -14,16 +14,10 @@ export const DeleteEmployee = (id) => ({
         type: DELETE_EMPLOYEE,
         payload: id
      })
-    /* type: DELETE_EMPLOYEE,
-    payload: {
-        employeeName,
-        id:'id' + (new Date()).getTime()
-    } */
+   
 
-/* export const addEmployee = employeeName => ({
-    type: ADD_EMPLOYEE,
-    payload: {
-        employeeName,
-        id:'id' + (new Date()).getTime()
-    }
-}) */
+export const CurrentEmploy = (id) => ({
+    type: SELECTED_EMPLOYEE,
+    payload: id
+    
+})

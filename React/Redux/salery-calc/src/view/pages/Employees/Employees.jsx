@@ -1,41 +1,53 @@
 import React from "react";
 import {useDispatch, useSelector } from "react-redux";
-import {useHistory} from "react-router-dom"; 
+import { FaTrashAlt } from "react-icons/fa";
 
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as  Link } from "react-router-dom";
 
 //components
-
+import InputName from "./InputName/InputName"; /* /view/pages/Employees */
 
 //actions;
 import {DeleteEmployee } from '../../../redux/employees/employessActions'
+import {CurrentEmploy } from '../../../redux/employees/employessActions'
 
 const Employees = () => {
-  const history = useHistory();
+
   const employees = useSelector((state) => state.employeesReducer.employees);
   const dispatch = useDispatch();
   /* console.log(employees); */
   
 
-  function handleDelete(e) {  
+  const handleDelete = (e) => {  
 const id = e.target.parentElement.childNodes[0].id;
       //set to redux
       dispatch(DeleteEmployee(id))
   }
 
+const setCurrentEmploy = (e) => {
+  const id = e.target.parentElement.childNodes[0].id;
+  dispatch(CurrentEmploy(id))
+}
+
   return (
     
     <>
+     <InputName />
+      <ul>
      {employees.map(({ index,id, employeeName }) => (
-          <li>
+          <li style={{marginTop:"5px", marginBottom:"5px"}}>
            
-        <Link to={`/EmployeeData/${id}`} id={id} key={index}>
+        <Link to={`/EmployeeData/`} onClick={setCurrentEmploy} id={id} key={index}>
           {employeeName}
         </Link>
-        <span to={`/EmployeeData/id:${id}`} onClick={handleDelete}> Delete</span>
+        
+       <span   onClick={handleDelete} style={{marginLeft:"9px"}} >
+         <FaTrashAlt color="red" title="Delete"   onClick={handleDelete} />
+       </span>
+        
         </li>
       ))}
-    
+    </ul>
      </> 
     
    

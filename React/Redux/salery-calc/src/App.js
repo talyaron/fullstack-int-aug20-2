@@ -6,21 +6,25 @@ import "./App.scss";
 //components`
 import Employees from "./view/pages/Employees/Employees";
 import EmployeeData from "./view/pages/Employees/EmployeeData";
-import InputName from "./view/pages/Employees/InputName/InputName";
+
+
 
 export default function App() {
   return (
     <Router>
       <div>
+      <Link to="/">
+        <input type="button" value="<--" to="/" style={{backgroundColor:"black", color:"white"}}/>
+        </Link>
         <h1>Calc Salary</h1>
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
-          <Route path="/">
-            <InputName />
-            <ul>
+          <Route exact path="/">
+           
+           
               <Employees />
-            </ul>
+          
           </Route>
           <Route path="/EmployeeData">
             <EmployeeData />
