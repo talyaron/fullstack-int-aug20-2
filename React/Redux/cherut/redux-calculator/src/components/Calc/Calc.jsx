@@ -1,12 +1,18 @@
 import './Calc.scss';
 import Button from '../Buttons/Button'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector , useDispatch} from 'react-redux'
+import { useState } from 'react'
+import {switchDisplay} from '../../Redux/actions/btns'
+
 
 const Calc = () => {
 
+  const dispatch = useDispatch()
+  const [showLastCalculations, setShowLastCalculations] = useState(false)
+
   const btns = [
     {value: 'C' ,type: "CLEAR"},
-    {value: 'DEL' ,type: "DELET"},
+    {value: <img width='10px' src="https://www.flaticon.com/svg/vstatic/svg/61/61167.svg?token=exp=1617735592~hmac=2824f983cd8d525106e027612da99ddb" alt=""/> ,type: "DELET"},
     {value: '%' ,type: "operator"},
     {value: '/' ,type: "operator"},
     {value: '7' ,type: "number"},
@@ -27,22 +33,44 @@ const Calc = () => {
     {value: '=' ,type: "EQUAL"},
   ]
 
+  const showLastCalc=()=>{
+    setShowLastCalculations(!showLastCalculations)
+  }
+
+
   const calculation = useSelector((state) => state.btns.calculation);
   const lastCalculations = useSelector((state) => state.btns.lastCalculations);
 
+  const newChosenCalc = (event) => {
+    let newCalc = event.target.innerHTML;
+    dispatch(switchDisplay(newCalc))
+    setShowLastCalculations(false)
+  }
+
   return(
+    <>
     <div className='calc'>
       <div className='screen'>
+        <div className='back' onClick={showLastCalc}>
+      {/* <button> */}
+      <svg focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 3a9 9 0 0 0-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42A8.954 8.954 0 0 0 13 21a9 9 0 0 0 0-18zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"></path></svg>
+      {/* </button> */}
+      </div>
         <div className='screen__calculation'>
-          {/* <h3>Ans=</h3> */}
+
+          {
+
+            lastCalculations.length>0?
+              <>
+                {/* <h3>{lastCalculations[lastCalculations.length - 1].calculation}</h3>
+                <h3>Ans={lastCalculations[lastCalculations.length - 1].answer}</h3> */}
+              </>
+            :null
+          }
+          
+          
           <h1>{calculation}</h1>
         </div>
-        <button>last</button>
-        {
-          lastCalculations.map( obg =>
-            <p>{obg.calculation}={obg.answer}</p>
-          )
-        }
       </div>
       <div className='btnsWrapper'>
         {
@@ -53,8 +81,40 @@ const Calc = () => {
           })
         }
       </div>
+     
     </div>
+    <div className={showLastCalculations? 'lastCalcs show': 'lastCalcs' } >
+    {
+          
+          (lastCalculations.length===0) ?
+           <p>Your calculations and results are displayed here for reuse</p>
+          : 
+          lastCalculations.map( (obg,index) =>
+            <div key={index} className='oneOfLastCalc' >
+              
+              <span className='option' onClick={newChosenCalc} >{obg.calculation}</span>
+               
+               = 
+               
+              <span className='option' onClick={newChosenCalc}>{obg.answer}</span>
+              
+            </div>
+          )
+          
+        }
+    </div>
+    </>
+    
   )
 }
 
 export default Calc
+
+//calc err
+//ans/calc
+//נוסף לקודם במקום להתאפס
+//delcase0
+//לתקן גלישה מחוץ ללוח
+//סגירתהמודל
+//לנקות את הקוד
+//לתקןעיצוב ורספונסיביות

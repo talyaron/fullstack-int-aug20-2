@@ -20,7 +20,7 @@ const Button = ({btnValue, btnType}) => {
   }
 
   return(
-    <button onClick={handleClick} value={btnValue} name={btnType}>{btnValue}</button>
+    <button onClick={handleClick} value={btnValue} name={btnType} className={btnType==="operator"? "operator": btnType==="EQUAL"? "equal":null}>{btnValue}</button>
   )
 }
 

@@ -7,5 +7,12 @@ export const action = (value, type) => ({
   type
 })
 
+export const switchDisplay = (newChosenCalc) => ({
+  type: 'SET_NEW_CALC',
+  payload: newChosenCalc 
+})
+
+
+
 
 
