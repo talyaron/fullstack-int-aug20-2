@@ -20,9 +20,7 @@ exports.addSymbol = void 0;
 var addSymbol = function addSymbol(symbol) {
   return {
     type: 'ADD_SYMBOL',
-    payload: {
-      symbol: symbol
-    }
+    payload: symbol
   };
 };
 

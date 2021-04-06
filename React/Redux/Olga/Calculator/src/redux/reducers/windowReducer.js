@@ -1,14 +1,10 @@
-const initialState = {window:[]}
+const initialState = {symbol:'0'}
 
-const windowReducer = (state=initialState, action) => {
+const windowReducer = (state={...initialState}, action) => {
     switch (action.type){
         case 'ADD_SYMBOL': {
-            let newState = {...state}
-            console.log(newState)
-            if ((newState.window).length==0 && action.payload.symbol =='.') {
-                action.payload.symbol=''
-            }
-            return {...state, window: [...state.window, {symbol: action.payload.symbol}]}
+            
+            return {...state, symbol: action.payload}
         }
         default:{
                      return state

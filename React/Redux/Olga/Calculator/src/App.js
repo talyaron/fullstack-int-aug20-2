@@ -9,21 +9,47 @@ import InputForm from './InputForm';
 
 function App() {
 
-
+  let symbols = useSelector(state => state.windowReducer.symbol)
+  let state = useSelector(state => console.log(state))
   const dispatch = useDispatch();
-
+console.log(symbols)
   const handleOnClickNum =(e) => {
      e.preventDefault()
 
-    const symbol = e.target.name
-     dispatch(addSymbol(symbol));
+    let symbol = e.target.name
+    console.log((symbols !='0') || ((symbol == '.' )&&(symbols.indexOf('.') ==-1)))
+    console.log(symbols.indexOf('.'))
+
+    if((symbols !='0') && ((symbol == '.' )&&(symbols.indexOf('.') ==-1))){
+      symbols += symbol
+      
+    }else if((symbols !='0') && ((symbol != '.' ))){
+      symbols += symbol
+      
+    }
+      else if(
+      
+        (symbol == '.') && (symbols.indexOf('.') !=-1)){
+           symbols += ''
+     
+        }
+    
+     else {
+      symbols = symbol
+    }
+    // console.log(symbols[0].symbol)
+    // if(symbols.length == 1 && symbols[0].symbol == '0'){
+      
+    // }
+    
+    
+     dispatch(addSymbol(symbols));
 
   }
 
-  const symbols = useSelector(state => state.windowReducer.window)
-  console.log(symbols)
-  const stringSymbols = symbols.map(sym => sym.symbol).join('')
-  console.log(stringSymbols)
+
+  // const stringSymbols = symbols.map(sym => sym.symbol).join('')
+  // console.log(stringSymbols)
 
 //   const dispatch = useDispatch();
 //   console.log(dispatch)
@@ -52,7 +78,7 @@ function App() {
    <div>
 
 
-     <InputForm stringSymbols={stringSymbols}/>
+     {/* <InputForm stringSymbols={stringSymbols}/> */}
      <Numbers  onClick={(e) => handleOnClickNum(e)}/>
      <Operators onClick={(e) => handleOnClickNum(e)}/>
      <button name='clean'>C</button>
