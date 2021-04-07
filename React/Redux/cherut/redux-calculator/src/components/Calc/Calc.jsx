@@ -11,6 +11,7 @@ const Calc = () => {
   const [showLastCalculations, setShowLastCalculations] = useState(false)
   const [showLitleAns, setShowLitleAns] = useState(false)
 
+
   const btns = [
     {value: 'C' ,type: "CLEAR"},
     {value:"DEL" ,type: "DELETE"},
@@ -32,6 +33,9 @@ const Calc = () => {
     {value: '3' ,type: "number"},
     {value: '+' ,type: "operator"},
     {value: '' ,type: "number"},
+    // <span class="material-icons-outlined">
+    // volume_off
+    // </span>
     {value: '0' ,type: "number"},
     {value: '.' ,type: "number"},
     {value: '=' ,type: "EQUAL"},
@@ -72,15 +76,20 @@ const Calc = () => {
             :null
           }
           
-          {console.log({calculation})}
-          <h1>{calculation}</h1>
+
+          
+    
+            <h1>{calculation}</h1>
+
+          
+         
         </div>
       </div>
       <div className='btnsWrapper'>
         {
           btns.map(btn => {
             return(
-              <Button btnValue={btn.value} btnType={btn.type} key={btn.value} setShowLitleAns={setShowLitleAns}/>
+              <Button id={btn.type} btnValue={btn.value} btnType={btn.type} key={btn.value} setShowLitleAns={setShowLitleAns}/>
             )
           })
         }
