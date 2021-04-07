@@ -3,14 +3,10 @@ const initialState = { calculation: 0 , lastCalculations: []}
 const calculation = (state = initialState, action) => {
     switch (action.type) {
         case "ADD_ELM": {
-
-          console.log(parseInt(action.payload)); 
-// 
-          // && (typeof action.payload) === "number"
           let condition = state.lastCalculations[state.lastCalculations.length-1] || {answer:0};
-
+          console.log(condition);
             return { ...state, calculation: 
-              state.calculation === condition.answer && !isNaN( parseInt(action.payload)) ?
+              ( state.calculation === 0 || state.calculation === condition.answer) && !isNaN( parseInt(action.payload)) ?
                action.payload :
               state.calculation + action.payload,lastCalculations: state.lastCalculations}
         }

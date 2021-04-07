@@ -72,7 +72,7 @@ const Calc = () => {
             :null
           }
           
-          
+          {console.log({calculation})}
           <h1>{calculation}</h1>
         </div>
       </div>
