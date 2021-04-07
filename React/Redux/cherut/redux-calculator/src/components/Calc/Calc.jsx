@@ -9,10 +9,14 @@ const Calc = () => {
 
   const dispatch = useDispatch()
   const [showLastCalculations, setShowLastCalculations] = useState(false)
+  const [showLitleAns, setShowLitleAns] = useState(false)
 
   const btns = [
     {value: 'C' ,type: "CLEAR"},
-    {value: <img width='10px' src="https://www.flaticon.com/svg/vstatic/svg/61/61167.svg?token=exp=1617735592~hmac=2824f983cd8d525106e027612da99ddb" alt=""/> ,type: "DELET"},
+    {value:"DEL" ,type: "DELETE"},
+    // {value:<span className="material-icons-outlined">
+    // backspace
+    // </span> ,type: "DELETE"},
     {value: '%' ,type: "operator"},
     {value: '/' ,type: "operator"},
     {value: '7' ,type: "number"},
@@ -59,12 +63,12 @@ const Calc = () => {
         <div className='screen__calculation'>
 
           {
-
+                  // console.log(showLitleAns)
             lastCalculations.length>0?
-              <>
-                {/* <h3>{lastCalculations[lastCalculations.length - 1].calculation}</h3>
-                <h3>Ans={lastCalculations[lastCalculations.length - 1].answer}</h3> */}
-              </>
+            showLitleAns?
+               <h3>{lastCalculations[lastCalculations.length - 1].calculation}=</h3>
+              :
+              <h3>Ans={lastCalculations[lastCalculations.length - 1].answer}</h3>
             :null
           }
           
@@ -76,7 +80,7 @@ const Calc = () => {
         {
           btns.map(btn => {
             return(
-              <Button btnValue={btn.value} btnType={btn.type} key={btn.value}/>
+              <Button btnValue={btn.value} btnType={btn.type} key={btn.value} setShowLitleAns={setShowLitleAns}/>
             )
           })
         }
@@ -111,10 +115,13 @@ const Calc = () => {
 export default Calc
 
 //calc err
-//ans/calc
 //נוסף לקודם במקום להתאפס
 //delcase0
+//ans/calc
+
+
 //לתקן גלישה מחוץ ללוח
 //סגירתהמודל
 //לנקות את הקוד
 //לתקןעיצוב ורספונסיביות
+// כפתור ריק
