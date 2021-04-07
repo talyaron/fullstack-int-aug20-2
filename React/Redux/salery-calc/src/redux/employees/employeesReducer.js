@@ -7,8 +7,16 @@ const initialState = { employees: [] }
 const employeesReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_EMPLOYEE: {
+<<<<<<< HEAD
+            console.log(ADD_EMPLOYEE)
+            return { 
+                ...state, 
+                employees: [
+                    ...state.employees, action.payload] }
+=======
          //   console.log(ADD_EMPLOYEE)
             return { ...state, employees: [...state.employees, action.payload] }
+>>>>>>> eyal
         }
         case DELETE_EMPLOYEE: {           
             return { ...state, employees: state.employees.filter(i => i.id !== action.payload) }

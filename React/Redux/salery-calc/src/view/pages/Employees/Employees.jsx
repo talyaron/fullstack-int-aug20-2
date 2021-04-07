@@ -1,9 +1,15 @@
+<<<<<<< HEAD
+import React from 'react';
+import { useSelector } from 'react-redux';
+import {Link} from "react-router-dom";
+=======
 import React from "react";
 import {useDispatch, useSelector } from "react-redux";
 import { FaTrashAlt } from "react-icons/fa";
 
 import { BrowserRouter as  Link } from "react-router-dom";
 
+>>>>>>> eyal
 //components
 import InputName from "./InputName/InputName"; /* /view/pages/Employees */
 
@@ -18,6 +24,14 @@ const Employees = () => {
   /* console.log(employees); */
   
 
+<<<<<<< HEAD
+    return (
+        <div>
+            <InputName />
+            {employees.map(({id, employeeName})=> <Link to = {`/Calc-salery/${id}` } key={id}>{employeeName}</Link>)}
+        </div>
+    )
+=======
   const handleDelete = (e) => {  
 const id = e.target.parentElement.childNodes[0].id;
       //set to redux
@@ -27,6 +41,7 @@ const id = e.target.parentElement.childNodes[0].id;
 const setCurrentEmploy = (e) => {
   const id = e.target.parentElement.childNodes[0].id;
   dispatch(CurrentEmploy(id))
+>>>>>>> eyal
 }
 
   return (

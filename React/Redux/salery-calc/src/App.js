@@ -20,11 +20,16 @@ export default function App() {
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
+<<<<<<< HEAD
+          <Route path="/calc/:employeeName">
+            <Calc />
+=======
           <Route exact path="/">
            
            
               <Employees />
           
+>>>>>>> eyal
           </Route>
           <Route path="/EmployeeData">
             <EmployeeData />
