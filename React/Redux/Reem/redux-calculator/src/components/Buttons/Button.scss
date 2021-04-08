@@ -1,0 +1,28 @@
+button{
+  min-width: 4em;
+  padding: 1em;
+  border-radius: .3em;
+  margin: .3rem;
+  outline: none;
+  border: none;
+  background-color: rgb(230, 230, 230);
+  // font-size: 1rem;
+  font-weight: 700;
+
+ 
+  &:hover{
+    background-color: rgb(190, 190, 190);
+    cursor: pointer;
+  }
+}
+
+.operator{
+  color: brown;
+}
+
+.equal{
+  background-color: brown;
+  color: white;
+}
+
+
