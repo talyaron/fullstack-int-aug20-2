@@ -12,10 +12,3 @@
 //     payload: {id}
 
 // })
-
-export const addSymbol = symbol => ({
-    type: 'ADD_SYMBOL',
-    payload: symbol
-    
-    
-})

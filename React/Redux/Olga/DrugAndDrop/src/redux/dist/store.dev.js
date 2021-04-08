@@ -7,13 +7,12 @@ exports["default"] = void 0;
 
 var _redux = require("redux");
 
-var _displayReducer = _interopRequireDefault(require("./displayReducer"));
+var _reducers = _interopRequireDefault(require("./reducers"));
+
+var _reduxThunk = _interopRequireDefault(require("redux-thunk"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-// import todoReducer from './todo';
-var _default = (0, _redux.combineReducers)({
-  windowReducer: _displayReducer["default"]
-});
+var _default = (0, _redux.createStore)(_reducers["default"], (0, _redux.applyMiddleware)(_reduxThunk["default"]));
 
 exports["default"] = _default;

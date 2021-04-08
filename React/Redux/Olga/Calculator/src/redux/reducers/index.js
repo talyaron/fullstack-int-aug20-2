@@ -1,5 +1,5 @@
 import {combineReducers} from 'redux';
-import windowReducer from './windowReducer';
+import windowReducer from './displayReducer';
 // import todoReducer from './todo';
 
 

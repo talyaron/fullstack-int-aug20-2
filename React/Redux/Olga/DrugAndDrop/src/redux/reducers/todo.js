@@ -1,18 +1,4 @@
-const initialState = {symbol:'0'}
-
-const windowReducer = (state={...initialState}, action) => {
-    switch (action.type){
-        case 'ADD_SYMBOL': {
-            
-            return {...state, symbol: action.payload}
-        }
-        default:{
-                     return state
-        }
-    }
-}
-export default windowReducer
-
+// const initialState = {todo:[]}
 
 // const todoReducer = (state=initialState, action) =>{
 //     switch (action.type){
