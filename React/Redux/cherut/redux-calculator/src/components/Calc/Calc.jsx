@@ -15,10 +15,8 @@ const Calc = () => {
   const btns = [
     {value: 'C' ,type: "CLEAR"},
     {value:"DEL" ,type: "DELETE"},
-    // {value:<span className="material-icons-outlined">
-    // backspace
-    // </span> ,type: "DELETE"},
-    {value: '%' ,type: "operator"},
+    {value: '(' ,type: "number"},
+    {value: ')' ,type: "number"},
     {value: '/' ,type: "operator"},
     {value: '7' ,type: "number"},
     {value: '8' ,type: "number"},
@@ -32,13 +30,10 @@ const Calc = () => {
     {value: '2' ,type: "number"},
     {value: '3' ,type: "number"},
     {value: '+' ,type: "operator"},
-    {value: '' ,type: "number"},
-    // <span class="material-icons-outlined">
-    // volume_off
-    // </span>
-    {value: '0' ,type: "number"},
     {value: '.' ,type: "number"},
+    {value: '0' ,type: "number"},
     {value: '=' ,type: "EQUAL"},
+
   ]
 
   const showLastCalc=()=>{
@@ -60,14 +55,14 @@ const Calc = () => {
     <div className='calc'>
       <div className='screen'>
         <div className='back' onClick={showLastCalc}>
-      {/* <button> */}
+
       <svg focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 3a9 9 0 0 0-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42A8.954 8.954 0 0 0 13 21a9 9 0 0 0 0-18zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"></path></svg>
-      {/* </button> */}
+
       </div>
         <div className='screen__calculation'>
 
           {
-                  // console.log(showLitleAns)
+
             lastCalculations.length>0?
             showLitleAns?
                <h3>{lastCalculations[lastCalculations.length - 1].calculation}=</h3>
@@ -122,15 +117,3 @@ const Calc = () => {
 }
 
 export default Calc
-
-//calc err
-//נוסף לקודם במקום להתאפס
-//delcase0
-//ans/calc
-
-
-//לתקן גלישה מחוץ ללוח
-//סגירתהמודל
-//לנקות את הקוד
-//לתקןעיצוב ורספונסיביות
-// כפתור ריק
