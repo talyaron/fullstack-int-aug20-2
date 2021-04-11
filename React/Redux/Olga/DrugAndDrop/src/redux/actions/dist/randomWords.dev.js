@@ -22,12 +22,13 @@ var randomWords = function randomWords(data) {
 
 exports.randomWords = randomWords;
 
-var getRandomWords = function getRandomWords() {
+var getRandomWords = function getRandomWords(data) {
   return function (dispatch) {
-    fetch('http://jsonplaceholder.typicode.com/users').then(function (r) {
+    fetch('https://pokeapi.co/api/v2/pokemon').then(function (r) {
       return r.json();
     }).then(function (data) {
-      return dicpatch(getWordsAction(data));
+      console.log(data.results);
+      dispatch(randomWords(data.results));
     });
   };
 };

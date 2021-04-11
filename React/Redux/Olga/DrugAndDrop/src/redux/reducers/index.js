@@ -1,4 +1,8 @@
 import {combineReducers} from 'redux';
-import todoReducer from './todo';
+import getPokemons from './getPokemonsReducer';
 
-export default combineReducers({todoReducer})
+
+
+
+
+export default combineReducers({getPokemons})

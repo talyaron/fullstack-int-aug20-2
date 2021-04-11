@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.getRandomWords = exports.randomWords = void 0;
+exports.getPokemonsData = exports.pokemonsData = void 0;
 
 // let idCounter = 0;
 // export const addTodo = taskName=>({
@@ -13,23 +13,24 @@ exports.getRandomWords = exports.randomWords = void 0;
 //         taskName
 //     }
 // })
-var randomWords = function randomWords(data) {
+var pokemonsData = function pokemonsData(data) {
   return {
     type: 'GET_WORDS',
     payload: data
   };
 };
 
-exports.randomWords = randomWords;
+exports.pokemonsData = pokemonsData;
 
-var getRandomWords = function getRandomWords() {
+var getPokemonsData = function getPokemonsData(data) {
   return function (dispatch) {
-    fetch('http://jsonplaceholder.typicode.com/users').then(function (r) {
+    fetch('https://rickandmortyapi.com/api/character/').then(function (r) {
       return r.json();
     }).then(function (data) {
-      return dicpatch(getWordsAction(data));
+      console.log(data.results);
+      dispatch(pokemonsData(data.results));
     });
   };
 };
 
-exports.getRandomWords = getRandomWords;
+exports.getPokemonsData = getPokemonsData;

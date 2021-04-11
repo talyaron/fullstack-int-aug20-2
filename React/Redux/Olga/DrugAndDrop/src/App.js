@@ -1,12 +1,43 @@
 import logo from './logo.svg';
 import './App.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { addTodo, deleteTodo } from './redux/actions/todoActions'
+import { getPokemonsData, pokemonsData } from './redux/actions/getPokemonsData';
+import pokemonNames from './pokemonNames';
+
+
 
 
 // let newTaskName = '';
 
 function App() {
+  const dispatch = useDispatch();
+
+let pokemons = useSelector(state => state.getPokemons.data)
+
+console.log(pokemons)
+
+
+
+const getPokemons =(e) => {
+  e.preventDefault()
+  dispatch(getPokemonsData())
+}
+
+
+
+//   function readCookie() {
+//     fetch('/read-cookie')
+//         .then(r => r.json())
+//         .then(data => {
+//             if (data.cookie) {
+                
+//                 document.getElementById('root').innerHTML = `You have clicked: ${data.IFollowYou}`
+//             } else {
+//                 console.log('no cookie found for this user')
+//             }
+//         })
+// }
+
 //   const dispatch = useDispatch();
 //   console.log(dispatch)
 
@@ -32,14 +63,16 @@ function App() {
 
   return (
     <div className="App">
-      {/* <header className="App-header">
-        <button onClick={handleAddTask}>ADD TASK</button>
-        <input type='text' placeholder='new task' onKeyUp={handleNewTask} />
-        
-        {tasks.map((task)=><p key={task.id}>{task.taskName}<button id={task.id} onClick={handleDeleteTask}>delete</button></p>)}
-      </header> */}
+     <button onClick={getPokemons}>get</button>
+
+
+
+
+
     </div>
   );
 }
+
+
 
 export default App;

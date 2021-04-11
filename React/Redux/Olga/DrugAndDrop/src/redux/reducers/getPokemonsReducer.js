@@ -1,12 +1,17 @@
-// const initialState = {todo:[]}
+const initialState = {data:[]}
 
-// const todoReducer = (state=initialState, action) =>{
-//     switch (action.type){
-//         case "ADD_TASK":{
-//             console.log('add task', action.payload)
-//             console.log(state)
-//             return {...state, todo:[...state.todo, {id:action.payload.id, taskName:action.payload.taskName}]}
-            
+const getPokemons = (state=initialState, action) =>{
+    switch (action.type){
+        case 'GET_WORDS':{
+           
+            console.log(state)
+            return {...state, data:[...state.data, {data: action.payload}]}
+        }
+        default:{
+                       return state
+                 }
+    }
+}        
 //         }
 //         case "DELETE_TASK":{
 //             const id = action.payload.id
@@ -27,4 +32,4 @@
 //     }
 // }
 
-// export default todoReducer
+export default getPokemons
