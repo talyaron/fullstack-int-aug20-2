@@ -1,0 +1,4 @@
+export const ADD_WORD = "ADD_WORD";
+export const FETCH_WORD_START = "FETCH_WORD_START";
+export const FETCH_WORD_SUCCESS = "FETCH_WORD_SUCCESS";
+export const FETCH_WORD_FAIL = "FETCH_WORD_FAIL";
