@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { addNumber } from './redux/actions/displayActon';
+import { addNumber, addOperator } from './redux/actions/displayActon';
 
 const InputForm =(props)=> {
     let display =useSelector(state => state.windowReducer.number)
@@ -12,6 +12,8 @@ const InputForm =(props)=> {
         let result = eval(display)
 
         dispatch(addNumber(result));
+        dispatch(addOperator(null));
+
     }
 
 
@@ -19,7 +21,7 @@ const InputForm =(props)=> {
 <div>
              <form onSubmit={handleEqual}>
        <input type='text' name='textView' value={display}/>
-       <button>=</button>
+       <button className='btn equal'>=</button>
      </form>
     </div>
     )

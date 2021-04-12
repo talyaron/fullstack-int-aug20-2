@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.addToDisplay = exports.addOperator = exports.addNumber = void 0;
+exports.addOperator = exports.addNumber = void 0;
 
 // let idCounter = 0;
 // export const addTodo = taskName=>({
@@ -34,12 +34,3 @@ var addOperator = function addOperator(operator) {
 };
 
 exports.addOperator = addOperator;
-
-var addToDisplay = function addToDisplay(display) {
-  return {
-    type: 'ADD_TO_DISPLAY',
-    display: display
-  };
-};
-
-exports.addToDisplay = addToDisplay;

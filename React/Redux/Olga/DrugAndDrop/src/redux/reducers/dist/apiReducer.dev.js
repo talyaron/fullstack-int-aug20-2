@@ -11,20 +11,18 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-var initialState = {
-  number: '0',
-  operator: null
-};
+var initialState = [];
 
-var windowReducer = function windowReducer() {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _objectSpread({}, initialState);
+var getDataReducer = function getDataReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
   var action = arguments.length > 1 ? arguments[1] : undefined;
 
   switch (action.type) {
-    case 'ADD_NUMBER':
+    case 'GET_NAMES':
       {
+        console.log(state);
         return _objectSpread({}, state, {
-          number: action.payload
+          data: action.payload
         });
       }
 
@@ -32,23 +30,8 @@ var windowReducer = function windowReducer() {
       {
         return state;
       }
-
-    case 'ADD_OPERATOR':
-      {
-        return _objectSpread({}, state, {
-          operator: action.operator
-        });
-      }
   }
-};
-
-var _default = windowReducer; // const todoReducer = (state=initialState, action) =>{
-//     switch (action.type){
-//         case "ADD_TASK":{
-//             console.log('add task', action.payload)
-//             console.log(state)
-//             return {...state, todo:[...state.todo, {id:action.payload.id, taskName:action.payload.taskName}]}
-//         }
+}; //         }
 //         case "DELETE_TASK":{
 //             const id = action.payload.id
 //             console.log(id)
@@ -66,6 +49,8 @@ var _default = windowReducer; // const todoReducer = (state=initialState, action
 //         }
 //     }
 // }
-// export default todoReducer
+//{...state, number: action.payload}
 
+
+var _default = getDataReducer;
 exports["default"] = _default;

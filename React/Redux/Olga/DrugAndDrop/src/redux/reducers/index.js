@@ -1,8 +1,8 @@
 import {combineReducers} from 'redux';
-import getPokemons from './getPokemonsReducer';
+import getDataReducer from './apiReducer';
 
 
 
 
 
-export default combineReducers({getPokemons})
+export default combineReducers({getDataReducer})

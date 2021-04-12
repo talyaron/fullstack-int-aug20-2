@@ -1,11 +1,11 @@
-const initialState = {data:[]}
+const initialState = []
 
-const getPokemons = (state=initialState, action) =>{
+const getDataReducer = (state=initialState, action) =>{
     switch (action.type){
-        case 'GET_WORDS':{
+        case 'GET_NAMES':{
            
             console.log(state)
-            return {...state, data:[...state.data, {data: action.payload}]}
+            return {...state, data: action.payload}
         }
         default:{
                        return state
@@ -32,4 +32,7 @@ const getPokemons = (state=initialState, action) =>{
 //     }
 // }
 
-export default getPokemons
+//{...state, number: action.payload}
+
+
+export default getDataReducer

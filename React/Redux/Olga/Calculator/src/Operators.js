@@ -4,14 +4,15 @@ import { addNumber, addOperator } from './redux/actions/displayActon';
 
 
 
-const Operators =(props) => {
-    const operators =['-','+','/','*']
+const Operators =() => {
+    const operators =['/','*','-','+']
 
     
     let numbers = useSelector(state => state.windowReducer.number)
     const dispatch = useDispatch();
- 
-
+ console.log(numbers)
+    let stateOperator = useSelector(state => state.windowReducer.operator)
+    console.log(stateOperator)
   
     const handleClickOperator =(e) => {
        e.preventDefault()
@@ -20,8 +21,8 @@ const Operators =(props) => {
      
     //   console.log((numbers !='0') || ((number == '.' )&&(numbers.indexOf('.') ==-1)))
     //   console.log(numbers.indexOf('.'))
-  
-    if((numbers !='0')&&(numbers.indexOf('*') ==-1 && numbers.indexOf('-') ==-1 && numbers.indexOf('+') ==-1) && numbers.indexOf('/') ==-1){
+  console.log(numbers)
+    if((numbers !='0')&&(stateOperator == null)){
         numbers += operator
         
     }
@@ -29,7 +30,7 @@ const Operators =(props) => {
       
        else {
         numbers += ''
-        operator=''
+        operator=null
       }
         
        dispatch(addNumber(numbers));
@@ -38,9 +39,9 @@ const Operators =(props) => {
     }
     
     return (
-        <div>
+        <div className='operators'>
         {operators.map(operator => 
-            <button name={operator} onClick={handleClickOperator}>{operator}</button>)}
+            <button className='btn symbol' name={operator} onClick={handleClickOperator}>{operator}</button>)}
             </div>
     )
 }

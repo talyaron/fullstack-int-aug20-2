@@ -18,7 +18,7 @@ const display = useSelector(state => state.windowReducer.number)
 
     return (
         <div>
-              <button name='delete' onClick={handleDelete}>del</button>
+              <button className='btn delete' name='delete' onClick={handleDelete}>del</button>
         </div>
     )
 }

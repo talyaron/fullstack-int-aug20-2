@@ -24,7 +24,3 @@ export const addOperator = operator => ({
     operator
 })
 
-export const addToDisplay = display => ({
-    type: 'ADD_TO_DISPLAY',
-    display
-})

@@ -13,7 +13,7 @@ const ClearBtn = () =>{
 
     return (
         <div>
-              <button name='clear' onClick={handleClear}>C</button>
+              <button className='btn clear' name='clear' onClick={handleClear}>C</button>
         </div>
     )
 }

@@ -75,15 +75,20 @@ console.log(operator)
 
 
   return (
-   <div>
-
+   <div className='App'>
+<div className='container'>
 
      {/* <InputForm stringSymbols={stringSymbols}/> */}
      <InputForm/>
+     <div className='numop_wrap'>
+
      <Numbers  onClick={(e) => handleOnClickNum(e)}/>
      <Operators onClick={(e) => handleOnClickNum(e)}/>
+     
+     </div>
      <ClearBtn/>
      <DeleteBtn/>
+     </div>
    </div>
   )
 }

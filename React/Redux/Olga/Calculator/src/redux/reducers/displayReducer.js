@@ -1,4 +1,4 @@
-const initialState = {number:'0', operator: null, display: null}
+const initialState = {number:'0', operator: null}
 
 const windowReducer = (state={...initialState}, action) => {
     switch (action.type){
@@ -14,9 +14,7 @@ const windowReducer = (state={...initialState}, action) => {
             return {...state, operator: action.operator}
         }
 
-        case 'ADD_TO_DISPLAY': {
-            return{...state, display: action.display}
-        }
+      
     }
 }
 export default windowReducer

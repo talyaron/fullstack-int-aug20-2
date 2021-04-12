@@ -1,12 +1,12 @@
 
 
 const Numbers =(props) => {
-    const numbers =[0,1,2,3,4,5,6,7,8,9,'.']
+    const numbers =[7,8,9,4,5,6,1,2,3,0,'.']
 
     return (
-        <div>
+        <div className='numbers_wrap'>
         {numbers.map(num => 
-            <button key={num} name={num} onClick={props.onClick}>{num}</button>)}
+            <button className='btn num' key={num} name={num} onClick={props.onClick}>{num}</button>)}
             </div>
     )
 }
