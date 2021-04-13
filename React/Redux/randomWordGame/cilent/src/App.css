@@ -1,4 +1,15 @@
-.App {
+body {
   text-align: center;
+  background-color: rgb(211, 211, 250);
+}
+
+.target{
+  width: 1000px;
+  height: 100px;
+  background-color: rgb(250, 205, 133);
+  display: flex;
+}
+.target>div{
+  margin-right: 10px;
 }
 

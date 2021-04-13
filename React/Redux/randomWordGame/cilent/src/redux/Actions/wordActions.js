@@ -2,11 +2,21 @@ import * as types from "../constants/action-types";
 import axios from "axios";
 
 
-/* export function addWord(payload) {
-  return { type: types.ADD_WORD, payload };
+export function addWord(word) {
+  return {
+    type: types.ADD_WORD,
+    payload: word
+  };
 }
 
- */
+export function removeWord(word) {
+  return {
+    type: types.REMOVE_WORD,
+    payload: word
+  };
+}
+
+
 
 const fetchWordsStart = () => ({
   type: types.FETCH_WORD_START,
@@ -23,16 +33,16 @@ const fetchWordsFail = (error) => ({
 });
 
 export function fetchWords() {
-   return function (dispatch) {   
+  return function (dispatch) {
     dispatch(fetchWordsStart());
     axios
       .get("https://random-word-api.herokuapp.com//word?number=10")
       .then((response) => {
         // const words = response.data;
-        
+
         dispatch(fetchWordsSuccess(response.data));
-      }).catch((error)=>
-      dispatch(fetchWordsFail(error.message)))
+      }).catch((error) =>
+        dispatch(fetchWordsFail(error.message)))
   };
 }
 
