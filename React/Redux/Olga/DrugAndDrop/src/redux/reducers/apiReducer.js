@@ -1,4 +1,7 @@
-const initialState = []
+const initialState = {
+    data: [],
+    target:[]
+}
 
 const getDataReducer = (state=initialState, action) =>{
     switch (action.type){
@@ -10,8 +13,46 @@ const getDataReducer = (state=initialState, action) =>{
         default:{
                        return state
                  }
+
+
+        case 'GET_ID':{
+            let newState = {...state}
+            console.log(newState)
+            const id = action.payload.id
+            // console.log(id)
+            // let index = newState.data.findIndex(currentIndex => currentIndex.id==id)
+            // newState.data.splice(index, 1)
+            return {...state, id: action.payload.id}
+        }
+
+        case 'DELETE_ITEM':{
+            let newState = {...state}
+            if (newState.id) {
+                let id = newState.id
+                console.log(id)
+                let index = newState.data.findIndex(currentIndex => currentIndex.id==id)
+                newState.data.splice(index, 1)
+            }
+            
+            
+            return {...state, data:[...state.data]}
+        }
+        case 'ADD_TO_TARGET': {
+            console.log(action.payload)
+        }
+        return {...state, target: [...state.target, action.payload]}
+       
+           
     }
+    
 }        
+// const todoReducer = (state=initialState, action) =>{
+//     switch (action.type){
+//         case "ADD_TASK":{
+//             console.log('add task', action.payload)
+//             console.log(state)
+//             return {...state, todo:[...state.todo, {id:action.payload.id, taskName:action.payload.taskName}]}
+            
 //         }
 //         case "DELETE_TASK":{
 //             const id = action.payload.id
@@ -32,7 +73,7 @@ const getDataReducer = (state=initialState, action) =>{
 //     }
 // }
 
-//{...state, number: action.payload}
+// export default todoReducer
 
 
 export default getDataReducer

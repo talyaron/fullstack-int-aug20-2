@@ -10,9 +10,30 @@
 export const apiData = (data) => ({
     
     type: 'GET_NAMES',
-    payload: data
+    payload: data,
+   
 
 })
+
+export const getId = id => ({
+    type: 'GET_ID',
+    payload: {id}
+
+})
+
+export const deleteFromData = () => ({
+    type: 'DELETE_ITEM',
+   
+
+})
+
+export const addToTarget = target => ({
+    type: 'ADD_TO_TARGET',
+    payload: target
+})
+
+
+
 
 export const getData = (data) => {
    
@@ -23,10 +44,7 @@ export const getData = (data) => {
     .then(data => {
        let newData = data.results
        console.log(newData)
-    //   let names = newData.map(el => el.name)
-    //   let id = newData.map(el => el.id)
-    //   console.log(names)
-    //   console.log(id)
+
         dispatch(apiData(newData))
     }
         )
