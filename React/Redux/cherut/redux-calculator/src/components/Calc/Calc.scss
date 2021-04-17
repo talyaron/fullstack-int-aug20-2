@@ -1,0 +1,128 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.calc {
+  border-radius: .3em;
+  background-color: rgb(37, 37, 37);
+  min-width: 18rem;
+  max-width: 18rem;
+
+  .screen {
+
+    background-color: #687c7a;
+    color: black;
+    max-width: 85%;
+    margin: auto;
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem;
+    border-radius: .3em;
+    min-height: 8.5rem;
+    overflow-x: auto;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
+
+    .screen__calculation {
+      width: 85%;
+      height: 100%;
+      align-items: center;
+      text-align: right;
+    }
+
+    .back {
+      background-color: transparent;
+      padding: 0;
+      font-size: .3rem;
+      height: 1.5rem;
+      width: 1.5rem;
+
+      &:hover {
+        cursor: pointer;
+        fill: brown;
+        transition: all 250ms;
+      }
+    }
+  }
+
+  .btnsWrapper {
+    max-width: 18rem;
+    padding: 1.5rem .5rem;
+    border-radius: .3em;
+  }
+}
+
+.lastCalcs {
+  position: absolute;
+  top: 7.2rem;
+  width: 13rem;
+  height: 20rem;
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
+  border-radius: 5px;
+  background-color: rgba(192, 189, 189, 0.459);
+  display: none;
+  padding: 1em;
+  backdrop-filter: blur(5px);
+  overflow-x: auto;
+  overflow-y: auto;
+  color: black;
+  // overflow-wrap: break-word;
+
+
+  .oneOfLastCalc {
+    margin-bottom: 1em;
+
+    .option {
+      border: 1px solid rgb(145, 144, 144);
+      cursor: pointer;
+      padding: .2em.5em;
+      border-radius: .2em;
+      transition: all 250ms;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.329);
+      }
+
+    }
+  }
+
+
+}
+
+.show {
+  display: block;
+}
+
+.material-icons-outlined {
+  font-size: .85rem;
+}
+
+// ::-webkit-scrollbar {
+//   // display: none;
+// }
+
+// ::-webkit-scrollbar              { width: 20px; }
+// ::-webkit-scrollbar-button       { color: blue; }
+// ::-webkit-scrollbar-track        {}
+// ::-webkit-scrollbar-track-piece  {color: blue;}
+// ::-webkit-scrollbar-thumb        { color: blue; }
+// ::-webkit-scrollbar-corner       {color: blue; }
+// ::-webkit-resizer  {}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 10px;
+  cursor: pointer;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
