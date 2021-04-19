@@ -41,7 +41,7 @@ const FirstPage = () => {
     const dragOverHandler =(e,  names) => {
         e.preventDefault()
         console.log(e.target)
-        e.target.style.background = 'green'
+        e.target.style.background = 'yellow'
 
     }
     const dragLeaveHandler =(e) => {
@@ -75,7 +75,7 @@ e.target.style.background = 'white'
 
 
         <div className="App">
-           <button onClick={handleGetData}>hellow</button>
+           <button onClick={handleGetData}>get names</button>
             <div className='names_wrap'>
             
  {newData.map(names =><div 
