@@ -21,14 +21,15 @@
     justify-content: space-between;
     padding: 1.5rem;
     border-radius: .3em;
-    min-height: 8.5rem;
+    min-height: 10.5rem;
     overflow-x: auto;
     box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
+    box-shadow: inset 0 0 5px #000000;
 
     .screen__calculation {
       width: 85%;
       height: 100%;
-      align-items: center;
+      align-self: center;
       text-align: right;
     }
 
@@ -56,9 +57,7 @@
 
 .lastCalcs {
   position: absolute;
-  top: 7.2rem;
-  width: 13rem;
-  height: 20rem;
+  width: 12.5rem;
   box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
   border-radius: 5px;
   background-color: rgba(192, 189, 189, 0.459);
@@ -68,8 +67,7 @@
   overflow-x: auto;
   overflow-y: auto;
   color: black;
-  // overflow-wrap: break-word;
-
+  font-size: 1.2rem;
 
   .oneOfLastCalc {
     margin-bottom: 1em;
@@ -87,8 +85,6 @@
 
     }
   }
-
-
 }
 
 .show {
@@ -99,18 +95,6 @@
   font-size: .85rem;
 }
 
-// ::-webkit-scrollbar {
-//   // display: none;
-// }
-
-// ::-webkit-scrollbar              { width: 20px; }
-// ::-webkit-scrollbar-button       { color: blue; }
-// ::-webkit-scrollbar-track        {}
-// ::-webkit-scrollbar-track-piece  {color: blue;}
-// ::-webkit-scrollbar-thumb        { color: blue; }
-// ::-webkit-scrollbar-corner       {color: blue; }
-// ::-webkit-resizer  {}
-
 ::-webkit-scrollbar {
   width: 5px;
   height: 10px;
@@ -118,11 +102,11 @@
 }
 
 ::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
 }

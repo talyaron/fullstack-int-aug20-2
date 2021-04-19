@@ -1,9 +1,9 @@
-export const addElm = (value, type) => ({
+export const addElm = (value) => ({
   type: 'ADD_ELM',
   payload: value 
 })
 
-export const action = (value, type) => ({
+export const action = (type) => ({
   type
 })
 
