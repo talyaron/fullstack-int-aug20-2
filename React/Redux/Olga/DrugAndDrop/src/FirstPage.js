@@ -1,16 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { apiData, deleteFromData, getData, pokemonsDat, getId, addToTarget } from './redux/actions/getData';
+import {  deleteFromData, getData, getId, addToTarget } from './redux/actions/getData';
 import './FirstPage.css'
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useParams,
-  useHistory
-} from "react-router-dom";
-import pokemonNames from './pokemonNames';
-import RenderImages from './RenderImages';
+
 
 
 
