@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@hapi/joi@17.1.1/dist/joi-browser.min.js"></script>
+</head>
+<body>
+    <form onsubmit='handleAddSubmit(event)'>
+        <input type="text" name="name">
+        <input type="number" name="yearOfBirth">
+        <input type="password" name='password'>
+        <select id='hobby' >
+            <option value="hobby1">hobby1</option>
+            <option value="hobby2">hobby2</option>
+            <option value="hobby3">hobby3</option>
+            <option value="hobby4">hobby4</option>
+            <option value="hobby5">hobby5</option>
+        </select>
+
+        <input type='submit' value='add'/>
+    </form>
+    <div id='container'></div>
+    <script src="dist/form.js"></script>
+</body>
+</html>
