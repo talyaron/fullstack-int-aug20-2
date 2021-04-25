@@ -16,6 +16,14 @@ const users: Users = {
 
 } 
 
+const UserSchema = joi.object({
+    name: joi.string(),
+    yearOfBirth: joi.number(),
+    password: joi.string(),
+    hobby: joi.string()
+
+})
+
 
 function handleAddSubmit(e: any) {
     e.preventDefault()
@@ -32,6 +40,8 @@ function handleAddSubmit(e: any) {
                                                       <div id=${yearOfBirth}>Year of birth:${yearOfBirth}</div><br>
                                                       <div id=${password}>Password:${password}</div><br>
                                                       <div id=${hobby}>Hobby:${hobby}</div>`
+
+ console.log(UserSchema.validate({name, hobby, yearOfBirth, password}))
 
 }
 

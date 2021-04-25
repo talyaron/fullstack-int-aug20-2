@@ -4,6 +4,12 @@ var users = {
     password: '123',
     hobby: 'hobby1'
 };
+var UserSchema = joi.object({
+    name: joi.string(),
+    yearOfBirth: joi.number(),
+    password: joi.string(),
+    hobby: joi.string()
+});
 function handleAddSubmit(e) {
     e.preventDefault();
     console.log(e.target.children.hobby.value);
@@ -15,6 +21,7 @@ function handleAddSubmit(e) {
     console.log(password);
     var hobby = e.target.children.hobby.value;
     document.getElementById('container').innerHTML += "<div id=" + name + ">Name:" + name + "</div><br>\n                                                      <div id=" + yearOfBirth + ">Year of birth:" + yearOfBirth + "</div><br>\n                                                      <div id=" + password + ">Password:" + password + "</div><br>\n                                                      <div id=" + hobby + ">Hobby:" + hobby + "</div>";
+    console.log(UserSchema.validate({ name: name, hobby: hobby, yearOfBirth: yearOfBirth, password: password }));
 }
 // type Status = 'single' | 'married'|'divorced'|'widow'|'public acknowledged'|number;
 // const UserSchema = joi.object({
