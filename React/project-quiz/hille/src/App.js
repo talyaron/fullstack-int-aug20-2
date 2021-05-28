@@ -1,16 +1,9 @@
-
-import './App.css';
-import EnterBox from "./view/components/EnterBox/EnterBox"
-import QuizBox from "./view/components/QuizBox/QuizBox"
-
+import "./App.css";
+import EnterBox from "./view/components/EnterBox/EnterBox";
+import QuizBox from "./view/components/QuizBox/QuizBox";
 
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 export default function App() {
   return (
@@ -38,17 +31,14 @@ export default function App() {
           </Route>
 
           <Route path="*">
-            <Page404/>
+            <Page404 />
           </Route>
-
         </Switch>
       </div>
     </Router>
   );
 }
 
-function Page404
-() {
-  return <h2> Page404
-  </h2>;
+function Page404() {
+  return <h2> Page404</h2>;
 }
