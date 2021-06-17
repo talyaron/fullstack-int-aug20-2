@@ -1,7 +1,7 @@
-import logo from './logo.svg';
+
 import './App.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { addTodo } from './redux/actions/todoActions'
+import { addTodo, deleteTodo } from './redux/actions/todoActions'
 
 let newTaskName = '';
 
@@ -9,8 +9,6 @@ function App() {
   const dispatch = useDispatch();
 
   const tasks = useSelector(state => state.todoReducer.todo);
-  console.log(tasks)
-
 
   function handleAddTask() {
     if (newTaskName.length > 1) {
@@ -22,13 +20,17 @@ function App() {
   function handleNewTask(e) {
     newTaskName = e.target.value;
   }
+
+  function handleDelete(taskId) {
+    dispatch(deleteTodo(taskId))
+  }
   return (
     <div className="App">
       <header className="App-header">
         <button onClick={handleAddTask}>ADD TASK</button>
         <input type='text' placeholder='new task' onKeyUp={handleNewTask} />
         <hr />
-        {tasks.map((task)=><p key={task.id}>{task.taskName}</p>)}
+        {tasks.map((task) => <p onClick={() => handleDelete(task.id)} key={task.id}>{task.taskName}</p>)}
       </header>
     </div>
   );

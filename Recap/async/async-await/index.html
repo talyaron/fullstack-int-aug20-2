@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+        integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+    <script>
+        (async () => {
+            async function getWeather() {
+                console.time('aa')
+                let weather = await axios.get('https://api.sunrise-sunset.org/json?lat=32.7501114&lng=35.0882167&date=today');
+                console.log(weather.data);
+                let sunrise = await axios.get('http://api.openweathermap.org/data/2.5/weather?q=jerusalem&appid=9c72c68beca5025e3cc723b7e0045386');
+                console.log(sunrise.data);
+                console.timeEnd('aa')
+                return {
+                    weather, sunrise
+                }
+            }
+            console.log('start')
+            let res = await getWeather();
+            console.log(res);//loop event
+            console.log('end')
+        })()
+    </script>
+</body>
+
+</html>

@@ -6,3 +6,8 @@ export const addTodo = taskName=>({
         taskName
     }
 })
+
+export const deleteTodo = taskId =>({
+    type:"DELETE_TASK",
+    payload:taskId
+})
