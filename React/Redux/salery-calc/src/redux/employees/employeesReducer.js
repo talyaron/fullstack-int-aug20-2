@@ -25,7 +25,7 @@ const employeesReducer = (state = initialState, action) => {
              });
              console.log(state.employees)
                  
-            return { ...state, employees: [...state.employees,] }
+            return { ...state, employees: [...state.employees] }
         }
 
         default: {

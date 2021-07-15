@@ -1,5 +1,4 @@
-import {ADD_EMPLOYEE} from '../actionTypes';
-import{ADD_SALERY} from '../actionTypes'
+import {ADD_EMPLOYEE,ADD_SALERY} from '../actionTypes';
 
 export const addEmployee = employeeName => ({
     type: ADD_EMPLOYEE,
@@ -10,7 +9,7 @@ export const addEmployee = employeeName => ({
     }
 })
 
-export const addSalery = (salery,id) => ({
+export const addSalery = (salery,id) =>   ({
     type: ADD_SALERY,
     payload: {
         salery: salery,
