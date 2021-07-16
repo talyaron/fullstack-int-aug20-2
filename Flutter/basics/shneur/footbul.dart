@@ -15,9 +15,9 @@ FootbullGame(this.rival, this.won, this.score,  this.date);
  FootbullGame num4 = FootbullGame("usa", false, 6, new DateTime(2021, 06, 5));
  FootbullGame num5 = FootbullGame("poland", true, 2, new DateTime(2021, 06, 5));
 
- void main() {
-   for (FootbullGame game in footbullGame){
-     print(game);
-   }
+//  void main() {
+//    for (FootbullGame game in footbullGame){
+//      print(game);
+//    }
    
- }
+//  }
