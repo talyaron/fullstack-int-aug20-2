@@ -1,15 +1,17 @@
 import 'transaction.dart';
 
 class Transactions {
-  List transactions = [];
+  List transactions = <Transaction>[];
 
-  Transactions(List<dynamic> Transactions);
-  void StoreTransactions(transactions) {
-    
-    Transactions transactions = Transactions(transactions);
+  Transactions(List<Transaction> this.transactions);
+
+  void addTransaction(Transaction transaction) {
+    this.transactions.add(transaction);
   }
 
-  void printTransactions(transaction) {
-    print(transaction);
+  void printTransactions() {
+    for (Transaction transaction in this.transactions) {
+      print('${transaction.description}, ${transaction.amount}');
+    }
   }
 }
