@@ -20,15 +20,25 @@ class _MyFaceState extends State<MyFace> {
           MaterialPage(
             child: Home(
               didSelectFace: (face) {
+                // print(face['name']);
                 setState(() => _face = face);
               },
             ),
           ),
           if (_face != null)
             MaterialPage(
-                child: UserDetailsView(user: _face),
+                child: UserDetailsView(face: _face),
                 key: UserDetailsView.valueKey)
         ],
+        onPopPage: (route, result) {
+          final page = route.settings as MaterialPage;
+
+          if (page.key == UserDetailsView.valueKey) {
+            _face = null;
+          }
+
+          return route.didPop(result);
+        },
       ),
     );
   }
@@ -36,9 +46,21 @@ class _MyFaceState extends State<MyFace> {
 
 class Home extends StatelessWidget {
   final List<Map> _faces = [
-    {"name": "Katya", "src": '', "sentnece": ''},
-    {"name": "Eyal", "src": '', "sentnece": ''},
-    {"name": "Dudi", "src": '', "sentnece": ''},
+    {
+      "name": "Katya",
+      "img": 'katya.jpg',
+      "sentnece": 'כל סוף זאת התחלה חדשה'
+    },
+    {
+      "name": "Eyal",
+      "img":'eyal.jpg',
+      "sentnece": 'אני פה לעבוד'
+    },
+    {
+      "name": "Dudi",
+      "img":'dudi.jpg',
+      "sentnece": 'לפעמים החגיגה נגמרת'
+    },
     {"name": "Yehial", "src": '', "sentnece": ''},
   ];
 
@@ -46,7 +68,6 @@ class Home extends StatelessWidget {
     BottomNavigationBarItem(icon: Icon(Icons.account_circle), label: 'Katya'),
     BottomNavigationBarItem(icon: Icon(Icons.hail), label: "Eyal"),
     BottomNavigationBarItem(icon: Icon(Icons.handyman), label: 'Dudi'),
-    // BottomNavigationBarItem(icon: Icon(Icons.account_circle), label: "Yehial"),
   ];
 
   final ValueChanged didSelectFace;
@@ -66,13 +87,12 @@ class Home extends StatelessWidget {
             return Card(
                 child: ListTile(
               title: Text(face['name']),
-              onTap: () => didSelectFace(face),
             ));
           }),
       bottomNavigationBar: BottomNavigationBar(
         items: bottomNavItems,
         backgroundColor: Colors.lightBlue,
-        onTap: (index) {},
+        onTap: (index) => didSelectFace(_faces[index]),
       ),
     );
   }
@@ -81,14 +101,25 @@ class Home extends StatelessWidget {
 class UserDetailsView extends StatelessWidget {
   static const valueKey = ValueKey('UserDetailsView');
 
-  final String user;
+  final Map face;
 
-  UserDetailsView({Key? key, required this.user}) : super(key: key);
+  UserDetailsView({Key? key, required this.face}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text('User Details')),
-        body: Center(child: Text('Hello, $user')));
+      appBar: AppBar(
+        title: Text('User Details'),
+      ),
+      body: Center(
+        child: Column(children: <Widget>[
+          Image.asset(face["img"]),
+          Text('Hello, ${face["name"]}'),
+          Text(face['sentnece'],
+          style:TextStyle(fontWeight: FontWeight.bold, fontSize: 60),
+          )
+        ]),
+      ),
+    );
   }
 }
