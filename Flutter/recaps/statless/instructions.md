@@ -1,0 +1,1 @@
+create single page with two cards, with your images
