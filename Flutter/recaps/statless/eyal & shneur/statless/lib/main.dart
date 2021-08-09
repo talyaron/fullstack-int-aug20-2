@@ -5,14 +5,17 @@ void main() {
 }
 
 List<Map> myList = [
-  {"name": "eyal", "img" :"ttt.jfif"},
-  {"name": "shneur", "img" :"ssss.jpg"}
+  {"name": "eyal", "img": "ttt.jfif", "hobby": "tech"},
+  {"name": "shneur", "img": "ssss.jpg", "hobby": "footbul"}
 ];
 
 class MyCard extends StatelessWidget {
-  const MyCard({Key? key, required this.name, required this.img}) : super(key: key);
+  const MyCard(
+      {Key? key, required this.name, required this.img, required this.hobby})
+      : super(key: key);
   final name;
-    final img;
+  final img;
+  final hobby;
 
   @override
   Widget build(BuildContext context) {
@@ -24,14 +27,7 @@ class MyCard extends StatelessWidget {
             ListTile(
               leading: Image.asset("$img"),
               title: Text("$name"),
-              subtitle: Text('Music by Julie Gable. Lyrics by Sidney Stein.'),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: <Widget>[
-                const SizedBox(width: 3),
-                const SizedBox(width: 8),
-              ],
+              subtitle: Text('my name is $name and i like $hobby'),
             ),
           ],
         ),
@@ -51,8 +47,18 @@ class MyApp extends StatelessWidget {
           appBar: AppBar(
             title: const Text('Welcome to Flutter'),
           ),
-          body: Column(
-              children: [MyCard(name: myList[1]["name"], img: myList[1]["img"],), MyCard(name: myList[0]["name"], img: myList[0]["img"])])),
+          body: Column(children: [
+            MyCard(
+              name: myList[1]["name"],
+              img: myList[1]["img"],
+              hobby: myList[1]["hobby"],
+            ),
+            MyCard(
+              name: myList[0]["name"],
+              img: myList[0]["img"],
+              hobby: myList[0]["hobby"],
+            )
+          ])),
     );
   }
 }
