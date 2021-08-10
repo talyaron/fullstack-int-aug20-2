@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -75,31 +77,44 @@ class _MyHomePageState extends State<MyHomePage> {
                   Image.network(ourMemes[index]["img"],
                       width: 300, height: 200, fit: BoxFit.fill),
                   Positioned(
-                    top: 65.0,
+                    top: 80.0,
                     child: ElevatedButton(
                       style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(
-                            Colors.blue.shade200.withOpacity(0.1)),
-                      ),
+                          shape:
+                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(18.0),
+                        ),
+                      )),
                       child: Icon(Icons.arrow_back),
                       onPressed: _lastMeme,
                     ),
                   ),
                   Positioned(
-                    top: 65.0,
+                    top: 80.0,
                     right: 0,
                     child: ElevatedButton(
                       style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(
-                            Colors.blue.shade200.withOpacity(0.1)),
-                      ),
+                          shape:
+                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(18.0),
+                        ),
+                      )),
                       child: Icon(Icons.arrow_forward),
                       onPressed: _nextMeme,
                     ),
                   ),
-                  Indicator(index)
+                  Indicator(index),
                 ],
               ),
+            ),
+            Draggable(
+              child: Glass(),
+              feedback: Container(
+                child: Glass(),
+              ),
+              childWhenDragging: Container(),
             ),
           ],
         ),
@@ -114,5 +129,43 @@ class Indicator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(" תמונה מס. ${myData + 1}");
+  }
+}
+
+class Glass extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(20.0),
+      child: Container(
+        width: 100.0,
+        height: 100.0,
+        child: Stack(
+          children: [
+            BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 7.0, sigmaY: 7.0),
+              child: Container(
+                width: 20.0,
+                height: 20.0,
+              ),
+            ),
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20.0),
+                gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [
+                    Colors.blue.shade100.withOpacity(0.5),
+                    Colors.blue.shade100.withOpacity(0.2)
+                  ],
+                  stops: [0.0, 1.0],
+                ),
+              ),
+            )
+          ],
+        ),
+      ),
+    );
   }
 }
