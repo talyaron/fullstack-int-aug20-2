@@ -1,25 +1,28 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useHistory, } from "react-router-dom";
 import { toast } from "react-toastify";
+
 
 export const AddContact = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [number, setNumber] = useState("");
 
+
+
   const contacts = useSelector((state) => state);
   const dispatch = useDispatch();
   const history = useHistory();
+  
+  const  id  = contacts[contacts.length - 1].id + 1;
+
 
   const hendelSubmit = (e) => {
     e.preventDefault();
-
-    // 
-    const checkEmail = contacts.find((contact) => contact.email === email);
-
+    const checkEmail = contacts.find((contact) => contact.id !== parseInt(id) && contact.email === email);
     const checkNumber = contacts.find(
-      (contact) => contact.number === parseInt(number)
+      (contact) => contact.id !== parseInt(id) && contact.number === parseInt(number)
     );
 
     if (!email || !number || !name) {
@@ -32,14 +35,14 @@ export const AddContact = () => {
       return toast.error("מספר זה כבר רשום במערכת");
     }
     const data = {
-      id: contacts[contacts.length - 1].id + 1,
+      id: parseInt(id),
       name,
       email,
       number,
     };
 
     dispatch({ type: "ADD_CONTACT", payload: data });
-    toast.success("איש הקשר נרשם בהצלחה!");
+    toast.success("איש הקשר עודכן בהצלחה!");
     history.push("/");
   };
 

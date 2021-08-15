@@ -8,10 +8,11 @@ export default function EditContect(){
   const [email, setEmail] = useState("");
   const [number, setNumber] = useState("");
 
-  const { id } = useParams();
+  let { id } = useParams();
   const contacts = useSelector((state) => state);
   const dispatch = useDispatch()
   const history = useHistory()
+
 
   const currentContact = contacts.find(contact => contact.id === parseInt(id));
 
