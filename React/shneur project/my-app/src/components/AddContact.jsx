@@ -1,28 +1,37 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
-
 
 export const AddContact = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [number, setNumber] = useState("");
 
-
-
+  let { id } = useParams();
   const contacts = useSelector((state) => state);
   const dispatch = useDispatch();
   const history = useHistory();
-  
-  const  id  = contacts[contacts.length - 1].id + 1;
+  const currentContact = contacts.find(
+    (contact) => contact.id === parseInt(id)
+  );
 
-
+  useEffect(() => {
+    if (currentContact) {
+      setName(currentContact.name);
+      setEmail(currentContact.email);
+      setNumber(currentContact.number);
+    }
+  }, [currentContact]);
   const hendelSubmit = (e) => {
     e.preventDefault();
-    const checkEmail = contacts.find((contact) => contact.id !== parseInt(id) && contact.email === email);
+
+    const checkEmail = contacts.find(
+      (contact) => contact.id !== parseInt(id) && contact.email === email
+    );
     const checkNumber = contacts.find(
-      (contact) => contact.id !== parseInt(id) && contact.number === parseInt(number)
+      (contact) =>
+        contact.id !== parseInt(id) && contact.number === parseInt(number)
     );
 
     if (!email || !number || !name) {
@@ -35,13 +44,13 @@ export const AddContact = () => {
       return toast.error("מספר זה כבר רשום במערכת");
     }
     const data = {
-      id: parseInt(id),
+      id: contacts.length > 0 ? contacts[contacts.length - 1].id + 1 : 0,
       name,
       email,
       number,
     };
 
-    dispatch({ type: "ADD_CONTACT", payload: data });
+    dispatch({ type: `ADD_CONTACT`, payload: data });
     toast.success("איש הקשר עודכן בהצלחה!");
     history.push("/");
   };

@@ -1,33 +1,34 @@
 import React from "react";
 import { ToastContainer } from "react-toastify";
 import { Navbar } from "./components/Navbar";
-import { Route, Switch } from "react-router-dom";
-import { Home } from "./components/Home";
-import { AddContact } from "./components/AddContact";
-import EditContect from "./components/EditContect";
+import { Routers } from "./components/Routers";
 
-const App = () => {
-  return (
-    <div className="App">
-      {/* אנימציה יפה כאשר יש שגיאה או הצלחה */}
-      <ToastContainer />
-      <Navbar />
-      {/* ראוטרים */}
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { apiResponse: "" };
+  }
 
-        <Route path="/add">
-          <AddContact />
-        </Route>
+  callApi() {
+    fetch("http://localhost:9000/testAPI")
+      .then((res) => res.next())
+      .then((res) => this.setState({ apiResponse: res }));
+  }
 
-        <Route path="/edit/:id">
-          <EditContect />
-        </Route>
-      </Switch>
-    </div>
-  );
-};
+  componentMount() {
+    this.callApi();
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <ToastContainer />
+        <Navbar />
+        <h1>{this.state.apiResponse}</h1>
+        <Routers />
+      </div>
+    );
+  }
+}
 
 export default App;
