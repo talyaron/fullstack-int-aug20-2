@@ -9,15 +9,17 @@ class App extends React.Component {
     this.state = { apiResponse: "" };
   }
 
-  callApi() {
+  callAPI = () => {
     fetch("http://localhost:9000/testAPI")
       .then((res) => res.next())
       .then((res) => this.setState({ apiResponse: res }));
-  }
+    console.log(this.state.apiResponse);
+  };
 
-  componentMount() {
-    this.callApi();
-  }
+  componentMount = () => {
+    this.callAPI();
+    console.log(this.state.apiResponse);
+  };
 
   render() {
     return (
@@ -25,6 +27,9 @@ class App extends React.Component {
         <ToastContainer />
         <Navbar />
         <h1>{this.state.apiResponse}</h1>
+        {console.log(this.state.apiResponse) }
+
+        {/* <h1>this.state.apiRespons</h1> */}
         <Routers />
       </div>
     );

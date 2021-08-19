@@ -12,6 +12,7 @@ export const Home = () => {
     toast.success("איש הקשר נמחק");
   };
 
+
   return (
     <div className="container">
       <div className="row">
