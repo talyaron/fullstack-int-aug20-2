@@ -1,24 +1,23 @@
-import app from "./server"
-import mongodb from "mongodb"
-import dotenv from "dotenv"
-("dotenv").config();
+import express from "express"
+import mysql from "mysql"
+const db = mysql.createPool({
+    host: "localhost",
+    user: "root",
+    password: "password",
+    database: "new_schem1"
+});
+const app = express()
 
-const MongoClient = mongodb.MongoClient
 
-const port = process.env.PORT || 8000
+app.get("/", (req, res) => {
+    const sqlInsert = "INSERT INTO users (UserID, UserName, PhoneNumber,EmailAdress ) VALUES (4, `chass`, 5678765,`444@5678`);"
+    db.query(sqlInsert, (err, result) => {
+        res.send("hello you");
+    })
 
-MongoClient.connect(
-    process.env.ATLAS_URI, {
-        poolSize: 50,
-        wtimeout: 2500,
-        useNewUrlParser:true
-    }
-
-)
-.catch(err => {
-    console.error(err.stack)
-    process.exit(1)
 })
-.then(async client =>{
-    app.listen(`you are in port number ${port}` )
+
+app.listen(3001, () => {
+    console.log("my app is runing 3001")
 })
+
