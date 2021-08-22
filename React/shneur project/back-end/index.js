@@ -1,21 +1,35 @@
 import express from "express"
 import mysql from "mysql"
+// import bodyParser from "body-parser";
+import cors from "cors"
+
+const app = express()
+
 const db = mysql.createPool({
     host: "localhost",
     user: "root",
-    password: "password",
+    password: "34334770",
     database: "new_schem1"
 });
-const app = express()
+app.use(cors);
+// app.use(bodyParser.urlencoded({extended: true}))
 
 
-app.get("/", (req, res) => {
-    const sqlInsert = "INSERT INTO users (UserID, UserName, PhoneNumber,EmailAdress ) VALUES (4, `chass`, 5678765,`444@5678`);"
-    db.query(sqlInsert, (err, result) => {
-        res.send("hello you");
+app.post("/api/insert",(req, res)=>{
+
+    const userName = req.body.UserName
+    const phoneNumber = req.body.PhoneNumber
+    const emailAdress = req.body.EmailAdress
+
+
+
+    const sqlInsert = "INSERT INTO new_schem1.users (UserName, PhoneNumber,EmailAdress) VALUES (? , ?, ?);"
+    db.query(sqlInsert, [userName, phoneNumber, emailAdress] ,(err, result)=>{
+        console.log(result)
+
     })
-
 })
+
 
 app.listen(3001, () => {
     console.log("my app is runing 3001")

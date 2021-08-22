@@ -1,39 +1,56 @@
-import React from "react";
+import React, { useState } from "react";
 import { ToastContainer } from "react-toastify";
 import { Navbar } from "./components/Navbar";
 import { Routers } from "./components/Routers";
+import Axios from "axios";
+import { toast } from "react-toastify";
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { apiResponse: "" };
-  }
 
-  callAPI = () => {
-    fetch("http://localhost:9000/testAPI")
-      .then((res) => res.next())
-      .then((res) => this.setState({ apiResponse: res }));
-    console.log(this.state.apiResponse);
+export default function App(e) {
+  const [UserName, setUserName] = useState("");
+  const [PhoneMumber, setPhoneMumber] = useState("");
+  const [EmailAdress, setEmailAdress] = useState("");
+
+  const hendelSubmit = () => {
+    Axios.post("http://localhost:3001/api/insert", {
+      UserName: UserName,
+      PhoneMumber: PhoneMumber,
+      EmailAdress: EmailAdress,
+    }).then(() => {
+      toast.success("api is working!");
+    });
   };
 
-  componentMount = () => {
-    this.callAPI();
-    console.log(this.state.apiResponse);
-  };
+  return (
+    <div className="App">
+      <ToastContainer />
+      <Navbar />
 
-  render() {
-    return (
-      <div className="App">
-        <ToastContainer />
-        <Navbar />
-        <h1>{this.state.apiResponse}</h1>
-        {console.log(this.state.apiResponse) }
-
-        {/* <h1>this.state.apiRespons</h1> */}
-        <Routers />
-      </div>
-    );
-  }
+      <form>
+        <input
+          type="text"
+          name="UserName"
+          onChange={() => {
+            setUserName(e.target.value);
+          }}
+        />
+        <input
+          type="text"
+          name="PhoneMumber"
+          onChange={() => {
+            setPhoneMumber(e.target.value);
+          }}
+        />
+        <input
+          type="text"
+          name="EmailAdress"
+          onChange={() => {
+            setEmailAdress(e.target.value);
+          }}
+        />
+        <button type="submit" onClick={hendelSubmit}>hendelSubmit</button>
+      </form>
+      <Routers />
+    </div>
+  );
 }
-
-export default App;
