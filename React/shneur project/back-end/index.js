@@ -12,6 +12,7 @@ const db = mysql.createPool({
     database: "new_schem1"
 });
 app.use(cors);
+app.use(express.json())
 // app.use(bodyParser.urlencoded({extended: true}))
 
 

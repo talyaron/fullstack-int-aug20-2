@@ -30,21 +30,21 @@ export default function App(e) {
         <input
           type="text"
           name="UserName"
-          onChange={() => {
+          onChange={(e) => {
             setUserName(e.target.value);
           }}
         />
         <input
           type="text"
           name="PhoneMumber"
-          onChange={() => {
+          onChange={(e) => {
             setPhoneMumber(e.target.value);
           }}
         />
         <input
           type="text"
           name="EmailAdress"
-          onChange={() => {
+          onChange={(e) => {
             setEmailAdress(e.target.value);
           }}
         />
