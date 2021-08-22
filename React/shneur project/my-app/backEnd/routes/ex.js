@@ -1,5 +1,5 @@
-const router = require(`express`).Router();
-let Ex = require(`../models/user.ex`);
+const router = require("express").Router();
+let Ex = require("../models/ex.model");
 
 router.route("/").get((req, res) => {
     Ex.find()
@@ -12,8 +12,6 @@ router.route("/add").post((req, res) => {
     const phoneNumber = Number(req.body.phoneNumber)
     const email = req.body.email
   
-    
-
     const newEx = new Ex({
         username,
         phoneNumber,
