@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
+import axios from "axios";
 
 export const AddContact = () => {
   const [name, setName] = useState("");
@@ -25,6 +26,19 @@ export const AddContact = () => {
   }, [currentContact]);
   const hendelSubmit = (e) => {
     e.preventDefault();
+    console.log("this is working")
+
+
+
+    axios.post("/api/insert", {
+      UserName: name,
+      PhoneMumber: number,
+      EmailAdress: email,
+    }).then(() => {
+      toast.success("api is working!");
+    }).catch(e=>{
+      console.error(e)
+    })
 
     const checkEmail = contacts.find(
       (contact) => contact.id !== parseInt(id) && contact.email === email

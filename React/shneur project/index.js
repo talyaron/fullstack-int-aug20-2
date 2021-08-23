@@ -24,7 +24,7 @@ con.connect((err) => {
     console.log("Connected!");
     con.query("use new_schem1", (err, result, fields) => {
         if (err) throw err;
-        console.log('Using test');
+        console.log('con.connect successful');
 
     });
 });
